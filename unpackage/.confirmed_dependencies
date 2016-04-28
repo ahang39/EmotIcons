@@ -24,7 +24,8 @@
       "_personalCenter.html",
       "js/jump.js",
       "js/mui.min.js",
-      "css/mui.min.css"
+      "css/mui.min.css",
+      "fonts/mui.ttf"
     ],
     "refer": [
       "_personalCenter.html"
