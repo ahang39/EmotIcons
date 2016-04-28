@@ -225,7 +225,8 @@
 					"js/jump.js",
 					"js/mui.min.js",
 					"css/mui.min.css",
-					"fonts/mui.ttf"
+					"fonts/mui.ttf",
+					"js/personalCenter.js"
 				],
 				"refer": [],
 				"priority": 0
