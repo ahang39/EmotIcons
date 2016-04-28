@@ -1,0 +1,25 @@
+{
+	"index.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"js/jump.js"
+		],
+		"refer": [
+			"test.html",
+			"personalCenter.html"
+		]
+	},
+	"test.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": []
+	},
+	"personalCenter.html": {
+		"resources": [
+			"css/style.css"
+		]
+	}
+}

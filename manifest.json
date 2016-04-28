@@ -187,7 +187,45 @@
 					"xhdpi": "", /*720P高分屏启动图片，分辨率：720x1242*/
 					"xxhdpi": ""
 				}
+			},"debug":true
+		}
+	},
+	"dependencies": {
+		"pages": {
+			"index.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"js/jump.js"
+				],
+				"refer": [
+					"test.html",
+					"personalCenter.html"
+				],
+				"priority": 0
+			},
+			"test.html": {
+				"resources": [
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"personalCenter.html": {
+				"resources": [
+					"css/style.css"
+				],
+				"refer": [],
+				"priority": 0
 			}
+		},
+		"idle": {
+			"resources": [
+				"fonts/mui.ttf",
+				"js/mui.js",
+				"css/mui.css"
+			]
 		}
 	}
 }
