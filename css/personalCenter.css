@@ -9,3 +9,14 @@
 	font-family: "微软雅黑";
 	font-size: 18px;
 }
+.optionMargin{
+	margin-top: 20px;
+}
+.exit{
+	width: 100%;
+}
+.mui-btn{
+	width: 100% !important;
+	height: 40px;
+	font-size: 18px;
+}

@@ -214,7 +214,24 @@
 			},
 			"personalCenter.html": {
 				"resources": [
-					"css/style.css"
+					"css/style.css",
+					"css/personalCenter.css",
+					"_personalCenter.html",
+					"js/jump.js",
+					"js/mui.min.js",
+					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"_personalCenter.html": {
+				"resources": [
+					"img/photo.jpg",
+					"js/mui.min.js",
+					"css/mui.min.css",
+					"css/personalCenter.css",
+					"fonts/mui.ttf",
+					"js/personalCenter.js"
 				],
 				"refer": [],
 				"priority": 0
@@ -222,7 +239,6 @@
 		},
 		"idle": {
 			"resources": [
-				"fonts/mui.ttf",
 				"js/mui.js",
 				"css/mui.css"
 			]
