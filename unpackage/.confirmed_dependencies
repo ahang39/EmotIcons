@@ -1,44 +1,63 @@
 {
-  "index.html": {
-    "resources": [
-      "js/mui.min.js",
-      "css/mui.min.css",
-      "js/jump.js"
-    ],
-    "refer": [
-      "test.html",
-      "personalCenter.html"
-    ]
-  },
-  "test.html": {
-    "resources": [
-      "js/mui.min.js",
-      "css/mui.min.css"
-    ],
-    "refer": []
-  },
-  "personalCenter.html": {
-    "resources": [
-      "css/style.css",
-      "css/personalCenter.css",
-      "_personalCenter.html",
-      "js/jump.js",
-      "js/mui.min.js",
-      "css/mui.min.css"
-    ],
-    "refer": [
-      "_personalCenter.html"
-    ]
-  },
-  "_personalCenter.html": {
-    "resources": [
-      "img/photo.jpg",
-      "js/mui.min.js",
-      "css/mui.min.css",
-      "css/personalCenter.css",
-      "fonts/mui.ttf",
-      "js/personalCenter.js"
-    ],
-    "refer": []
-  }
+	"index.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"js/jump.js",
+			"fonts/mui.ttf",
+			"img/plus.png",
+			"css/style.css",
+			"_index.html",
+			"css/index.css"
+		],
+		"refer": [
+			"test.html",
+			"personalCenter.html",
+			"_index.html"
+		]
+	},
+	"test.html": {
+		"resources": [
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": []
+	},
+	"personalCenter.html": {
+		"resources": [
+			"css/style.css",
+			"css/personalCenter.css",
+			"_personalCenter.html",
+			"js/jump.js",
+			"js/mui.min.js",
+			"css/mui.min.css"
+		],
+		"refer": [
+			"_personalCenter.html"
+		]
+	},
+	"_personalCenter.html": {
+		"resources": [
+			"img/photo.jpg",
+			"js/mui.min.js",
+			"css/mui.min.css",
+			"css/personalCenter.css",
+			"fonts/mui.ttf",
+			"js/personalCenter.js"
+		],
+		"refer": []
+	},
+	"_index.html": {
+		"refer": [
+			"personalCenter.html"
+		],
+		"resources": [
+			"css/index.css",
+			"js/mui.min.js",
+			"img/plus.png",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"js/jump.js"
+		]
+	}
 }
