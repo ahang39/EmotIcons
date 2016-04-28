@@ -1,0 +1,96 @@
+body {
+	font-family: "微软雅黑";
+}
+/*navbar*******/
+.navBar {
+	height: 80px;
+	line-height: 80px;
+	background-color: #ED784A;
+	padding: 0;
+}
+
+.navBar .quarter {
+	display: inline-block;
+	width: 24%;
+	padding: auto;
+}
+
+.navBar .quarter1,
+.navBar .quarter2 {
+	text-align: left;
+}
+
+.navBar .quarter3,
+.navBar .quarter4 {
+	text-align: right;
+}
+
+.navBar a {
+	color: white;
+	font-size: 17px;
+}
+.navBar .mui-icon {
+	color: white;
+	font-size: 26px;
+}
+
+.navBar .active {
+	font-size: 21px;
+}
+
+.leftButton {
+	top: 15px;
+	float: left;
+	left: 20px;
+	font-size: 35px;
+}
+
+.rightButton {
+	top: 15px;
+	float: right;
+	right: 20px;
+	font-size: 35px;
+}
+/*end-navbar*******/
+/*footer*******/
+.mask {
+background: -webkit-linear-gradient(
+rgba(255, 255, 255, 0),
+rgba(255, 255, 255, 0),
+rgba(255, 255, 255, 0.2), 
+rgba(255, 255, 255, 0.4), 
+rgba(255, 255, 255, 0.8), 
+rgba(255, 255, 255, 1), 
+rgba(255, 255, 255, 1), 
+rgba(255, 255, 255, 1)
+);
+}
+
+.mask {
+	width: 100%;
+	position: fixed;
+	bottom: 80px;
+}
+
+.createNew {
+	display: block;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 65px;
+	z-index: 9999;
+}
+/*end-footer*******/
+/*pictures*****/
+.picShow{
+	margin: 3%;
+	padding: 3px;
+	width: 44%;
+	border:5px solid  #F0AD4E;
+	
+	
+}
+.emotIcon{
+		width: 100%;
+}
+/*end-pictures*****/
