@@ -68,4 +68,52 @@
 			"img/faces/face(4).jpg"
 		]
 	}
+  "personalCenter.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/jump.js",
+      "css/personalCenter.css",
+      "js/personalCenter.js",
+      "_personalCenter.html"
+    ],
+    "refer": [
+      "_personalCenter.html"
+    ]
+  },
+  "_personalCenter.html": {
+    "resources": [
+      "js/personalCenter.js",
+      "fonts/mui.ttf",
+      "img/photo.jpg",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/personalCenter.css"
+    ],
+    "refer": []
+  },
+  "index.html": {
+    "resources": [
+      "css/index.css",
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "js/jump.js",
+      "_index.html"
+    ],
+    "refer": [
+      "personalCenter.html",
+      "_index.html"
+    ]
+  },
+  "_index.html": {
+    "resources": [
+      "img/faces/face1.jpg",
+      "img/plus.png"
+    ],
+    "refer": [
+      "personalCenter.html"
+    ]
+  }
 }
