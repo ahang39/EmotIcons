@@ -250,7 +250,13 @@
 					"fonts/mui.ttf",
 					"css/mui.min.css",
 					"js/jump.js",
-					"img/faces/face1.jpg"
+					"img/faces/face1.jpg",
+					"img/faces/face(1).jpg",
+					"img/thumbUp.png",
+					"img/faces/face(3).jpg",
+					"img/faces/face(2).jpg",
+					"img/thumbDown.png",
+					"img/faces/face(4).jpg"
 				],
 				"refer": [
 					"personalCenter.html"

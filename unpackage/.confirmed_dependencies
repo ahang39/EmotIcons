@@ -30,7 +30,8 @@
 			"_personalCenter.html",
 			"js/jump.js",
 			"js/mui.min.js",
-			"css/mui.min.css"
+			"css/mui.min.css",
+			"fonts/mui.ttf"
 		],
 		"refer": [
 			"_personalCenter.html"
@@ -58,7 +59,13 @@
 			"fonts/mui.ttf",
 			"css/mui.min.css",
 			"js/jump.js",
-			"img/faces/face1.jpg"
+			"img/faces/face1.jpg",
+			"img/faces/face(1).jpg",
+			"img/thumbUp.png",
+			"img/faces/face(3).jpg",
+			"img/faces/face(2).jpg",
+			"img/thumbDown.png",
+			"img/faces/face(4).jpg"
 		]
 	}
 }
