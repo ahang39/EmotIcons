@@ -9,37 +9,38 @@
     <link href="css/personalCenter.css" rel="stylesheet"/>
    	<script src="js/personalCenter.js"></script>
     <script type="text/javascript" charset="UTF-8">
-      	mui.init({
-      		subpages:[{
-			    url:'_personalCenter.html',//子页面HTML地址，支持本地地址和网络地址
-			    id:'_personalCenter.html',//子页面标志
-			    styles:{
-			        top:'45px',//子页面顶部位置
-			        bottom:'0px',//子页面底部位置
-			        width:'100%',//子页面宽度，默认为100%
-			        height:'100%'//子页面高度，默认为100%
-			      },
-			    extras:{},//额外扩展参数
-		        createNew:false,//是否重复创建同样id的webview，默认为false:不重复创建，直接显示
-			    show:{
-			      autoShow:true,//页面loaded事件发生后自动显示，默认为true
-			      aniShow:'slide-in-right',//页面显示动画，默认为”slide-in-right“；
-			      duration:'100'//页面动画持续时间，Android平台默认100毫秒，iOS平台默认200毫秒；
-			    },
-			    waiting:{
-			      autoShow:true,//自动显示等待框，默认为true
-			      title:'正在加载...',//等待对话框上显示的提示内容
-			      options:{}
-			    }
-		    }]
-      	});
+      	mui.init();
     </script>
     <script src="js/jump.js"></script>
 </head>
 <body>
 	<header class="mheader">
-		<div class="nvbt"><span class="mui-icon mui-icon-back"></span></div>
+		<div class="nvbt mui-action-back"><span class="mui-icon mui-icon-back"></span></div>
 		<div class="nvtt">个人中心</div>
 	</header>
+	<div class="content">
+		<ul class="mui-table-view">
+			<li class="mui-table-view-cell mui-media">
+				<a href="javascript:;">
+					<img class="mui-media-object mui-pull-left" src="img/photo.jpg">
+					<div class="mui-media-body">
+						Hello 
+						<span class="mui-icon mui-icon-arrowright" style="float: right;"></span>
+						<p class='mui-ellipsis'>账号:hello</p>
+					</div>
+				</a>
+			</li>
+		</ul>
+		<ul class="mui-table-view optionMargin" id="setting_panel">
+			<li class="mui-table-view-cell" id="notification_setting">通知设置<span class="mui-icon mui-icon-arrowright" style="float: right;"></span></li>
+			<li class="mui-table-view-cell" id="privacy_setting">隐私<span class="mui-icon mui-icon-arrowright" style="float: right;"></span></li>
+			<li class="mui-table-view-cell" id="common_setting">通用<span class="mui-icon mui-icon-arrowright" style="float: right;"></span></li>
+		</ul>
+		<ul class="mui-table-view optionMargin" id="about_panel">
+			<li class="mui-table-view-cell" id="about">关于这个APP<span class="mui-icon mui-icon-arrowright" style="float: right;"></span></li>
+		</ul>
+		
+		<div class="exit optionMargin" id="exit_panel"><button type="button" id="exit_btn" class="mui-btn mui-btn-warning" style="float: right;" >退出登录</button></div>
+	</div>
 </body>
 </html>
