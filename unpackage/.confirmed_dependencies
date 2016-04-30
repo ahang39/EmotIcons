@@ -7,10 +7,17 @@
       "js/jump.js",
       "css/personalCenter.css",
       "js/personalCenter.js",
-      "_personalCenter.html"
+      "_personalCenter.html",
+      "img/photo.jpg"
     ],
     "refer": [
-      "_personalCenter.html"
+      "_personalCenter.html",
+      "notification_setting.html",
+      "module/personalCenter/notification_setting.html",
+      "module/personalCenter/common_setting.html",
+      "module/personalCenter/privacy_setting.html",
+      "module/personalCenter/about.html",
+      "module/personalCenter/profile.html"
     ]
   },
   "_personalCenter.html": {
@@ -45,6 +52,24 @@
     ],
     "refer": [
       "personalCenter.html"
+    ]
+  },
+  "module/personalCenter/common_setting.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "js/mui.min.js",
+      "js/personalCenter.js",
+      "css/mui.min.css",
+      "css/personalCenter.css"
+    ],
+    "refer": []
+  },
+  "module/personalCenter/profile.html": {
+    "resources": [
+      "js/mui.min.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/personalCenter.css"
     ]
   }
 }

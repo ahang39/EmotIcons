@@ -8,10 +8,10 @@
     <link href="css/mui.min.css" rel="stylesheet"/>
     <link href="css/personalCenter.css" rel="stylesheet"/>
    	<script src="js/personalCenter.js"></script>
-    <script type="text/javascript" charset="UTF-8">
-      	mui.init();
-    </script>
     <script src="js/jump.js"></script>
+    <script>
+    	mui.init();
+    </script>
 </head>
 <body>
 	<header class="mheader">
@@ -19,8 +19,8 @@
 		<div class="nvtt">个人中心</div>
 	</header>
 	<div class="content">
-		<ul class="mui-table-view">
-			<li class="mui-table-view-cell mui-media">
+		<ul class="mui-table-view" id="profile_panel">
+			<li class="mui-table-view-cell mui-media" id="profile_setting">
 				<a href="javascript:;">
 					<img class="mui-media-object mui-pull-left" src="img/photo.jpg">
 					<div class="mui-media-body">
