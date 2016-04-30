@@ -1,11 +1,15 @@
 body {
 	font-family: "微软雅黑";
+	background-color: white;
 }
+
+
 /*navbar*******/
+
 .navBar {
 	height: 80px;
 	line-height: 80px;
-	background-color: #ED784A;
+	background-color: #F89406;
 	padding: 0;
 }
 
@@ -29,6 +33,7 @@ body {
 	color: white;
 	font-size: 17px;
 }
+
 .navBar .mui-icon {
 	color: white;
 	font-size: 26px;
@@ -51,46 +56,149 @@ body {
 	right: 20px;
 	font-size: 35px;
 }
+
+
 /*end-navbar*******/
+
+
 /*footer*******/
-.mask {
-background: -webkit-linear-gradient(
-rgba(255, 255, 255, 0),
-rgba(255, 255, 255, 0),
-rgba(255, 255, 255, 0.2), 
-rgba(255, 255, 255, 0.4), 
-rgba(255, 255, 255, 0.8), 
-rgba(255, 255, 255, 1), 
-rgba(255, 255, 255, 1), 
-rgba(255, 255, 255, 1)
-);
-}
 
 .mask {
+	height: 100px;
+	background: -webkit-linear-gradient( rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 1) 50%);
 	width: 100%;
 	position: fixed;
 	bottom: 80px;
 }
 
-.createNew {
+.circle {
+	height: 70px;
+	line-height: 70px;
+	width: 70px;
+	border-radius: 35px;
 	display: block;
-	left: 0;
-	right: 0;
-	margin: auto;
-	width: 65px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 35px;
 	z-index: 9999;
+	box-shadow: 0px 2px 8px #000;
+	text-align: center;
+	padding: 15px;
+	background: -webkit-radial-gradient(#FCC475, #F89406);
 }
-/*end-footer*******/
+
+.circle:hover {
+	background: -webkit-radial-gradient(#F89406, #FCC475);
+}
+
+.circle .plusIcon {
+	width: 40px;
+}
+
+
+/*end: ;-footer*******/
+
+
 /*pictures*****/
-.picShow{
-	margin: 3%;
+
+.half-container {
+	width: 47%;
+	margin-bottom: auto;
+	margin-right: auto;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.container {
+	width: 100%;
+}
+
+.picShow {
+	margin: 10px;
 	padding: 3px;
-	width: 44%;
-	border:5px solid  #F0AD4E;
-	
-	
+	width: 100%;
+	border: 1px solid #CCCCCC;
 }
-.emotIcon{
-		width: 100%;
+
+.picShow .name {
+	font-size: 18px;
 }
+
+.emotIcon {
+	width: 100%;
+}
+
+.leftIcon {
+	text-align: left;
+}
+
+.picShowIcon {
+	width: 30%;
+	display: inline-block;
+}
+
+.picShowIcon .count {
+	display: inline-block;
+	font-size: 12px;
+	margin: 0;
+}
+
+.threeIcon {
+	height: 20px;
+	width: 20px;
+	background-size: 100% 100%;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.leftIcon {
+	text-align: left;
+	padding-left: 15px;
+}
+
+.centerIcon {
+	text-align: center;
+}
+
+.rightIcon {
+	text-align: right;
+}
+
+.detail {
+	background-image: url(../img/detail.png);
+}
+
+.detail:hover {
+	background-image: url(../img/detailHover.png);
+}
+
+.detail .active {
+	background-image: url(../img/detailActive.png);
+}
+
+.favourite {
+	background-image: url(../img/fav.png);
+}
+
+.favourite:hover {
+	background-image: url(../img/favHover.png);
+}
+
+.favourite.active {
+	background-image: url(../img/favActive.png);
+}
+
+.thumb {
+	background-image: url(../img/thumb.png);
+}
+
+.thumb:hover {
+	background-image: url(../img/thumbHover.png);
+}
+
+.thumb.active {
+	background-image: url(../img/thumbActive.png);
+}
+
+
 /*end-pictures*****/
