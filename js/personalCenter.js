@@ -1,3 +1,7 @@
+function setUsername(username){
+	//网络同步操作省略
+	plus.storage.setItem("username",username);
+}
 mui.plusReady(function(){
 	mui("#exit_panel").on('tap','#exit_btn',function(){
 		plus.ui.confirm("确定退出登录吗?", function(i) {
@@ -34,6 +38,15 @@ mui.plusReady(function(){
 			url:"module/personalCenter/about.html",
 			id:"about.html"
 		});
+	});
+	mui("#set_profile_panel").on('tap',"#set_profile_username",function(){
+		var bts=["确认","取消"];
+		plus.nativeUI.prompt("请输入你的用户名",function(e){
+			var i=e.index;
+			if(e.index==0){
+				setUsername(e.value);
+			}
+		},"","姓名",bts);
 	});
 	mui('.mui-popover').popover('toggle',document.getElementById("openPopover"));
 	

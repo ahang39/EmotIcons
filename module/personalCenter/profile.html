@@ -9,7 +9,19 @@
     <link href="../../css/personalCenter.css" rel="stylesheet"/>
     <script type="text/javascript" charset="UTF-8">
       	mui.init();
+      	mui.plusReady(function(){
+      		if(plus.storage.getItem("username")!=null)
+    			document.getElementById("profile_username").innerHTML=plus.storage.getItem("username");
+    		else
+    			document.getElementById("profile_username").innerHTML="未设置用户名";
+    		if(plus.storage.getItem("email")!=null)
+    			document.getElementById("profile_email").innerHTML=plus.storage.getItem("email");
+    		else
+    			document.getElementById("profile_email").innerHTML="未绑定";
+    	});
+    	
     </script>
+    <script src="../../js/personalCenter.js"></script>
 </head>
 <body>
 	<header class="mheader">
@@ -17,10 +29,10 @@
 		<div class="nvtt">账号信息</div>
 	</header>
 	<div class="content">
-		<ul class="mui-table-view optionMargin">
-			<li class="mui-table-view-cell" >用户名<span style="float: right;">Hello</span></li>
-			<li class="mui-table-view-cell">手机号<span style="float: right;">15000895133</span></li>
-			<li class="mui-table-view-cell">邮箱<span style="float: right;">123123@gmail.com</span></li>
+		<ul class="mui-table-view optionMargin" id="set_profile_panel">
+			<li class="mui-table-view-cell" id="set_profile_username">用户名<span style="float: right;" id="profile_username">Hello</span></li>
+			<li class="mui-table-view-cell" id="set_profile_phone">手机号<span style="float: right;">15000895133</span></li>
+			<li class="mui-table-view-cell" id="set_profile_email">邮箱<span style="float: right;" id="profile_email">123123@gmail.com</span></li>
 		</ul>
 	</div>
 </body>
