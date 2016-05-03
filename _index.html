@@ -5,88 +5,117 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
-		<script src="js/mui.min.js"></script>
+		<script src="js/mui.js"></script>
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<link href="css/index.css" rel="stylesheet" />
+		<link href="css/iconfont.css" rel="stylesheet" />
 		<script src="js/jump.js"></script>
+		<script src="js/index.js"></script>
+		<script type="text/javascript">
+			function showImage() {
+				mui.openWindow({
+					url: "image.html",
+					id: "image",
+					styles: {
+						top: 0, //新页面顶部位置
+						bottom: 0//新页面底部位置
+					},
+					show:{
+						aniShow:"zoom-fade-out"
+					}
+				});
+			}
+		</script>
 	</head>
 
 	<body>
-		<div class="container">
-			<div class="half-container">
-				<div class="picShow">
-					<img class="emotIcon" src="img/faces/face(1).jpg" alt="" />
-					<p class="name"><span>军火商: </span><span id="author">叼爆炸</span> </p>
-					<div class="container">
-						<div class="picShowIcon leftIcon">
-							<div class="threeIcon detail"></div>
+		<div id="mask" class="mui-backdrop" style="visibility: hidden;"></div>
+		<div id="refreshContainer" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div class="container">
+					<div id="leftCol" class="half-container">
+						<div class="picShow">
+							<img class="emotIcon" src="img/faces/face(1).jpg" alt="" />
+							<p class="name"><span>军火商: </span><span id="author">叼爆炸</span> </p>
+							<div class="container">
+								<ul class="mui-table-view mui-grid-view">
+									<li class="mui-table-view-cell mui-col-xs-3 picIcon">
+										<i class="mui-icon iconfont icon-menu"></i>
+									</li>
+									<li class="mui-table-view-cell mui-col-xs-4 picIcon">
+										<i class="mui-icon iconfont icon-like"></i>
+										<span>收藏</span>
+									</li>
+									<li class="mui-table-view-cell mui-col-xs-5 picIcon">
+										<i class="mui-icon iconfont icon-thumb"></i>
+										<span>赞</span>
+									</li>
+								</ul>
+
+							</div>
 						</div>
-						<div class="picShowIcon centerIcon">
-							<div class="threeIcon favourite"></div>
+						<div class="picShow">
+							<div class="detail" style="position: absolute;">
+								作者:碉堡啦
+							</div>
+							<img class="emotIcon" src="img/faces/face(2).jpg" />
+							<p class="name"><span>军火商: </span><span id="author">叼爆炸</span> </p>
+							<div class="container">
+								<div class="picShowIcon leftIcon">
+									<div class="threeIcon detail"></div>
+								</div>
+								<div class="picShowIcon centerIcon">
+									<div class="threeIcon favourite"></div>
+								</div>
+								<div class="picShowIcon rightIcon">
+									<div class="threeIcon thumb"></div>
+								</div>
+							</div>
 						</div>
-						<div class="picShowIcon rightIcon">
-							<div class="threeIcon thumb"></div>
+					</div>
+					<div id="rightCol" class="half-container">
+						<div class="picShow">
+							<img class="emotIcon" src="img/faces/face(3).jpg" alt="" />
+							<p class="name"><span>军火商: </span><span id="author">1234567890</span> </p>
+							<div class="container">
+								<div class="picShowIcon leftIcon">
+									<div class="threeIcon detail"></div>
+								</div>
+								<div class="picShowIcon centerIcon">
+									<div class="threeIcon favourite"></div>
+									<p class="count">999+</p>
+								</div>
+								<div class="picShowIcon rightIcon">
+									<div class="threeIcon thumb"></div>
+									<p class="count">999+</p>
+								</div>
+							</div>
+						</div>
+						<div class="picShow">
+							<img class="emotIcon" src="img/faces/face(4).jpg" alt="" />
+							<p class="name"><span>军火商: </span><span id="author">叼爆炸</span> </p>
+							<div class="container">
+								<div class="picShowIcon leftIcon">
+									<div class="threeIcon detail"></div>
+								</div>
+								<div class="picShowIcon centerIcon">
+									<div class="threeIcon favourite"></div>
+								</div>
+								<div class="picShowIcon rightIcon">
+									<div class="threeIcon thumb"></div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div class="picShow">
-					<img class="emotIcon" src="img/faces/face(2).jpg" alt="" />
-					<p class="name"><span>军火商: </span><span id="author">叼爆炸</span> </p>
-					<div class="container">
-						<div class="picShowIcon leftIcon">
-							<div class="threeIcon detail"></div>
-						</div>
-						<div class="picShowIcon centerIcon">
-							<div class="threeIcon favourite"></div>
-						</div>
-						<div class="picShowIcon rightIcon">
-							<div class="threeIcon thumb"></div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="half-container">
-				<div class="picShow">
-					<img class="emotIcon" src="img/faces/face(3).jpg" alt="" />
-					<p class="name"><span>军火商: </span><span id="author">1234567890</span> </p>
-					<div class="container">
-						<div class="picShowIcon leftIcon">
-							<div class="threeIcon detail"></div>
-						</div>
-						<div class="picShowIcon centerIcon">
-							<div class="threeIcon favourite"></div>
-							<p class="count">999+</p>
-						</div>
-						<div class="picShowIcon rightIcon">
-							<div class="threeIcon thumb"></div>
-							<p class="count">999+</p>
-						</div>
-					</div>
-				</div>
-				<div class="picShow">
-					<img class="emotIcon" src="img/faces/face(4).jpg" alt="" />
-					<p class="name"><span>军火商: </span><span id="author">叼爆炸</span> </p>
-					<div class="container">
-						<div class="picShowIcon leftIcon">
-							<div class="threeIcon detail"></div>
-						</div>
-						<div class="picShowIcon centerIcon">
-							<div class="threeIcon favourite"></div>
-						</div>
-						<div class="picShowIcon rightIcon">
-							<div class="threeIcon thumb"></div>
-						</div>
-					</div>
-				</div>
+				<div style="height: 135px;"></div>
 			</div>
 		</div>
-
 		<div class="mask">
-			<div class="circle">
+			<div class="circle" onclick="showImage()">
 				<img src="img/plus.png" class="plusIcon" />
 			</div>
 		</div>
-		<div style="height: 150px;"></div>
 	</body>
 
 </html>

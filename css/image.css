@@ -1,0 +1,99 @@
+body {
+	font-family: "微软雅黑";
+}
+
+
+/*navbar*****/
+
+.navBar {
+	height: 65px;
+	line-height: 75px;
+	background-color: #F89406;
+	padding: 0;
+	text-align: center;
+}
+
+.navBar .navTitle {
+	color: white;
+	font-size: 20px;
+	width: 88%;
+	display: inline-block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.navBar #back {
+	display: inline-block;
+	height: 65px;
+	color: white;
+	width: 10%;
+}
+
+.navBar #back:active {
+	color: white;
+	background-color: #FCAF43;
+}
+
+
+/*end-navbar*****/
+
+#content {
+	margin-top: 70px;
+}
+
+
+/*picture**********/
+
+.container {
+	padding: 4px;
+	margin-top: 70px;
+	width: 100%;
+	margin-top: 2px;
+	background-color: white;
+}
+
+#title {
+	display: inline-block;
+	margin-top: 10px;
+	margin-left: 10px;
+	font-size: 20px;
+	width: 100%;
+}
+
+#share {
+	position: absolute;
+	right: 10px;
+	margin: 10px;
+	color: #8F8F94;
+}
+
+#share span {
+	font-size: 20px;
+	font-weight: 400;
+}
+
+#share:active {
+	color: #F89406;
+}
+
+#producer {
+	display: inline-block;
+	margin-left: 20px;
+	font-size: 15px;
+	color: #737383;
+}
+
+#image img {
+	display: block;
+	width: 98%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.mui-table-view:before{
+background-color: #fff;
+}
+.mui-table-view:after{
+background-color: #fff;
+}
+
+/*end-picture*****/

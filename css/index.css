@@ -7,8 +7,8 @@ body {
 /*navbar*******/
 
 .navBar {
-	height: 80px;
-	line-height: 80px;
+	height: 65px;
+	line-height: 75px;
 	background-color: #F89406;
 	padding: 0;
 }
@@ -57,6 +57,32 @@ body {
 	font-size: 35px;
 }
 
+.search {
+	height: 65px;
+	width: 80%;
+	display: block;
+	padding-left: 50px;
+	background-color: #F89406;
+	z-index: 9999;
+	position: fixed;
+	top: 0px;
+}
+
+#searchInput {
+	color: white;
+}
+
+.mui-backdrop {
+	/*mask*/
+	position: fixed;
+	top: 70px;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	z-index: -9999;
+	background-color: rgba(0, 0, 0, .3);
+}
+
 
 /*end-navbar*******/
 
@@ -64,11 +90,12 @@ body {
 /*footer*******/
 
 .mask {
-	height: 100px;
+	height: 170px;
 	background: -webkit-linear-gradient( rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 1) 50%);
 	width: 100%;
 	position: fixed;
-	bottom: 80px;
+	bottom: 0;
+	z-index: 9999;
 }
 
 .circle {
@@ -87,8 +114,10 @@ body {
 	background: -webkit-radial-gradient(#FCC475, #F89406);
 }
 
-.circle:hover {
-	background: -webkit-radial-gradient(#F89406, #FCC475);
+.circle:active {
+-webkit-transform:translateY(4px);
+  background: #4ecdc4;
+
 }
 
 .circle .plusIcon {
@@ -128,77 +157,31 @@ body {
 	width: 100%;
 }
 
-.leftIcon {
-	text-align: left;
+.picShow .picIcon {
+	font-family: "微软雅黑";
+	color: #737383;
+	padding: 0!important;
+	margin: 0!important;
+}
+.picShow .picIcon span {
+font-size: 12px;
+}
+.mui-table-view:before{
+background-color: #fff;
+}
+.mui-table-view:after{
+background-color: #fff;
+}
+.iconfont {
+	color: #737383;
 }
 
-.picShowIcon {
-	width: 30%;
-	display: inline-block;
+.iconfont:active{
+color:#f89406;
 }
-
-.picShowIcon .count {
-	display: inline-block;
-	font-size: 12px;
-	margin: 0;
-}
-
-.threeIcon {
-	height: 20px;
-	width: 20px;
-	background-size: 100% 100%;
-	display: inline-block;
-	vertical-align: middle;
-}
-
-.leftIcon {
-	text-align: left;
-	padding-left: 15px;
-}
-
-.centerIcon {
-	text-align: center;
-}
-
-.rightIcon {
-	text-align: right;
-}
-
-.detail {
-	background-image: url(../img/detail.png);
-}
-
-.detail:hover {
-	background-image: url(../img/detailHover.png);
-}
-
-.detail .active {
-	background-image: url(../img/detailActive.png);
-}
-
-.favourite {
-	background-image: url(../img/fav.png);
-}
-
-.favourite:hover {
-	background-image: url(../img/favHover.png);
-}
-
-.favourite.active {
-	background-image: url(../img/favActive.png);
-}
-
-.thumb {
-	background-image: url(../img/thumb.png);
-}
-
-.thumb:hover {
-	background-image: url(../img/thumbHover.png);
-}
-
-.thumb.active {
-	background-image: url(../img/thumbActive.png);
-}
-
-
 /*end-pictures*****/
+/*scroll********/
+
+#refreshContainer {
+	background-color: white;
+}
