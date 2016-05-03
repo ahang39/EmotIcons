@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../../js/mui.min.js"></script>
+    <link href="../../css/mui.min.css" rel="stylesheet"/>
+    <link href="../../css/personalCenter.css" rel="stylesheet"/>
+    <script type="text/javascript" charset="UTF-8">
+      	mui.init();
+    </script>
+    <script type="text/javascript" src="../../js/personalCenter.js" ></script>
+</head>
+<body>
+	<header class="mheader">
+		<div class="nvbt mui-action-back"><span class="mui-icon mui-icon-back"></span></div>
+		<div class="nvtt">通用设置</div>
+	</header>
+	<div class="content">
+		<ul class="mui-table-view optionMargin">
+			<li class="mui-table-view-cell">
+				主题
+				<a href="#popover" id="openPopover" style="float: right;"><span class="mui-icon mui-icon-arrowdown"></span></a>
+			</li>
+			<div id="popover" class="mui-popover"  style="display: none;">
+				<ul class="mui-table-view">
+				    <li class="mui-table-view-cell"><a href="#">主题1</a></li>
+				    <li class="mui-table-view-cell"><a href="#">主题2</a></li>
+				    <li class="mui-table-view-cell"><a href="#">主题3</a></li>
+				    <li class="mui-table-view-cell"><a href="#">主题4</a></li>
+				    <li class="mui-table-view-cell"><a href="#">主题5</a></li>
+				</ul>
+			</div>
+		</ul>
+	</div>
+</body>
+</html>

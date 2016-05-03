@@ -226,9 +226,17 @@
 					"js/mui.min.js",
 					"css/mui.min.css",
 					"fonts/mui.ttf",
-					"js/personalCenter.js"
+					"js/personalCenter.js",
+					"img/photo.jpg"
 				],
-				"refer": [],
+				"refer": [
+					"notification_setting.html",
+					"module/personalCenter/notification_setting.html",
+					"module/personalCenter/common_setting.html",
+					"module/personalCenter/privacy_setting.html",
+					"module/personalCenter/about.html",
+					"module/personalCenter/profile.html"
+				],
 				"priority": 0
 			},
 			"_personalCenter.html": {
@@ -262,6 +270,27 @@
 				"refer": [
 					"personalCenter.html"
 				],
+				"priority": 0
+			},
+			"module/personalCenter/common_setting.html": {
+				"resources": [
+					"fonts/mui.ttf",
+					"js/mui.min.js",
+					"js/personalCenter.js",
+					"css/mui.min.css",
+					"css/personalCenter.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"module/personalCenter/profile.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/personalCenter.css"
+				],
+				"refer": [],
 				"priority": 0
 			}
 		},

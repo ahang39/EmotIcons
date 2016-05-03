@@ -54,3 +54,18 @@ html,body{
 .content{
 	margin-top: 50px;
 }
+/*重写对话框*/
+.mui-popup-input input
+{
+    font-size: 14px;
+
+    width: 100%;
+    height: 40px;
+    margin: 0;
+    margin-top: 15px;
+    padding: 0 5px;
+	border: 0px;
+    border-bottom: 1px solid rgba(0, 0, 0, .3);
+    
+    border-radius: 0;
+}

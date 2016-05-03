@@ -8,10 +8,21 @@
     <link href="css/mui.min.css" rel="stylesheet"/>
     <link href="css/personalCenter.css" rel="stylesheet"/>
    	<script src="js/personalCenter.js"></script>
-    <script type="text/javascript" charset="UTF-8">
-      	mui.init();
-    </script>
     <script src="js/jump.js"></script>
+    <script>
+    	mui.init();
+    	mui.plusReady(function(){
+    		if(plus.storage.getItem("username")!=null)
+    			document.getElementById("center_username").innerHTML=plus.storage.getItem("username");
+    		else
+    			document.getElementById("center_username").innerHTML="未设置用户名";
+    		if(plus.storage.getItem("email")!=null)
+    			document.getElementById("center_email").innerHTML=plus.storage.getItem("email");
+    		else
+    			document.getElementById("center_email").innerHTML="未绑定";
+    	});
+    	
+    </script>
 </head>
 <body>
 	<header class="mheader">
@@ -19,14 +30,14 @@
 		<div class="nvtt">个人中心</div>
 	</header>
 	<div class="content">
-		<ul class="mui-table-view">
-			<li class="mui-table-view-cell mui-media">
+		<ul class="mui-table-view" id="profile_panel">
+			<li class="mui-table-view-cell mui-media" id="profile_setting">
 				<a href="javascript:;">
 					<img class="mui-media-object mui-pull-left" src="img/photo.jpg">
 					<div class="mui-media-body">
-						Hello 
+						<span id="center_username">Hello</span>
 						<span class="mui-icon mui-icon-arrowright" style="float: right;"></span>
-						<p class='mui-ellipsis'>账号:hello</p>
+						<p class='mui-ellipsis' >账号:<span id="center_email">hello</span></p>
 					</div>
 				</a>
 			</li>
