@@ -37,6 +37,20 @@
 				}]
 			});
 
+			function goMaker2() {
+				mui.openWindow({
+					url: "module/maker2/maker.html",
+					id: "maker2",
+					styles: {
+						top: 0, //新页面顶部位置
+						bottom: 0 //新页面底部位置
+					},
+					show: {
+						aniShow: "zoom-fade-out"
+					}
+				});
+			}
+
 			function toggle() {
 				var subView = plus.webview.getWebviewById("_index");
 				var search = document.getElementById("search");
@@ -61,8 +75,8 @@
 				<div class="mui-icon mui-icon-home leftButton" onclick="dispatcher('personalCenter')"></div>
 			</div>
 			</div>
-			<div class="quarter quarter2"><a class="active" href="">斗图广场</a></div>
-			<div class="quarter quarter3"><a href="image.html">军火仓库</a></div>
+			<div class="quarter quarter2"><a class="active"">斗图广场</a></div>
+			<div class="quarter quarter3" onclick="goMaker2()"><a>军火仓库</a></div>
 			<div class="quarter quarter4">
 				<div id="searchIcon" class="mui-icon mui-icon-search rightButton" onclick="toggle()"></div>
 			</div>
@@ -73,7 +87,7 @@
 			</div>
 		</header>
 		<div class="mui-backdrop" onclick="toggle();"></div>
-		
+
 	</body>
 
 </html>
