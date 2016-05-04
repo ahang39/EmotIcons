@@ -49,6 +49,7 @@ html,body{
 }
 #table-wrapper {
   position:relative;
+  margin-top: 100px;
 }
 #table-scroll {
   height:80px;
@@ -57,7 +58,10 @@ html,body{
 
 #table-wrapper table {
   	width:100%;
-   	background-color: aqua;
+  	border: solid black 1px;
+  	border-left: 0px;
+  	border-right: 0px;
+   	background-color: white;
 }
 #table-wrapper table * {
   color:black;
@@ -67,7 +71,7 @@ html,body{
 	height: 40px;
 	overflow-x:scroll;
 }
-.img_choice tbody tr td img{
+.img_choice tr td img{
 	height: 35px;
 	margin:2px 10px ;
 }

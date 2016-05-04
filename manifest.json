@@ -201,7 +201,9 @@
 					"img/plus.png",
 					"css/style.css",
 					"_index.html",
-					"css/index.css"
+					"css/index.css",
+					"css/iconfont.css",
+					"js/mui.js"
 				],
 				"refer": [
 					"test.html",
@@ -265,10 +267,13 @@
 					"img/faces/face(3).jpg",
 					"img/faces/face(2).jpg",
 					"img/thumbDown.png",
-					"img/faces/face(4).jpg"
+					"img/faces/face(4).jpg",
+					"css/iconfont.woff",
+					"js/index.js"
 				],
 				"refer": [
-					"personalCenter.html"
+					"personalCenter.html",
+					"module/maker/maker.html"
 				],
 				"priority": 0
 			},
@@ -292,11 +297,37 @@
 				],
 				"refer": [],
 				"priority": 0
+			},
+			"module/maker/maker.html": {
+				"resources": [
+					"css/maker.css",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"img/thumbActive.png",
+					"js/maker.js",
+					"img/faces/face(1).jpg",
+					"img/qq.png",
+					"img/favActive.png",
+					"img/detail.png",
+					"img/thumb.png",
+					"img/detailActive.png",
+					"img/photo.jpg",
+					"img/微信.png",
+					"img/favHover.png",
+					"img/faces/face(3).jpg",
+					"img/朋友圈.png",
+					"img/fav.png",
+					"img/detailHover.png",
+					"img/faces/face(2).jpg",
+					"img/faces/face(4).jpg"
+				],
+				"refer": [],
+				"priority": 0
 			}
 		},
 		"idle": {
 			"resources": [
-				"js/mui.js",
 				"css/mui.css"
 			]
 		}

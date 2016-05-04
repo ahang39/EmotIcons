@@ -10,6 +10,7 @@
     <script type="text/javascript" charset="UTF-8">
       	mui.init();
     </script>
+    <script src="../../js/maker.js"></script>
 </head>
 <body>
 	<header class="mheader">
@@ -17,19 +18,35 @@
 		<div class="nvtt">军火制造中心</div>
 	</header>
 	<div class="content">
-		<canvas style="width:100%;background-color: white;height: 300px;">
+		<canvas id="maker" style="width:100%;background-color: white;height: 300px;">
 			
 			
 		</canvas>
 		<div id="table-wrapper">
   			<div id="table-scroll">
 				<table class="img_choice">
-					<tbody>
-						<tr><td><img src="../../img/thumbActive.png"></td><td><img src="../../img/thumbActive.png"></td><td><img src="../../img/thumbActive.png"></td><td><img src="../../img/thumbActive.png"></td><td><img src="../../img/thumbActive.png"></td><td><img src="../../img/thumbActive.png"></td><td><img src="../../img/thumbActive.png"></td><td><img src="../../img/thumbActive.png"></td><td><img src="../../img/thumbActive.png"></td><td><img src="../../img/thumbActive.png"></td><td><img src="../../img/thumbActive.png"></td><td><img src="../../img/thumbActive.png"></td><td><img src="../../img/thumbActive.png"></td></tr>
-					</tbody>
+					<tr>
+						<td><img onclick="paintImage(this)" src="../../img/thumbActive.png"></td>
+						<td><img onclick="paintImage(this)" src="../../img/detail.png"></td>
+						<td><img onclick="paintImage(this)" src="../../img/detailActive.png"></td>
+						<td><img onclick="paintImage(this)" src="../../img/detailHover.png"></td>
+						<td><img onclick="paintImage(this)" src="../../img/faces/face(1).jpg"></td>
+						<td><img onclick="paintImage(this)" src="../../img/faces/face(2).jpg"></td>
+						<td><img onclick="paintImage(this)" src="../../img/faces/face(3).jpg"></td>
+						<td><img onclick="paintImage(this)" src="../../img/faces/face(4).jpg"></td>
+						<td><img onclick="paintImage(this)" src="../../img/fav.png"></td>
+						<td><img onclick="paintImage(this)" src="../../img/favActive.png"></td>
+						<td><img onclick="paintImage(this)" src="../../img/favHover.png"></td>
+						<td><img onclick="paintImage(this)" src="../../img/photo.jpg"></td>
+						<td><img onclick="paintImage(this)" src="../../img/qq.png"></td>
+						<td><img onclick="paintImage(this)" src="../../img/微信.png"></td>
+						<td><img onclick="paintImage(this)" src="../../img/朋友圈.png"></td>
+						<td><img onclick="paintImage(this)" src="../../img/thumb.png"></td>
+					</tr>
 				</table>
 			</div>
 		</div>
+		
 	</div>
 </body>
 </html>

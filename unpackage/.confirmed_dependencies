@@ -1,1 +1,55 @@
-null
+{
+	"module/maker/maker.html": {
+		"resources": [
+			"css/maker.css",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"img/thumbActive.png",
+			"js/maker.js",
+			"img/faces/face(1).jpg",
+			"img/qq.png",
+			"img/favActive.png",
+			"img/detail.png",
+			"img/thumb.png",
+			"img/detailActive.png",
+			"img/photo.jpg",
+			"img/微信.png",
+			"img/favHover.png",
+			"img/faces/face(3).jpg",
+			"img/朋友圈.png",
+			"img/fav.png",
+			"img/detailHover.png",
+			"img/faces/face(2).jpg",
+			"img/faces/face(4).jpg"
+		]
+	},
+	"index.html": {
+		"resources": [
+			"css/index.css",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"js/mui.js",
+			"_index.html",
+			"js/jump.js"
+		],
+		"refer": [
+			"_index.html"
+		]
+	},
+	"_index.html": {
+		"resources": [
+			"img/faces/face(1).jpg",
+			"img/plus.png",
+			"img/faces/face(3).jpg",
+			"css/iconfont.woff",
+			"img/faces/face(2).jpg",
+			"js/index.js",
+			"img/faces/face(4).jpg"
+		],
+		"refer": [
+			"module/maker/maker.html"
+		]
+	}
+}
