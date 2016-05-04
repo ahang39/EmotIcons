@@ -1,7 +1,21 @@
+var canvas=null;
+mui.plusReady(function(){
+	canvas = new fabric.Canvas('maker');
+});
 function paintImage(obj){
-	var c=document.getElementById("maker");
-	var ctx=c.getContext("2d");
-	ctx.drawImage(obj,10,10);
+	fabric.Image.fromURL(obj.src, function(img) {
+	  img.scale(1).set({
+	    left: 10,
+	    top: 10
+	  });
+	  canvas.add(img).setActiveObject(img);
+	});
+	canvas.item(0).set({
+	    borderColor: 'red',
+	    cornerColor: 'green',
+	    cornerSize: 30,
+	    transparentCorners: false
+  });
 }
 
 function finishText(){

@@ -207,7 +207,8 @@
 				],
 				"refer": [
 					"test.html",
-					"personalCenter.html"
+					"personalCenter.html",
+					"module/maker2/maker.html"
 				],
 				"priority": 0
 			},
@@ -320,7 +321,21 @@
 					"img/fav.png",
 					"img/detailHover.png",
 					"img/faces/face(2).jpg",
-					"img/faces/face(4).jpg"
+					"img/faces/face(4).jpg",
+					"js/fabric/fabric.min.js"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"module/maker2/maker.html": {
+				"resources": [
+					"img/微信.png",
+					"js/fabric/fabric.min.js",
+					"css/maker.css",
+					"js/mui.min.js",
+					"img/thumb.png",
+					"fonts/mui.ttf",
+					"css/mui.min.css"
 				],
 				"refer": [],
 				"priority": 0

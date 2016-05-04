@@ -11,9 +11,15 @@
 		<script src="../../js/fabric/fabric.min.js"></script>
 		<script type="text/javascript" charset="UTF-8">
 			function paintImage(obj) {
-				var c = document.getElementById("maker");
-				var ctx = c.getContext("2d");
-				ctx.drawImage(obj, 10, 10);
+				var canvas = new fabric.Canvas('maker');
+				fabric.Image.fromURL(obj.src, function(img) {
+				  img.scale(0.5).set({
+				    left: 150,
+				    top: 150,
+				    angle: -15
+				  });
+				  canvas.add(img).setActiveObject(img);
+});
 			}
 
 			function test() {
