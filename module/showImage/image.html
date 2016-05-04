@@ -11,7 +11,32 @@
 		<link href="../../css/iconfont.css" rel="stylesheet" />
 		<script type="text/javascript" charset="UTF-8">
 			mui.init();
+			/*mui.plusReady(function() {
+				plus.share.getServices(function(s) {
+					shares = s;
+					for (var i in s) {
+						if ('weixin' == s[i].id) {
+							sharewx = s[i];
+						}
+					}
+				}, function(e) {
+					alert("获取分享服务列表失败：" + e.message);
+				});
+			});
 
+			function shareWeixinMessage() {
+				sharewx.send({
+					content: "DCloud HBuilder-做最好的HTML5开发工具",
+					href: "http://www.dcloud.io/",
+					extra: {
+						scene: "WXSceneTimeline"
+					}
+				}, function() {
+					alert("分享成功！");
+				}, function(e) {
+					alert("分享失败：" + e.message);
+				});
+			}*/
 			function back() {
 				mui.openWindow({
 					url: "../../index.html",
@@ -62,40 +87,29 @@
 			<ul class="mui-table-view">
 				<li class="mui-table-view-cell">
 					<div style="overflow-x:auto;width:100%;">
-						<div style="width:500px;">
-							<div style="display: inline-block; width:24%">
-								<img src="../../img/favActive.png" alt="" />
-							<p>转发到微信</p>
+						<div class=".circleWrap" style="display: inline-block; width:32%">
+							<div class="circle">
+								<img src="../../img/微信.png" alt="" />
 							</div>
-							<div style="display: inline-block; width:24%">
-								<img src="../../img/favActive.png" alt="" />
 							<p>转发到微信</p>
+						</div>
+						<div class=".circleWrap" style="display: inline-block; width:32%">
+							<div class="circle">
+								<img src="../../img/朋友圈.png" alt="" />
 							</div>
-							<div style="display: inline-block; width:24%">
-								<img src="../../img/favActive.png" alt="" />
 							<p>转发到微信</p>
+						</div>
+						<div class=".circleWrap" style="display: inline-block; width:32%">
+							<div class="circle">
+								<img src="../../img/qq.png" alt="" />
 							</div>
-							<div style="display: inline-block; width:24%">
-								<img src="../../img/favActive.png" alt="" />
 							<p>转发到微信</p>
-							</div>
-							
-							
-						</div>						
+						</div>
+
 					</div>
-				</li>
-				<li class="mui-table-view-cell">
-					<a href="#">转发</a>
-				</li>
-				<li class="mui-table-view-cell">
-					<a href="#">打印</a>
-				</li>
-			</ul>
-			<ul class="mui-table-view">
-				<li class="mui-table-view-cell">
-					<a href="#forward"><b>取消</b></a>
-				</li>
-			</ul>
+		</div>
+		</li>
+		</ul>
 		</div>
 	</body>
 
