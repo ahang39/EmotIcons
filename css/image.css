@@ -66,13 +66,15 @@ body {
 	margin: 10px;
 	color: #8F8F94;
 }
-
+#share:active{
+	color:#F89406;
+}
 #share span {
 	font-size: 20px;
 	font-weight: 400;
 }
 
-#share:active {
+ #btnGroup .iconbtn:active {
 	color: #F89406;
 }
 
