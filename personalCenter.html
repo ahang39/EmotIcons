@@ -10,7 +10,9 @@
    	<script src="js/personalCenter.js"></script>
     <script src="js/jump.js"></script>
     <script>
-    	mui.init();
+    	mui.init({
+      		swipeBack:true
+      	});
     	mui.plusReady(function(){
     		if(plus.storage.getItem("username")!=null)
     			document.getElementById("center_username").innerHTML=plus.storage.getItem("username");

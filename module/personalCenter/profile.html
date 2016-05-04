@@ -8,7 +8,9 @@
     <link href="../../css/mui.min.css" rel="stylesheet"/>
     <link href="../../css/personalCenter.css" rel="stylesheet"/>
     <script type="text/javascript" charset="UTF-8">
-      	mui.init();
+      	mui.init({
+      		swipeBack:true
+      	});
       	mui.plusReady(function(){
       		if(plus.storage.getItem("username")!=null)
     			document.getElementById("profile_username").innerHTML=plus.storage.getItem("username");
@@ -17,7 +19,7 @@
     		if(plus.storage.getItem("email")!=null)
     			document.getElementById("profile_email").innerHTML=plus.storage.getItem("email");
     		else
-    			document.getElementById("profile_email").innerHTML="未绑定";
+    			mui.openWindow("login.html");
     	});
     	
     </script>

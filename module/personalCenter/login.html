@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+    <title></title>
+    <script src="../../js/mui.min.js"></script>
+    <link href="../../css/mui.min.css" rel="stylesheet"/>
+    <link href="../../css/personalCenter.css" rel="stylesheet"/>
+    <script src="../../js/login.js"></script>
+    <script type="text/javascript" charset="UTF-8">
+      	mui.init({
+      		swipeBack:true
+      	});
+    </script>
+</head>
+<body>
+	<header class="mheader">
+		<div class="nvbt mui-action-back"><span class="mui-icon mui-icon-back"></span></div>
+		<div class="nvtt">登录</div>
+	</header>
+	<div class="content">
+		<div style="padding: 10px 10px;">
+			<div id="segmentedControl" class="mui-segmented-control">
+				<a class="mui-control-item mui-active" href="#item1">
+					登录
+				</a>
+				<a class="mui-control-item" href="#item2">
+					注册
+				</a>
+			</div>
+			<div>
+				<div id="item1" class="mui-control-content mui-active">
+					<form class="mui-input-group" style="margin-top: 20px;" name="login_form">
+						<div class="mui-input-row">
+							<label>邮箱:</label>
+							<input type="text" name="email" class="mui-input-clear" placeholder="">
+						</div>
+						<div class="mui-input-row mui-password">
+							<label>密码:</label>
+							<input type="password" name="password" class="mui-input-password">
+						</div>
+					</form> 
+					<div class="mui-button-row" id="login_button" style="margin-top: 20px;">
+							<button type="button" class="mui-btn mui-btn-primary" id="login">登录</button>
+					</div>
+				</div>
+				<div id="item2" class="mui-control-content" style="margin-top: 20px;">
+					<form class="mui-input-group" name="register_form">
+						<div class="mui-input-row">
+							<label>用户名:</label>
+							<input type="text" name="username" class="mui-input-clear" placeholder="">
+						</div>
+						<div class="mui-input-row">
+							<label>邮箱:</label>
+							<input type="text" name="email" class="mui-input-clear" placeholder="">
+						</div>
+						<div class="mui-input-row mui-password">
+							<label>密码:</label>
+							<input type="password" name="password" class="mui-input-password">
+						</div>
+						<div class="mui-input-row mui-password">
+							<label>重复:</label>
+							<input type="password" name="repeat_password" class="mui-input-password">
+						</div>
+					</form>
+					<div class="mui-button-row" id="register_button" style="margin-top: 20px;">
+						<button type="button" class="mui-btn mui-btn-primary" id="register">注册</button>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</body>
+</html>
