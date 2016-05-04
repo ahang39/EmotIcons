@@ -26,7 +26,7 @@
 				});
 			}
 			mui.plusReady()(function() {
-				mui(".picShow").on("tap", "#detailBtn", function() {
+				mui(".picShow").on("tap", ".emotIcon", function() {
 					console.log("gay");
 					var detail = document.getElementById("detail");
 					detail.style.visibility = "visible";
@@ -56,7 +56,7 @@
 								<p class="name"><span>军火商: </span><span id="author">叼爆炸</span> </p>
 								<div class="container">
 									<ul class="mui-table-view mui-grid-view">
-										<li id="detailBtn" class="mui-table-view-cell mui-col-xs-3 picIcon">
+										<li onclick="showImage()" id="detailBtn" class="mui-table-view-cell mui-col-xs-3 picIcon">
 											<i class="mui-icon iconfont icon-menu">
 											</i>
 										</li>
@@ -139,9 +139,9 @@
 			</div>
 		</div>
 		<div class="mask">
-			<div class="circle" onclick="showImage()">
+			<a class="circle" href="module/maker/maker.html">
 				<img src="img/plus.png" class="plusIcon" />
-			</div>
+			</a>
 		</div>
 		
 	</body>
