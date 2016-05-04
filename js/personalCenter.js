@@ -45,6 +45,7 @@ mui.plusReady(function(){
 			var i=e.index;
 			if(e.index==0){
 				setUsername(e.value);
+				mui.openWindow("module/personalCenter/profile.html");
 			}
 		},"","姓名",bts);
 	});

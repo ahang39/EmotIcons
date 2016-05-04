@@ -1,5 +1,6 @@
 html,body{
 	font-family: "微软雅黑";
+	width: 100%;
 }
 .mheader{
 	background-color: #F89406;
@@ -38,71 +39,7 @@ html,body{
 	background: no-repeat center center url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABYCAYAAAADWlKCAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAKwwAACsMBNCkkqwAAABZ0RVh0Q3JlYXRpb24gVGltZQAwOS8xMi8xM5w+I3MAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAACcklEQVR4nO3a0XESURiG4TeO99iBWoGZ+RvADtKBpAPtwBLsANJBrEAs4MyYDmIHSQXkgk0mMLK7ILt8/+F778ici394OGfDsher1Qqn05tTD+A2M4hYBhHLIGIZRCyDiGUQsQwilkHEMohYBhHLIGIZRCyDiGUQsQwilkHEMohYBhHLIGIZRCyDiGUQsQwilkHEMohYb089wNCVUq6Ay+blfUQsTjhOZxc1P9tbSlkAX7b+/C0ifpxgnF5Ve2TtwAD4OvIoe1UlSAsGwPsRR9m76kA6MAD+jjTKQVUF0gMD4HaEUQ6umot6T4ybiJgNP83hVbFDasGACnZIT4yfEXE1wjj/Xeod0hPjDpgNPsyRSguyB8Y0Ih6Gn+g4pQSpFQMSgtSMAclAaseARCDngAFJQM4FAxKAnBMGiH8xLKVMgV89ln6MiPthpxkn6R0SEUvgusfSZSnlsnuZftI75LlSygyYdyx7ZH1s/Rl+ouFKAQIvx9ctMGlZlh4lDQhAcywtqRhF+hqyXfMmT1m/6buasL6mzMaY6dilAoENlLuWZRNgnhEl1ZH1ulLKO9bH16eOpdfqz2K9Lt0Oea75EjilfadAsp2SFgQ2UH53LJ2XUr4PPtARSntkbVfL7+rVgEBvlM/NHQDJUh9Z2zWf/puOZbPhJzm8qkDgBaXt/teHcSY5rOpAAJp/c/vclJSrShDYifKI+NPvVV3U/1VzU3LavFyo/25SPUi2qj2ysmYQsQwilkHEMohYBhHLIGIZRCyDiGUQsQwilkHEMohYBhHLIGIZRCyDiGUQsQwilkHEMohYBhHLIGIZRCyDiGUQsZ4Ak9fPFwUy/HsAAAAASUVORK5CYII=);
 	background-size: 50px 44px;
 }
-.optionMargin{
-	margin-top: 20px;
-}
-.exit{
-	width: 90%;
-	margin-left: auto;
-	margin-right: auto;
-}
-.mui-btn{
-	width: 100% !important;
-	height: 40px;
-	font-size: 18px;
-}
 .content{
+	width: 100%;
 	margin-top: 50px;
-}
-/*重写对话框*/
-.mui-popup-input input
-{
-    font-size: 14px;
-
-    width: 100%;
-    height: 40px;
-    margin: 0;
-    margin-top: 15px;
-    padding: 0 5px;
-	border: 0px;
-    border-bottom: 1px solid rgba(0, 0, 0, .3);
-    
-    border-radius: 0;
-}
-
-.switch_panel{
-	width: 80%;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top: 90px;
-}
-.panel_left{
-	width: 50%;
-	float: left;
-	padding: 5px 10px;
-	text-align: center;
-}
-.panel_right{
-	width: 50%;
-	float: right;
-	padding: 5px 10px;
-	text-align: center;
-}
-.mui-btn-warning{
-	background-color: #ffc000;
-	border: 1px solid #ffc000;;
-}
-.mui-segmented-control{
-	border: 0;
-}
-.mui-segmented-control .mui-control-item{
-	background-color: #FFFFFF;
-	color: #666666;
-    border-left: 1px solid #efeff4;
-    border-radius:0 ;
-}
-.mui-segmented-control .mui-control-item.mui-active{
-	border-bottom: solid #F89406 2px;
-	background-color: #ffffff;
-	color: #F89406;
 }
