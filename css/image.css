@@ -66,15 +66,17 @@ body {
 	margin: 10px;
 	color: #8F8F94;
 }
-#share:active{
-	color:#F89406;
+
+#share:active {
+	color: #F89406;
 }
+
 #share span {
 	font-size: 20px;
 	font-weight: 400;
 }
 
- #btnGroup .iconbtn:active {
+#btnGroup .iconbtn:active {
 	color: #F89406;
 }
 
@@ -91,11 +93,41 @@ body {
 	margin-left: auto;
 	margin-right: auto;
 }
-.mui-table-view:before{
-background-color: #fff;
-}
-.mui-table-view:after{
-background-color: #fff;
+
+.mui-table-view:before {
+	background-color: #fff;
 }
 
+.mui-table-view:after {
+	background-color: #fff;
+}
+
+
 /*end-picture*****/
+
+
+/*share*/
+.circleWrap{
+	padding;
+}
+.circle {
+	margin-left: auto;
+	margin-right: auto;
+	width: 80px;
+	height: 80px;
+	vertical-align: middle;
+	line-height: 80px;
+	border-radius: 50px;
+
+}
+
+.circle img {
+	vertical-align: middle;
+	display: inline-block;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 80%;
+	max-height: 80%;
+}
+
+*/
