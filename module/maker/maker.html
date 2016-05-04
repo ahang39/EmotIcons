@@ -18,35 +18,89 @@
 		<div class="nvtt">军火制造中心</div>
 	</header>
 	<div class="content">
-		<canvas id="maker" style="width:100%;background-color: white;height: 300px;">
+		<canvas id="maker" style="width:100%;background-color: white;height: 400px;">
 			
 			
 		</canvas>
-		<div id="table-wrapper">
-  			<div id="table-scroll">
-				<table class="img_choice">
-					<tr>
-						<td><img onclick="paintImage(this)" src="../../img/thumbActive.png"></td>
-						<td><img onclick="paintImage(this)" src="../../img/detail.png"></td>
-						<td><img onclick="paintImage(this)" src="../../img/detailActive.png"></td>
-						<td><img onclick="paintImage(this)" src="../../img/detailHover.png"></td>
-						<td><img onclick="paintImage(this)" src="../../img/faces/face(1).jpg"></td>
-						<td><img onclick="paintImage(this)" src="../../img/faces/face(2).jpg"></td>
-						<td><img onclick="paintImage(this)" src="../../img/faces/face(3).jpg"></td>
-						<td><img onclick="paintImage(this)" src="../../img/faces/face(4).jpg"></td>
-						<td><img onclick="paintImage(this)" src="../../img/fav.png"></td>
-						<td><img onclick="paintImage(this)" src="../../img/favActive.png"></td>
-						<td><img onclick="paintImage(this)" src="../../img/favHover.png"></td>
-						<td><img onclick="paintImage(this)" src="../../img/photo.jpg"></td>
-						<td><img onclick="paintImage(this)" src="../../img/qq.png"></td>
-						<td><img onclick="paintImage(this)" src="../../img/微信.png"></td>
-						<td><img onclick="paintImage(this)" src="../../img/朋友圈.png"></td>
-						<td><img onclick="paintImage(this)" src="../../img/thumb.png"></td>
-					</tr>
-				</table>
-			</div>
-		</div>
 		
+		<div style="padding: 10px 10px;">
+			<div id="segmentedControl" class="mui-segmented-control">
+				<a class="mui-control-item mui-active" href="#item1">
+					图片
+				</a>
+				<a class="mui-control-item" href="#item2">
+					文字
+				</a>
+			</div>
+			<div>
+				<div id="item1" class="mui-control-content mui-active maker_img">
+					<div id="table-wrapper">
+			  			<div id="table-scroll">
+							<table class="img_choice">
+								<tr>
+									<td><img onclick="paintImage(this)" src="../../img/thumbActive.png"></td>
+									<td><img onclick="paintImage(this)" src="../../img/detail.png"></td>
+									<td><img onclick="paintImage(this)" src="../../img/detailActive.png"></td>
+									<td><img onclick="paintImage(this)" src="../../img/detailHover.png"></td>
+									<td><img onclick="paintImage(this)" src="../../img/faces/face(1).jpg"></td>
+									<td><img onclick="paintImage(this)" src="../../img/faces/face(2).jpg"></td>
+									<td><img onclick="paintImage(this)" src="../../img/faces/face(3).jpg"></td>
+									<td><img onclick="paintImage(this)" src="../../img/faces/face(4).jpg"></td>
+									<td><img onclick="paintImage(this)" src="../../img/fav.png"></td>
+									<td><img onclick="paintImage(this)" src="../../img/favActive.png"></td>
+									<td><img onclick="paintImage(this)" src="../../img/favHover.png"></td>
+									<td><img onclick="paintImage(this)" src="../../img/photo.jpg"></td>
+									<td><img onclick="paintImage(this)" src="../../img/qq.png"></td>
+									<td><img onclick="paintImage(this)" src="../../img/微信.png"></td>
+									<td><img onclick="paintImage(this)" src="../../img/朋友圈.png"></td>
+									<td><img onclick="paintImage(this)" src="../../img/thumb.png"></td>
+								</tr>
+							</table>
+						</div>
+					</div>
+				</div>
+				<div id="item2" class="mui-control-content maker_text">
+					<div style="padding: 10px 10px;">
+						<div id="segmentedControl" class="mui-segmented-control">
+							<a class="mui-control-item mui-active" href="#text_item1">
+								样式
+							</a>
+							<a class="mui-control-item" href="#text_item2">
+								颜色
+							</a>
+							<a class="mui-control-item" href="#text_item3">
+								字体
+							</a>
+							<a class="mui-control-item" href="#text_item4">
+								效果
+							</a>
+							<a class="mui-control-item" href="#text_item5">
+								新建
+							</a>
+						</div>
+						<div>
+							<div id="text_item1" class="mui-control-content mui-active maker_img">
+								
+							</div>
+							<div id="text_item2" class="mui-control-content maker_text">
+								
+							</div>
+							<div id="text_item3" class="mui-control-content maker_text">
+								
+							</div>
+							<div id="text_item4" class="mui-control-content maker_text">
+								
+							</div>
+							<div id="text_item5" class="mui-control-content maker_text">
+								<input type="text" id="text_input"/>
+								<button class="mui-btn mui-btn-primary" onclick="finishText()">完成</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
 	</div>
 </body>
 </html>

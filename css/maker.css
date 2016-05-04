@@ -1,7 +1,7 @@
 html,body{
 	font-family: "微软雅黑";
 	width: 100%;
-	overflow:hidden;
+	overflow-x:hidden;
 }
 .mheader{
 	background-color: #F89406;
@@ -47,9 +47,26 @@ html,body{
 .clearfix{
 	clear: both;
 }
+
+.mui-segmented-control{
+	border: 0;
+}
+.mui-segmented-control .mui-control-item{
+	background-color: #FFFFFF;
+	color: #666666;
+    border-left: 1px solid #efeff4;
+    border-radius:0 ;
+}
+.mui-segmented-control .mui-control-item.mui-active{
+	border-bottom: solid #F89406 2px;
+	background-color: #ffffff;
+	color: #F89406;
+}
+
+
 #table-wrapper {
   position:relative;
-  margin-top: 100px;
+  margin-top: 0px;
 }
 #table-scroll {
   height:80px;
@@ -58,7 +75,7 @@ html,body{
 
 #table-wrapper table {
   	width:100%;
-  	border: solid black 1px;
+  	border: solid #efeff4 1px;
   	border-left: 0px;
   	border-right: 0px;
    	background-color: white;
@@ -76,3 +93,9 @@ html,body{
 	margin:2px 10px ;
 }
 
+.maker_img{
+	background-color: white;
+}
+.maker_text{
+	background-color: white;
+}
