@@ -92,7 +92,11 @@ html,body{
 	height: 35px;
 	margin:2px 10px ;
 }
-
+.img_choice tr td div{
+	height: 35px;
+	width: 35px;
+	margin:2px 10px ;
+}
 .maker_img{
 	background-color: white;
 }
