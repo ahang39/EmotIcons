@@ -123,19 +123,30 @@ body {
 
 /*controllers*/
 
-#controllerBottom {
-	background-color: white;
+#controllerBottom li {
+	display: inline-block;
 }
 
-#controllerBottom li {
-	list-style: none;
-	display: inline-block;
-	width: %;
+.icon-change {
+	color: #1BBC9B;
 }
-#controllerBottom .procBtn {
+
+.icon-up {
+	color: #22A7F0;
+}
+
+.icon-down {
+	color: #BE90D4;
+}
+
+.icon-remove {
+	color: #E26A6A;
+}
+
+#controllerBottom .procBtn i {
 	font-size: 20px;
 }
 
-#controllerBottom .procBtn:active {
-	color: #555555;
+#controllerBottom .procBtn i:active {
+	color: #777777;
 }

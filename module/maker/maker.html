@@ -24,11 +24,11 @@
 		<div class="content">
 			<canvas id="maker" height="300" width="450"></canvas>
 			<div id="controllerBottom">
-				<ul  id="controllerBottomBar" class"">
-					<li><i class="procBtn iconfont icon-change"></i></li>
-					<li><i class="procBtn iconfont icon-up"></i></li>
-					<li><i class="procBtn iconfont icon-down"></i></li>
-					<li><i class="procBtn iconfont icon-remove"></i></li>
+				<ul class="mui-table-view mui-grid-view">
+					<li class="mui-table-view-cell mui-col-xs-3 procBtn " onclick=""><i class="iconfont icon-change"></i></li>
+					<li class="mui-table-view-cell mui-col-xs-3 procBtn" onclick="bringForward()"><i class="iconfont icon-up"></i></li>
+					<li class="mui-table-view-cell mui-col-xs-3 procBtn"><i class="iconfont icon-down" onclick="sendBackward()"></i></li>
+					<li class="mui-table-view-cell mui-col-xs-3 procBtn"><i class="iconfont icon-remove" onclick="removeItem()"></i></li>
 				</ul>
 			</div>
 			<div style="padding: 10px 10px;">
