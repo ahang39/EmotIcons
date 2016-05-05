@@ -1,9 +1,11 @@
-html,body{
+html,
+body {
 	font-family: "微软雅黑";
 	width: 100%;
-	overflow-x:hidden;
+	overflow-x: hidden;
 }
-.mheader{
+
+.mheader {
 	background-color: #F89406;
 	height: 50px;
 	line-height: 50px;
@@ -17,89 +19,123 @@ html,body{
 	top: 0;
 	left: 0;
 }
+
 .nvbt {
-	width:15%;
-	height:100%;
-	float:left;
-	overflow:hidden;
-	text-overflow:ellipsis;
-	white-space:nowrap;
+	width: 15%;
+	height: 100%;
+	float: left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
+
 .nvbt:active {
-	background-color: rgba(170,170,170,0.1);
+	background-color: rgba(170, 170, 170, 0.1);
 }
+
 .nvtt {
 	width: 70%;
 	height: 100%;
 	float: left;
-	overflow:hidden;
-	text-overflow:ellipsis;
-	white-space:nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
 }
+
 .iback {
 	background: no-repeat center center url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABYCAYAAAADWlKCAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAKwwAACsMBNCkkqwAAABZ0RVh0Q3JlYXRpb24gVGltZQAwOS8xMi8xM5w+I3MAAAAcdEVYdFNvZnR3YXJlAEFkb2JlIEZpcmV3b3JrcyBDUzVxteM2AAACcklEQVR4nO3a0XESURiG4TeO99iBWoGZ+RvADtKBpAPtwBLsANJBrEAs4MyYDmIHSQXkgk0mMLK7ILt8/+F778ici394OGfDsher1Qqn05tTD+A2M4hYBhHLIGIZRCyDiGUQsQwilkHEMohYBhHLIGIZRCyDiGUQsQwilkHEMohYBhHLIGIZRCyDiGUQsQwilkHEMohYb089wNCVUq6Ay+blfUQsTjhOZxc1P9tbSlkAX7b+/C0ifpxgnF5Ve2TtwAD4OvIoe1UlSAsGwPsRR9m76kA6MAD+jjTKQVUF0gMD4HaEUQ6umot6T4ybiJgNP83hVbFDasGACnZIT4yfEXE1wjj/Xeod0hPjDpgNPsyRSguyB8Y0Ih6Gn+g4pQSpFQMSgtSMAclAaseARCDngAFJQM4FAxKAnBMGiH8xLKVMgV89ln6MiPthpxkn6R0SEUvgusfSZSnlsnuZftI75LlSygyYdyx7ZH1s/Rl+ouFKAQIvx9ctMGlZlh4lDQhAcywtqRhF+hqyXfMmT1m/6buasL6mzMaY6dilAoENlLuWZRNgnhEl1ZH1ulLKO9bH16eOpdfqz2K9Lt0Oea75EjilfadAsp2SFgQ2UH53LJ2XUr4PPtARSntkbVfL7+rVgEBvlM/NHQDJUh9Z2zWf/puOZbPhJzm8qkDgBaXt/teHcSY5rOpAAJp/c/vclJSrShDYifKI+NPvVV3U/1VzU3LavFyo/25SPUi2qj2ysmYQsQwilkHEMohYBhHLIGIZRCyDiGUQsQwilkHEMohYBhHLIGIZRCyDiGUQsQwilkHEMohYBhHLIGIZRCyDiGUQsZ4Ak9fPFwUy/HsAAAAASUVORK5CYII=);
 	background-size: 50px 44px;
 }
-.content{
+
+.content {
 	width: 100%;
 	margin-top: 50px;
 }
-.clearfix{
+
+.clearfix {
 	clear: both;
 }
 
-.mui-segmented-control{
+.mui-segmented-control {
 	border: 0;
 }
-.mui-segmented-control .mui-control-item{
+
+.mui-segmented-control .mui-control-item {
 	background-color: #FFFFFF;
 	color: #666666;
-    border-left: 1px solid #efeff4;
-    border-radius:0 ;
+	border-left: 1px solid #efeff4;
+	border-radius: 0;
 }
-.mui-segmented-control .mui-control-item.mui-active{
+
+.mui-segmented-control .mui-control-item.mui-active {
 	border-bottom: solid #F89406 2px;
 	background-color: #ffffff;
 	color: #F89406;
 }
 
-
 #table-wrapper {
-  position:relative;
-  margin-top: 0px;
+	position: relative;
+	margin-top: 0px;
 }
+
 #table-scroll {
-  height:80px;
-  overflow:auto;  
+	height: 80px;
+	overflow: auto;
 }
 
 #table-wrapper table {
-  	width:100%;
-  	border: solid #efeff4 1px;
-  	border-left: 0px;
-  	border-right: 0px;
-   	background-color: white;
+	width: 100%;
+	border: solid #efeff4 1px;
+	border-left: 0px;
+	border-right: 0px;
+	background-color: white;
 }
+
 #table-wrapper table * {
-  color:black;
+	color: black;
 }
-.img_choice{
+
+.img_choice {
 	width: 100%;
 	height: 40px;
-	overflow-x:scroll;
+	overflow-x: scroll;
 }
-.img_choice tr td img{
+
+.img_choice tr td img {
 	height: 35px;
-	margin:2px 10px ;
+	margin: 2px 10px;
 }
-.img_choice tr td div{
+
+.img_choice tr td div {
 	height: 35px;
 	width: 35px;
-	margin:2px 10px ;
+	margin: 2px 10px;
 }
-.maker_img{
+
+.maker_img {
 	background-color: white;
 }
-.maker_text{
+
+.maker_text {
 	background-color: white;
+}
+
+
+/*controllers*/
+
+#controllerBottom {
+	background-color: white;
+}
+
+#controllerBottom li {
+	list-style: none;
+	display: inline-block;
+	width: %;
+}
+#controllerBottom .procBtn {
+	font-size: 20px;
+}
+
+#controllerBottom .procBtn:active {
+	color: #555555;
 }

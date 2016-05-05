@@ -10,12 +10,6 @@
 		<link href="../../css/maker.css" rel="stylesheet" />
 		<script src="../../js/fabric/fabric.min.js"></script>
 		<script type="text/javascript" charset="UTF-8">
-			var canvas = null;
-			var selectedItem = null;
-			mui.plusReady(function() {
-				canvas = new fabric.Canvas('maker');
-			});
-
 			function bringForward() {
 				selectedItem.bringToFront();
 				canvas.renderAll();
