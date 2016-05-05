@@ -10,45 +10,55 @@
 		<link href="../../css/maker.css" rel="stylesheet" />
 		<script src="../../js/fabric/fabric.min.js"></script>
 		<script type="text/javascript" charset="UTF-8">
-			function paintImage(obj) {
-				var c = document.getElementById("maker");
-				var ctx = c.getContext("2d");
-				ctx.drawImage(obj, 10, 10);
+			var canvas = null;
+			var selected = null;
+			mui.plusReady(function() {
+				canvas = new fabric.Canvas('maker');
+			});
+
+			function bringForward() {
+				canvas.item(0).set({
+					borderColor: 'red',
+					cornerColor: 'green',
+					cornerSize: 100
+				});
+				canvas.renderAll();
+			}
+
+			function bringBackward() {}
+
+			function deleteItem() {
+				canvas.item(0).remove();
+				canvas.renderAll();
 			}
 
 			function test() {
-				var canvas = new fabric.Canvas('maker');
-				var rect = new fabric.Rect({
+				/*var rect = new fabric.Rect({
 					left: 100,
 					top: 100,
 					fill: 'red',
 					width: 20,
-					height: 20
+					height: 20,
+					borderColor: 'red',
+					cornerColor: 'green',
+					cornerSize: 30,
+					transparentCorners: false
 				});
-				canvas.add(rect);
-				fabric.Image.fromURL('../../img/微信.png', function(img) {
-				  img.scale(0.5).set({
-				    left: 150,
-				    top: 150,
-				    angle: -15
-				  });
-				  canvas.add(img).setActiveObject(img);
-canvas.item(1).set({
-    borderColor: 'red',
-    cornerColor: 'green',
-    cornerSize: 30,
-    transparentCorners: false
-  });
-});
+				canvas.add(rect);*/
+				fabric.Image.fromURL('../../img/qq.png', function(img) {
+					img.scale(0.5).set({
+						left: 150,
+						top: 150,
+						angle: -15,
+						borderColor: 'red',
+						cornerColor: 'green',
+						cornerSize: 30,
+						transparentCorners: false
+					});
+					canvas.add(img).setActiveObject(img);
+				});
+				canvas.renderAll();
 			}
-			mui.init();
-			mui.plusReady(function() {
-				mui("body").on("drag", "img", function() {});
-				mui("body").on("drop", "img", function(ev) {
-					var str = ev.toString();
-					alert(str);
-				});
-			});
 		</script>
 	</head>
 
@@ -64,11 +74,16 @@ canvas.item(1).set({
 					<table class="img_choice">
 						<tr>
 							<td><button style="width: 100px;height: 100%;" onclick="test()">test</button></td>
-							<td><img onclick="paintImage(this)" src="../../img/thumb.png"></td>
+							<td><button style="width: 100px;height: 100%;" onclick="bringForward()">forward</button></td>
+							<td><button style="width: 100px;height: 100%;" onclick="bringBackward()">backward</button></td>
+							<td><button style="width: 100px;height: 100%;" onclick="deleteItem()">X</button></td>
 						</tr>
 					</table>
 				</div>
 			</div>
 	</body>
+	<script>
+		canvas = new fabric.Canvas('maker');
+	</script>
 
 </html>

@@ -269,7 +269,8 @@
 					"img/thumbDown.png",
 					"img/faces/face(4).jpg",
 					"css/iconfont.woff",
-					"js/index.js"
+					"js/index.js",
+					"css/iconfont.ttf"
 				],
 				"refer": [
 					"personalCenter.html",

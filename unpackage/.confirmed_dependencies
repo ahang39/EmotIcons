@@ -46,7 +46,8 @@
 			"css/iconfont.woff",
 			"img/faces/face(2).jpg",
 			"js/index.js",
-			"img/faces/face(4).jpg"
+			"img/faces/face(4).jpg",
+			"css/iconfont.ttf"
 		],
 		"refer": [
 			"module/maker/maker.html"
