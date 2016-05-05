@@ -57,8 +57,8 @@ function finishText(flag) {
 		fontSize: 40,
 		fontWeight: 'normal',
 		shadow: 'green -5px -5px 3px',
-		fontStyle: 'italic',
-		textBackgroundColor: 'rgb(0,200,0)'
+		fontStyle: 'normal',
+  		textBackgroundColor: 'rgb(0,200,0)'
 	});
 	text.on('selected', function() {
 		document.getElementById("text_change").value = this.getText();
@@ -90,10 +90,15 @@ function changeTextBackgroundColor(obj) {
 		canvas.renderAll();
 	}
 }
-
 function changeTextShadowColor(obj) {
 	if (isText) {
 		selectedItem.setTextBackgroundColor(obj.style.backgroundColor);
 		canvas.renderAll();
 	}
 }
+function changeTextFontFamily(obj){
+	console.log(obj.style.fontFamily);
+	currentTextObj.setFontFamily(obj.style.fontFamily);
+	canvas.renderAll();
+}
+
