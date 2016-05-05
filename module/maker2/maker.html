@@ -11,24 +11,23 @@
 		<script src="../../js/fabric/fabric.min.js"></script>
 		<script type="text/javascript" charset="UTF-8">
 			var canvas = null;
-			var selected = null;
+			var selectedItem = null;
 			mui.plusReady(function() {
 				canvas = new fabric.Canvas('maker');
 			});
 
 			function bringForward() {
-				canvas.item(0).set({
-					borderColor: 'red',
-					cornerColor: 'green',
-					cornerSize: 100
-				});
+				selectedItem.bringToFront();
 				canvas.renderAll();
 			}
 
-			function bringBackward() {}
+			function bringBackward() {
+				selectedItem.sendToBack();
+				canvas.renderAll();
+			}
 
 			function deleteItem() {
-				canvas.item(0).remove();
+				selectedItem.remove();
 				canvas.renderAll();
 			}
 
@@ -56,6 +55,10 @@
 						transparentCorners: false
 					});
 					canvas.add(img).setActiveObject(img);
+					selectedItem = img;
+					img.on("selected", function() {
+						selectedItem = this;
+					});
 				});
 				canvas.renderAll();
 			}
