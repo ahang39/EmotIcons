@@ -11,12 +11,13 @@ function paintImage(obj){
 	  });
 	  canvas.add(img).setActiveObject(img);
 	});
-	canvas.item(0).set({
-	    borderColor: 'red',
-	    cornerColor: 'green',
-	    cornerSize: 30,
-	    transparentCorners: false
-  });
+//	canvas.item(0).set({
+//	    borderColor: 'red',
+//	    cornerColor: 'green',
+//	    cornerSize: 30,
+//	    
+//	    transparentCorners: false
+//});
 }
 
 function finishText(flag){
@@ -26,11 +27,11 @@ function finishText(flag){
 	{
 		left: 100,
 		top: 100 ,
-		fontFamily: 'Comic Sans',
+		fontFamily: '微软雅黑',
 		fontSize: 40,
 		fontWeight: 'normal',
 		shadow: 'green -5px -5px 3px',
-		fontStyle: 'italic',
+		fontStyle: 'normal',
   		textBackgroundColor: 'rgb(0,200,0)'
 	});
 //	var text = new fabric.Text(text, 
@@ -58,16 +59,25 @@ function finishText(flag){
 function changeText(){
 	var changeText=document.getElementById("text_change").value
 	currentTextObj.setText(changeText);
+	canvas.renderAll();
 }
 function changeTextColor(obj){
 	console.log(obj.style.backgroundColor);
 	currentTextObj.setColor(obj.style.backgroundColor);
+	canvas.renderAll();
 }
 function changeTextBackgroundColor(obj){
 	console.log(obj.style.backgroundColor);
 	currentTextObj.setTextBackgroundColor(obj.style.backgroundColor);
+	canvas.renderAll();
 }
 function changeTextShadowColor(obj){
 	console.log(obj.style.backgroundColor);
 	currentTextObj.setTextBackgroundColor(obj.style.backgroundColor);
+	canvas.renderAll();
+}
+function changeTextFontFamily(obj){
+	console.log(obj.style.fontFamily);
+	currentTextObj.setFontFamily(obj.style.fontFamily);
+	canvas.renderAll();
 }
