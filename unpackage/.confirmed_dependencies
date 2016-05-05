@@ -21,7 +21,8 @@
 			"img/fav.png",
 			"img/detailHover.png",
 			"img/faces/face(2).jpg",
-			"img/faces/face(4).jpg"
+			"img/faces/face(4).jpg",
+			"js/fabric/fabric.min.js"
 		]
 	},
 	"index.html": {
@@ -35,7 +36,9 @@
 			"js/jump.js"
 		],
 		"refer": [
-			"_index.html"
+			"_index.html",
+			"personalCenter.html",
+			"module/maker2/maker.html"
 		]
 	},
 	"_index.html": {
@@ -51,6 +54,31 @@
 		],
 		"refer": [
 			"module/maker/maker.html"
+		]
+	},
+	"personalCenter.html": {
+		"resources": [
+			"js/mui.min.js",
+			"js/personalCenter.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"img/photo.jpg",
+			"js/jump.js",
+			"css/personalCenter.css"
+		],
+		"refer": [
+			"module/personalCenter/profile.html"
+		]
+	},
+	"module/maker2/maker.html": {
+		"resources": [
+			"img/微信.png",
+			"js/fabric/fabric.min.js",
+			"css/maker.css",
+			"js/mui.min.js",
+			"img/thumb.png",
+			"fonts/mui.ttf",
+			"css/mui.min.css"
 		]
 	}
 }
