@@ -22,10 +22,18 @@
 			<div class="nvtt">军火制造中心</div>
 		</header>
 		<div class="content">
-			<canvas id="maker" height="300" width="450"></canvas>
+			<div id="controllerTop">
+				<ul class="mui-table-view mui-grid-view">
+					<li class="mui-table-view-cell mui-col-xs-1 procBtn " onclick="removeAll()"><i class="iconfont icon-bin"></i></li>
+					<li class="mui-table-view-cell mui-col-xs-1 procBtn" onclick=""><i class="iconfont icon-image"></i></li>
+					<li class="mui-table-view-cell mui-col-xs-3 procBtn"><i class="iconfont icon-down" onclick=""></i></li>
+					<li class="mui-table-view-cell mui-col-xs-3 procBtn"><i class="iconfont icon-remove" onclick="test()"></i></li>
+				</ul>
+			</div>
+			<canvas id="maker" height="300" width="400"></canvas>
 			<div id="controllerBottom">
 				<ul class="mui-table-view mui-grid-view">
-					<li class="mui-table-view-cell mui-col-xs-3 procBtn " onclick=""><i class="iconfont icon-change"></i></li>
+					<li class="mui-table-view-cell mui-col-xs-3 procBtn " onclick="flipX()"><i class="iconfont icon-change"></i></li>
 					<li class="mui-table-view-cell mui-col-xs-3 procBtn" onclick="bringForward()"><i class="iconfont icon-up"></i></li>
 					<li class="mui-table-view-cell mui-col-xs-3 procBtn"><i class="iconfont icon-down" onclick="sendBackward()"></i></li>
 					<li class="mui-table-view-cell mui-col-xs-3 procBtn"><i class="iconfont icon-remove" onclick="removeItem()"></i></li>
@@ -55,8 +63,6 @@
 										<td><img onclick="paintImage(this)" src="../../img/favHover.png"></td>
 										<td><img onclick="paintImage(this)" src="../../img/photo.jpg"></td>
 										<td><img onclick="paintImage(this)" src="../../img/qq.png"></td>
-										<td><img onclick="paintImage(this)" src="../../img/微信.png"></td>
-										<td><img onclick="paintImage(this)" src="../../img/朋友圈.png"></td>
 										<td><img onclick="paintImage(this)" src="../../img/thumb.png"></td>
 									</tr>
 								</table>
@@ -302,9 +308,4 @@
 			</div>
 		</div>
 	</body>
-
-	<script>
-		canvas = new fabric.Canvas('maker');
-	</script>
-
 </html>

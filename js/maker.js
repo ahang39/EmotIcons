@@ -1,21 +1,38 @@
 var canvas = null;
 var selectedItem = null; //保存当前选中的对象
 var isText = false;
-
+var width = document.width;
+var height = document.height;
 mui.plusReady(function() {
-	canvas = new fabric.Canvas('maker');
+	initial();
 });
+
+function initial() {
+	canvas = new fabric.Canvas('maker');
+	canvas.setBackgroundColor("white");
+	canvas.setWidth(width);
+	canvas.setHeight(height - 300);
+	canvas.renderAll();
+}
+
+function flipX() {
+	if (selectedItem) {
+		var isFlipX = selectedItem.getFlipX();
+		selectedItem.set("flipX", isFlipX ? false : true);
+	}
+	canvas.renderAll();
+}
 
 function bringForward() {
 	if (selectedItem) {
-		selectedItem.bringToFront();
+		selectedItem.bringForward();
 		canvas.renderAll();
 	}
 }
 
 function sendBackward() {
 	if (selectedItem) {
-		selectedItem.sendToBack();
+		selectedItem.sendBackwards();
 		canvas.renderAll();
 	}
 }
@@ -24,7 +41,23 @@ function removeItem() {
 	if (selectedItem) {
 		selectedItem.remove();
 		canvas.renderAll();
+		selectedItem = null;
+		isText = false;
 	}
+}
+
+function removeAll() {
+	canvas.clear();
+	selectedItem = null;
+	isText = false;
+}
+
+function test() {
+	if (selectedItem) {
+		var isFlipX = selectedItem.getFlipX();
+		selectedItem.set("flipX", isFlipX ? false : true);
+	}
+	canvas.renderAll();
 }
 
 function paintImage(obj) {
@@ -37,12 +70,11 @@ function paintImage(obj) {
 			cornerSize: 20,
 			transparentCorners: false
 		});
-		canvas.add(img).setActiveObject(img);
-		selectedItem = img;
 		img.on("selected", function() {
 			selectedItem = this;
 			isText = false;
 		});
+		canvas.add(img).setActiveObject(img);
 	});
 	canvas.renderAll();
 }
@@ -60,11 +92,12 @@ function finishText(flag) {
 		fontStyle: 'normal',
 		textBackgroundColor: 'rgb(0,200,0)'
 	});
-	text.on('selected', function() {
+	var e = text.on('selected', function() {
 		document.getElementById("text_change").value = this.getText();
 		selectedItem = this;
 		isText = true;
 	});
+	text.dispatchEvent(e);
 	canvas.add(text);
 	canvas.renderAll();
 }

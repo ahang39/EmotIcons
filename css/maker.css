@@ -127,6 +127,14 @@ body {
 	display: inline-block;
 }
 
+#controllerBottom .procBtn i {
+	font-size: 20px;
+}
+
+#controllerBottom .procBtn i:active {
+	color: #777777;
+}
+
 .icon-change {
 	color: #1BBC9B;
 }
@@ -141,12 +149,4 @@ body {
 
 .icon-remove {
 	color: #E26A6A;
-}
-
-#controllerBottom .procBtn i {
-	font-size: 20px;
-}
-
-#controllerBottom .procBtn i:active {
-	color: #777777;
 }
