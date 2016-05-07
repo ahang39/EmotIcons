@@ -1,5 +1,5 @@
 function dispatcher (page) { //list点击item后的事件
-	mui.ready(function(){
+	mui.plusReady(function(){
 		switch(page){
 			case "personalCenter":
 				personalCenter = plus.webview.create("personalCenter.html");

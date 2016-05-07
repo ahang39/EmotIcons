@@ -7,21 +7,17 @@
     <script src="js/mui.min.js"></script>
     <link href="css/mui.min.css" rel="stylesheet"/>
     <link href="css/personalCenter.css" rel="stylesheet"/>
+    <script src="js/account/account.js"></script>
    	<script src="js/personalCenter.js"></script>
     <script src="js/jump.js"></script>
+    <script src="js/login.js"></script>
     <script>
     	mui.init({
       		swipeBack:true
       	});
     	mui.plusReady(function(){
-    		if(plus.storage.getItem("username")!=null)
-    			document.getElementById("center_username").innerHTML=plus.storage.getItem("username");
-    		else
-    			document.getElementById("center_username").innerHTML="未设置用户名";
-    		if(plus.storage.getItem("email")!=null)
-    			document.getElementById("center_email").innerHTML=plus.storage.getItem("email");
-    		else
-    			document.getElementById("center_email").innerHTML="未绑定";
+    		document.getElementById("center_username").innerHTML=getUsername();
+    		document.getElementById("center_email").innerHTML=getEmail();
     	});
     	
     </script>
@@ -53,7 +49,7 @@
 			<li class="mui-table-view-cell" id="about">关于这个APP<span class="mui-icon mui-icon-arrowright" style="float: right;"></span></li>
 		</ul>
 		
-		<div class="exit optionMargin" id="exit_panel"><button type="button" id="exit_btn" class="mui-btn mui-btn-warning" style="float: right;" >退出登录</button></div>
+		<div class="exit optionMargin" id="exit_panel"><button type="button" id="exit_button" class="mui-btn mui-btn-warning" style="float: right;" >退出登录</button></div>
 	</div>
 </body>
 </html>

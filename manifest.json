@@ -230,7 +230,9 @@
 					"css/mui.min.css",
 					"fonts/mui.ttf",
 					"js/personalCenter.js",
-					"img/photo.jpg"
+					"img/photo.jpg",
+					"js/account/account.js",
+					"js/login.js"
 				],
 				"refer": [
 					"notification_setting.html",
@@ -271,7 +273,9 @@
 					"img/faces/face(4).jpg",
 					"css/iconfont.woff",
 					"js/index.js",
-					"css/iconfont.ttf"
+					"css/iconfont.ttf",
+					"css/iconfont.css",
+					"js/mui.js"
 				],
 				"refer": [
 					"personalCenter.html",
@@ -295,9 +299,13 @@
 					"js/mui.min.js",
 					"fonts/mui.ttf",
 					"css/mui.min.css",
-					"css/personalCenter.css"
+					"css/personalCenter.css",
+					"js/personalCenter.js",
+					"js/account/account.js"
 				],
-				"refer": [],
+				"refer": [
+					"module/personalCenter/login.html"
+				],
 				"priority": 0
 			},
 			"module/maker/maker.html": {
@@ -323,7 +331,9 @@
 					"img/detailHover.png",
 					"img/faces/face(2).jpg",
 					"img/faces/face(4).jpg",
-					"js/fabric/fabric.min.js"
+					"js/fabric/fabric.min.js",
+					"css/iconfont.css",
+					"css/iconfont.woff"
 				],
 				"refer": [],
 				"priority": 0
@@ -337,6 +347,38 @@
 					"img/thumb.png",
 					"fonts/mui.ttf",
 					"css/mui.min.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"module/personalCenter/login.html": {
+				"resources": [
+					"js/login.js",
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/personalCenter.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"module/personalCenter/about.html": {
+				"resources": [
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/personalCenter.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"module/personalCenter/notification_setting.html": {
+				"resources": [
+					"js/mui.min.js",
+					"js/personalCenter.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/personalCenter.css"
 				],
 				"refer": [],
 				"priority": 0

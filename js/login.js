@@ -20,9 +20,6 @@ function account_gate(url,data,flag){
 }
 /**********账户注册*********/
 function account_register(surl,send){
-	for(var key in send){
-		console.log(send[key]);
-	}
     mui.ajax(surl,{
     		data:send,
             dataType:"json",
@@ -54,14 +51,11 @@ function account_login(surl,send){
             type:"POST",
             timeout:10000,
             success:function(respon,status,xhr){
-            	console.log(status);
-            	for(var key in respon){
-            		console.log(respon[key]);
-            	}
                 if(respon.login_status=="successful"){
                     mui.alert("登录成功!","提示信息","确认",function(){
                     	plus.storage.setItem("email",send.email);
                     	plus.storage.setItem("password",send.password);
+                    	setProfile(respon);
                     	mui.openWindow("profile.html");
                     });
                 }else{
@@ -76,7 +70,7 @@ function account_login(surl,send){
 }
 /***********************检查用户的cookie是否存在*******************/
 function isonline(surl,send){
-    $.ajax(surl,{
+    mui.ajax(surl,{
             dataType:"json",
             data:send,
             type:"POST",
@@ -95,12 +89,13 @@ function isonline(surl,send){
 }
 /**********************退出登录**********************/
 function exit_login(surl,send){
-    $.ajax(surl,{
+    mui.ajax(surl,{
             dataType:"json",
             data:send,
             type:"POST",
             success:function(respon,status,xhr){
                 if(respon.exit_status=="successful"){
+                	removeProfile();
                     mui.alert("退出登录成功!","提示信息","确认",null);
                 }else{
                 	mui.alert("退出登录失败!","提示信息","确认",null);
@@ -118,6 +113,9 @@ mui.plusReady(function(){
 	});
 	mui("#register_button").on("tap","#register",function(){
 		account_gate("http://tu.myway5.com/php/index.php",{"action":"account_action","sub_action":"register","username":document.forms["register_form"]["username"].value,"password":document.forms["register_form"]["password"].value,"email":document.forms["register_form"]["email"].value},"account_register");
+	});
+	mui("#exit_panel").on("tap","#exit_button",function(){
+		account_gate("http://tu.myway5.com/php/index.php",{"action":"account_action","sub_action":"exit_login"},"exit_login");
 	});
 });
 

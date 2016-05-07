@@ -1,17 +1,21 @@
 var canvas = null;
 var selectedItem = null; //保存当前选中的对象
 var isText = false;
-var width = document.width;
-var height = document.height;
+var width = window.screen.width;
+//var height = document.height;
 mui.plusReady(function() {
-	initial();
+	console.log(width);
+	canvas = new fabric.Canvas('maker');
+	canvas.setBackgroundColor("white");
+	canvas.renderAll();
+	//initial();
 });
 
 function initial() {
 	canvas = new fabric.Canvas('maker');
 	canvas.setBackgroundColor("white");
 	canvas.setWidth(width);
-	canvas.setHeight(height - 300);
+	canvas.setHeight(height);
 	canvas.renderAll();
 }
 

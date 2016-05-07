@@ -22,7 +22,9 @@
 			"img/detailHover.png",
 			"img/faces/face(2).jpg",
 			"img/faces/face(4).jpg",
-			"js/fabric/fabric.min.js"
+			"js/fabric/fabric.min.js",
+			"css/iconfont.css",
+			"css/iconfont.woff"
 		]
 	},
 	"index.html": {
@@ -50,7 +52,12 @@
 			"img/faces/face(2).jpg",
 			"js/index.js",
 			"img/faces/face(4).jpg",
-			"css/iconfont.ttf"
+			"css/iconfont.ttf",
+			"css/index.css",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"js/mui.js",
+			"js/jump.js"
 		],
 		"refer": [
 			"module/maker/maker.html"
@@ -64,10 +71,14 @@
 			"css/mui.min.css",
 			"img/photo.jpg",
 			"js/jump.js",
-			"css/personalCenter.css"
+			"css/personalCenter.css",
+			"js/account/account.js",
+			"js/login.js"
 		],
 		"refer": [
-			"module/personalCenter/profile.html"
+			"module/personalCenter/profile.html",
+			"module/personalCenter/about.html",
+			"module/personalCenter/notification_setting.html"
 		]
 	},
 	"module/maker2/maker.html": {
@@ -79,6 +90,45 @@
 			"img/thumb.png",
 			"fonts/mui.ttf",
 			"css/mui.min.css"
+		]
+	},
+	"module/personalCenter/login.html": {
+		"resources": [
+			"js/login.js",
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/personalCenter.css"
+		]
+	},
+	"module/personalCenter/profile.html": {
+		"refer": [
+			"module/personalCenter/login.html"
+		],
+		"resources": [
+			"js/mui.min.js",
+			"js/personalCenter.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/personalCenter.css",
+			"js/account/account.js"
+		]
+	},
+	"module/personalCenter/about.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/personalCenter.css"
+		]
+	},
+	"module/personalCenter/notification_setting.html": {
+		"resources": [
+			"js/mui.min.js",
+			"js/personalCenter.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/personalCenter.css"
 		]
 	}
 }
