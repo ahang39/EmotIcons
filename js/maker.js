@@ -1,14 +1,16 @@
 var canvas = null;
 var selectedItem = null; //保存当前选中的对象
 var isText = false;
-var width = document.width;
+var width = window.screen.width;
 var height = document.height;
 mui.plusReady(function() {
 	initial();
 });
 
 function initial() {
-	canvas = new fabric.Canvas('maker');
+	canvas = new fabric.Canvas('maker', {
+		selection: false //禁止拖选
+	});
 	canvas.setBackgroundColor("white");
 	canvas.setWidth(width);
 	canvas.setHeight(height - 300);
@@ -53,22 +55,23 @@ function removeAll() {
 }
 
 function test() {
-	if (selectedItem) {
-		var isFlipX = selectedItem.getFlipX();
-		selectedItem.set("flipX", isFlipX ? false : true);
-	}
-	canvas.renderAll();
+var dataURL = canvas.toDataURL({
+  format: 'png',
+  left: 100,
+  top: 100,
+  width: 200,
+  height: 200
+});
 }
 
-function paintImage(obj) {
-	fabric.Image.fromURL(obj.src, function(img) {
-		img.scale(1).set({
+function addImage(src, wid) {
+	if (!arguments[1]) wid = width * 0.7;
+	fabric.Image.fromURL(src, function(img) {
+		wid = img.getWidth() > wid ? wid : img.getWidth();
+		img.scaleToWidth(wid).set({
 			left: 10,
 			top: 10,
-			borderColor: 'red',
-			cornerColor: 'green',
-			cornerSize: 20,
-			transparentCorners: false
+			transparentCorners: true
 		});
 		img.on("selected", function() {
 			selectedItem = this;
@@ -79,7 +82,7 @@ function paintImage(obj) {
 	canvas.renderAll();
 }
 
-function finishText(flag) {
+function addText(flag) {
 	var input = document.getElementById("text_input");
 	var text = input.value;
 	var text = new fabric.Text(text, {
@@ -92,12 +95,11 @@ function finishText(flag) {
 		fontStyle: 'normal',
 		textBackgroundColor: 'rgb(0,200,0)'
 	});
-	var e = text.on('selected', function() {
+	text.on('selected', function() {
 		document.getElementById("text_change").value = this.getText();
 		selectedItem = this;
 		isText = true;
 	});
-	text.dispatchEvent(e);
 	canvas.add(text);
 	canvas.renderAll();
 }
@@ -137,4 +139,25 @@ function changeTextFontFamily(obj) {
 		selectedItem.setFontFamily(obj.style.fontFamily);
 		canvas.renderAll();
 	}
+}
+
+function takePicture() {
+	var cmr = plus.camera.getCamera();
+	var res = cmr.supportedImageResolutions[0];
+	var fmt = cmr.supportedImageFormats[0];
+	console.log("Resolution: " + res + ", Format: " + fmt);
+	cmr.captureImage(function(path) {
+			//alert("Capture image success: " + path);
+			path = path.substring(1, path.length);
+			path = "../../../" + path;
+			addImage(path);
+		},
+		function(error) {
+			mui.toast("获取图片失败!");
+			alert(error.message);
+		}, {
+			resolution: "480*320",
+			format: fmt
+		}
+	);
 }

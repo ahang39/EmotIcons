@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../../js/mui.js"></script>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link href="../../css/index.css" rel="stylesheet" />
+		<link href="../../css/iconfont.css" rel="stylesheet" />
+		<script src="../../js/index.js"></script>
+		<script src="../../js/jump.js"></script>
+		<script>
+			mui.init({
+				subpages: [{
+					url: '_square.html', //子页面HTML地址，支持本地地址和网络地址
+					id: '_square', //子页面标志
+					styles: {
+						top: '65px', //子页面顶部位置
+						bottom: '0', //子页面底部位置
+					},
+					extras: {} //额外扩展参数
+				}]
+			});
+		</script>
+	</head>
+
+	<body>
+		<header id="navBar" class="mui-bar mui-bar-nav navBar">
+			<div class="quarter quarter1">
+				<div class="mui-icon mui-icon-home leftButton" onclick="plus.webview.show('personalCenter');"></div>
+			</div>
+			</div>
+			<div class="quarter quarter2">
+				<a class="active">斗图广场</a></div>
+			<div class="quarter quarter3 " onclick="plus.webview.show('storage');"><a>军火仓库</a></div>
+			<div class="quarter quarter4">
+				<div id="searchIcon" class="mui-icon mui-icon-search rightButton " onclick="toggleSearch() "></div>
+			</div>
+			<div id="search" class="search" style="visibility: hidden;">
+				<form id="searchForm" action=" ">
+					<input id="searchInput" type="search" class="mui-input-clear" placeholder="请输入作者名或表情名 " name="search ">
+				</form>
+			</div>
+		</header>
+		<div class="mui-backdrop " onclick="toggleSearch(); "></div>
+
+	</body>
+
+</html>

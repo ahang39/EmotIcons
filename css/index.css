@@ -90,11 +90,10 @@ body {
 /*footer*******/
 
 .mask {
-	height: 170px;
-	background: -webkit-linear-gradient( rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 1) 50%);
+/*	background: -webkit-linear-gradient( rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 1) 50%);*/
 	width: 100%;
 	position: fixed;
-	bottom: 0;
+	bottom: 20px;
 	z-index: 9999;
 }
 
@@ -129,10 +128,18 @@ body {
 
 /*pictures*****/
 
-.half-container {
-	width: 47%;
-	margin-bottom: auto;
-	margin-right: auto;
+.left-container {
+	float: left;
+	width: 49%;
+	margin-left: 0.6%;
+	display: inline-block;
+	vertical-align: top;
+}
+
+.right-container {
+	float: right;
+	width: 49%;
+	margin-right: 0.6%;
 	display: inline-block;
 	vertical-align: top;
 }
@@ -140,12 +147,13 @@ body {
 .container {
 	width: 100%;
 }
-
+#storageContainer{
+	margin: 3px;
+}
 .picShow {
 	position: relative;
-	margin: 10px;
+	margin-top: 3px;
 	padding: 1%;
-	width: 100%;
 	border: 1px solid #CCCCCC;
 }
 

@@ -22,7 +22,9 @@
 			"img/detailHover.png",
 			"img/faces/face(2).jpg",
 			"img/faces/face(4).jpg",
-			"js/fabric/fabric.min.js"
+			"js/fabric/fabric.min.js",
+			"css/iconfont.css",
+			"css/iconfont.ttf"
 		]
 	},
 	"index.html": {
@@ -33,12 +35,17 @@
 			"css/mui.min.css",
 			"js/mui.js",
 			"_index.html",
-			"js/jump.js"
+			"js/jump.js",
+			"js/mui.min.js"
 		],
 		"refer": [
 			"_index.html",
 			"personalCenter.html",
-			"module/maker2/maker.html"
+			"module/maker2/maker.html",
+			"module/mainView/storage.html",
+			"module/maker/maker.html",
+			"module/showImage/image.html",
+			"module/mainView/square.html"
 		]
 	},
 	"_index.html": {
@@ -79,6 +86,53 @@
 			"img/thumb.png",
 			"fonts/mui.ttf",
 			"css/mui.min.css"
+		]
+	},
+	"module/mainView/storage.html": {
+		"resources": [
+			"module/mainView/_storage.html"
+		],
+		"refer": [
+			"module/mainView/_storage.html"
+		]
+	},
+	"module/showImage/image.html": {
+		"resources": [
+			"img/faces/face(1).jpg",
+			"css/iconfont.ttf",
+			"img/qq.png",
+			"fonts/mui.ttf",
+			"css/image.css"
+		]
+	},
+	"module/mainView/square.html": {
+		"resources": [
+			"css/index.css",
+			"js/mui.js",
+			"module/mainView/_square.html",
+			"js/index.js",
+			"fonts/mui.ttf",
+			"css/iconfont.css"
+		],
+		"refer": [
+			"module/mainView/_square.html"
+		]
+	},
+	"module/mainView/_square.html": {
+		"resources": [
+			"img/plus.png",
+			"css/index.css",
+			"css/iconfont.ttf",
+			"fonts/mui.ttf",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"js/mui.js",
+			"js/index.js"
+		]
+	},
+	"module/mainView/_storage.html": {
+		"resources": [
+			"img/plus.png"
 		]
 	}
 }
