@@ -335,7 +335,7 @@
 					"img/detailHover.png",
 					"img/faces/face(2).jpg",
 					"img/faces/face(4).jpg",
-					"js/fabric/fabric.min.js",
+					"js/fabric/fabric_with_gestures.js",
 					"css/iconfont.css",
 					"css/iconfont.ttf",
 					"css/iconfont.woff"
@@ -413,5 +413,5 @@
 				"css/mui.css"
 			]
 		}
-	}
+	},"fullscreen":false
 }
