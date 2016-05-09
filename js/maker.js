@@ -1,8 +1,9 @@
 var canvas = null;
 var selectedItem = null; //保存当前选中的对象
 var isText = false;
-var width = window.screen.width;
-var height = document.height;
+var width = 400;
+var height = 350;
+var path;
 mui.plusReady(function() {
 	initial();
 });
@@ -13,7 +14,7 @@ function initial() {
 	});
 	canvas.setBackgroundColor("white");
 	canvas.setWidth(width);
-	canvas.setHeight(height-350);
+	canvas.setHeight(height);
 	canvas.renderAll();
 }
 
@@ -53,9 +54,35 @@ function removeAll() {
 	selectedItem = null;
 	isText = false;
 }
-
-function test() {
-
+function saveToAlbum(){
+	save();
+	plus.gallery.save( path, function () {
+		alert( "保存图片到相册成功" );
+	},function(e) {
+		console.log("failed" + JSON.stringify(e));
+	});
+}
+function save() {
+	canvas.deactivateAll();
+	var bitmap = new plus.nativeObj.Bitmap();
+	var dataURL = canvas.toDataURL({
+		format: 'png'
+	});
+	bitmap.loadBase64Data(dataURL, function() {
+		console.log("success");
+	}, function(e) {
+		console.log("failed" + JSON.stringify(e));
+	});
+	var time = new Date();
+	var second = time.getTime();
+	path = "_doc/emoticon" + second + ".png";
+	bitmap.save(path, {}, function(i) {
+		console.log('保存图片成功：' + JSON.stringify(i));
+	}, function(e) {
+		console.log('保存图片失败：' + JSON.stringify(e));
+	});
+	path = path.substring(1, path.length);
+	path = "../../../" + path;
 }
 
 function addImage(src, wid) {
@@ -154,4 +181,10 @@ function takePicture() {
 			format: fmt
 		}
 	);
+}
+
+function convertCanvasToImage() {
+	var image = new Image();
+	image.src = canvas.toDataURL();
+	return image;
 }
