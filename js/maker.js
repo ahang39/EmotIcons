@@ -54,14 +54,16 @@ function removeAll() {
 	selectedItem = null;
 	isText = false;
 }
-function saveToAlbum(){
+
+function saveToAlbum() {
 	save();
-	plus.gallery.save( path, function () {
-		alert( "保存图片到相册成功" );
-	},function(e) {
+	plus.gallery.save(path, function() {
+		alert("保存图片到相册成功");
+	}, function(e) {
 		console.log("failed" + JSON.stringify(e));
 	});
 }
+
 function save() {
 	canvas.deactivateAll();
 	var bitmap = new plus.nativeObj.Bitmap();
@@ -162,6 +164,36 @@ function changeTextFontFamily(obj) {
 	}
 }
 
+function imageSelect() {
+	var bts = [{
+		title: "拍照"
+	}, {
+		title: "本地相册"
+	}];
+	plus.nativeUI.actionSheet({
+			title: "插入图片",
+			cancel: "取消",
+			buttons: bts
+		},
+		function(e) {
+			if (e.index == 1)
+				takePicture();
+			else if (e.index == 2)
+				getFromAlbum();
+		}
+	);
+}
+
+function getFromAlbum() {
+	plus.gallery.pick(function(path) {
+		addImage(path);
+	}, function(e) {
+		mui.toast("取消选择图片");
+	}, {
+		filter: "image"
+	});
+}
+
 function takePicture() {
 	var cmr = plus.camera.getCamera();
 	var res = cmr.supportedImageResolutions[0];
@@ -175,7 +207,6 @@ function takePicture() {
 		},
 		function(error) {
 			mui.toast("获取图片失败!");
-			alert(error.message);
 		}, {
 			format: fmt
 		}
