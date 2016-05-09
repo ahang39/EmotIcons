@@ -3,13 +3,8 @@ var selectedItem = null; //保存当前选中的对象
 var isText = false;
 var width = window.screen.width;
 var height = document.height;
-
 mui.plusReady(function() {
-	console.log(width);
-	canvas = new fabric.Canvas('maker');
-	canvas.setBackgroundColor("white");
-	canvas.renderAll();
-	//initial();
+	initial();
 });
 
 function initial() {
@@ -60,13 +55,7 @@ function removeAll() {
 }
 
 function test() {
-var dataURL = canvas.toDataURL({
-  format: 'png',
-  left: 100,
-  top: 100,
-  width: 200,
-  height: 200
-});
+
 }
 
 function addImage(src, wid) {

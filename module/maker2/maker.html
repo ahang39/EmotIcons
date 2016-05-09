@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../../js/mui.min.js"></script>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link href="../../css/maker.css" rel="stylesheet" />
+		<script src="../../js/fabric/fabric.min.js"></script>
+		<script type="text/javascript" charset="UTF-8">
+			function bringForward() {
+				selectedItem.bringToFront();
+				canvas.renderAll();
+			}
+
+			function bringBackward() {
+				selectedItem.sendToBack();
+				canvas.renderAll();
+			}
+
+			function deleteItem() {
+				selectedItem.remove();
+				canvas.renderAll();
+			}
+
+			function test() {
+				/*var rect = new fabric.Rect({
+					left: 100,
+					top: 100,
+					fill: 'red',
+					width: 20,
+					height: 20,
+					borderColor: 'red',
+					cornerColor: 'green',
+					cornerSize: 30,
+					transparentCorners: false
+				});
+				canvas.add(rect);*/
+				fabric.Image.fromURL('../../img/qq.png', function(img) {
+					img.scale(0.5).set({
+						left: 150,
+						top: 150,
+						angle: -15,
+						borderColor: 'red',
+						cornerColor: 'green',
+						cornerSize: 30,
+						transparentCorners: false
+					});
+					canvas.add(img).setActiveObject(img);
+					selectedItem = img;
+					img.on("selected", function() {
+						selectedItem = this;
+					});
+				});
+				canvas.renderAll();
+			}
+		</script>
+	</head>
+
+	<body>
+		<header class="mheader">
+			<div class="nvbt mui-action-back"><span class="mui-icon mui-icon-back"></span></div>
+			<div class="nvtt">军火制造中心</div>
+		</header>
+		<div class="content">
+			<canvas id="maker" width="400" height="400" style="border:1px solid #ccc"></canvas>
+			<div id="table-wrapper">
+				<div id="table-scroll">
+					<table class="img_choice">
+						<tr>
+							<td><button style="width: 100px;height: 100%;" onclick="test()">test</button></td>
+							<td><button style="width: 100px;height: 100%;" onclick="bringForward()">forward</button></td>
+							<td><button style="width: 100px;height: 100%;" onclick="bringBackward()">backward</button></td>
+							<td><button style="width: 100px;height: 100%;" onclick="deleteItem()">X</button></td>
+						</tr>
+					</table>
+				</div>
+			</div>
+	</body>
+	<script>
+		canvas = new fabric.Canvas('maker');
+	</script>
+
+</html>

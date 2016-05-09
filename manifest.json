@@ -208,11 +208,7 @@
 				"refer": [
 					"test.html",
 					"personalCenter.html",
-					"module/maker2/maker.html",
-					"module/mainView/storage.html",
-					"module/maker/maker.html",
-					"module/showImage/image.html",
-					"module/mainView/square.html"
+					"module/maker2/maker.html"
 				],
 				"priority": 0
 			},
@@ -337,7 +333,6 @@
 					"img/faces/face(4).jpg",
 					"js/fabric/fabric_with_gestures.js",
 					"css/iconfont.css",
-					"css/iconfont.ttf",
 					"css/iconfont.woff"
 				],
 				"refer": [],
@@ -356,53 +351,34 @@
 				"refer": [],
 				"priority": 0
 			},
-			"module/mainView/storage.html": {
+			"module/personalCenter/login.html": {
 				"resources": [
-					"module/mainView/_storage.html"
-				],
-				"refer": [],
-				"priority": 0
-			},
-			"module/showImage/image.html": {
-				"resources": [
-					"img/faces/face(1).jpg",
-					"css/iconfont.ttf",
-					"img/qq.png",
+					"js/login.js",
+					"js/mui.min.js",
 					"fonts/mui.ttf",
-					"css/image.css"
-				],
-				"refer": [],
-				"priority": 0
-			},
-			"module/mainView/square.html": {
-				"resources": [
-					"css/index.css",
-					"js/mui.js",
-					"module/mainView/_square.html",
-					"js/index.js",
-					"fonts/mui.ttf",
-					"css/iconfont.css"
-				],
-				"refer": [],
-				"priority": 0
-			},
-			"module/mainView/_square.html": {
-				"resources": [
-					"img/plus.png",
-					"css/index.css",
-					"css/iconfont.ttf",
-					"fonts/mui.ttf",
-					"css/iconfont.css",
 					"css/mui.min.css",
-					"js/mui.js",
-					"js/index.js"
+					"css/personalCenter.css"
 				],
 				"refer": [],
 				"priority": 0
 			},
-			"module/mainView/_storage.html": {
+			"module/personalCenter/about.html": {
 				"resources": [
-					"img/plus.png"
+					"js/mui.min.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/personalCenter.css"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"module/personalCenter/notification_setting.html": {
+				"resources": [
+					"js/mui.min.js",
+					"js/personalCenter.js",
+					"fonts/mui.ttf",
+					"css/mui.min.css",
+					"css/personalCenter.css"
 				],
 				"refer": [],
 				"priority": 0
