@@ -78,7 +78,8 @@
 		"refer": [
 			"module/personalCenter/profile.html",
 			"module/personalCenter/about.html",
-			"module/personalCenter/notification_setting.html"
+			"module/personalCenter/notification_setting.html",
+			"module/personalCenter/common_setting.html"
 		]
 	},
 	"module/maker2/maker.html": {
@@ -123,6 +124,15 @@
 		]
 	},
 	"module/personalCenter/notification_setting.html": {
+		"resources": [
+			"js/mui.min.js",
+			"js/personalCenter.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/personalCenter.css"
+		]
+	},
+	"module/personalCenter/common_setting.html": {
 		"resources": [
 			"js/mui.min.js",
 			"js/personalCenter.js",
