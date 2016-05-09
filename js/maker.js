@@ -1,8 +1,8 @@
 var canvas = null;
 var selectedItem = null; //保存当前选中的对象
 var isText = false;
-var width = window.screen.width;
-var height = document.height;
+var width = 400;
+var height = 350;
 mui.plusReady(function() {
 	initial();
 });
@@ -12,8 +12,8 @@ function initial() {
 		selection: false //禁止拖选
 	});
 	canvas.setBackgroundColor("white");
-	canvas.setWidth(400);
-	canvas.setHeight(350);
+	canvas.setWidth(width);
+	canvas.setHeight(height);
 	canvas.renderAll();
 }
 
