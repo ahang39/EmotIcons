@@ -35,12 +35,17 @@
 			"css/mui.min.css",
 			"js/mui.js",
 			"_index.html",
-			"js/jump.js"
+			"js/jump.js",
+			"js/mui.min.js"
 		],
 		"refer": [
 			"_index.html",
 			"personalCenter.html",
-			"module/maker2/maker.html"
+			"module/maker2/maker.html",
+			"module/mainView/storage.html",
+			"module/maker/maker.html",
+			"module/showImage/image.html",
+			"module/mainView/square.html"
 		]
 	},
 	"_index.html": {

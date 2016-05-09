@@ -12,7 +12,7 @@
 		<script type="text/javascript" charset="UTF-8">
 			mui.init();
 		</script>
-		<script src="../../js/fabric/fabric.min.js"></script>
+		<script src="../../js/fabric/fabric_with_gestures.js"></script>
 		<script src="../../js/maker.js"></script>
 	</head>
 
@@ -24,10 +24,11 @@
 		<div class="content">
 			<div id="controllerTop">
 				<ul class="mui-table-view mui-grid-view">
-					<li class="mui-table-view-cell mui-col-xs-1 procBtn " onclick="removeAll()"><i class="iconfont icon-bin"></i></li>
-					<li class="mui-table-view-cell mui-col-xs-1 procBtn" onclick=""><i class="iconfont icon-image"></i></li>
-					<li class="mui-table-view-cell mui-col-xs-3 procBtn"><i class="iconfont icon-down" onclick=""></i></li>
-					<li class="mui-table-view-cell mui-col-xs-3 procBtn"><i class="iconfont icon-remove" onclick="test()"></i></li>
+					<li class="mui-table-view-cell mui-col-xs-2 procBtn " onclick="removeAll()"><i class="iconfont icon-bin"></i></li>
+					<li class="mui-table-view-cell mui-col-xs-2 procBtn " onclick=""><i class="iconfont icon-text"></i></li>
+					<li class="mui-table-view-cell mui-col-xs-2 procBtn" onclick="takePicture()"><i class="iconfont icon-image"></i></li>
+					<li class="mui-table-view-cell mui-col-xs-2 procBtn"><i class="iconfont icon-download" onclick=""></i></li>
+					<li class="mui-table-view-cell mui-col-xs-2 procBtn"><i class="iconfont icon-save" onclick="test()"></i></li>
 				</ul>
 			</div>
 			<canvas id="maker" height="300" width="400"></canvas>
@@ -50,20 +51,20 @@
 							<div id="table-scroll">
 								<table class="img_choice">
 									<tr>
-										<td><img onclick="paintImage(this)" src="../../img/thumbActive.png"></td>
-										<td><img onclick="paintImage(this)" src="../../img/detail.png"></td>
-										<td><img onclick="paintImage(this)" src="../../img/detailActive.png"></td>
-										<td><img onclick="paintImage(this)" src="../../img/detailHover.png"></td>
-										<td><img onclick="paintImage(this)" src="../../img/faces/face(1).jpg"></td>
-										<td><img onclick="paintImage(this)" src="../../img/faces/face(2).jpg"></td>
-										<td><img onclick="paintImage(this)" src="../../img/faces/face(3).jpg"></td>
-										<td><img onclick="paintImage(this)" src="../../img/faces/face(4).jpg"></td>
-										<td><img onclick="paintImage(this)" src="../../img/fav.png"></td>
-										<td><img onclick="paintImage(this)" src="../../img/favActive.png"></td>
-										<td><img onclick="paintImage(this)" src="../../img/favHover.png"></td>
-										<td><img onclick="paintImage(this)" src="../../img/photo.jpg"></td>
-										<td><img onclick="paintImage(this)" src="../../img/qq.png"></td>
-										<td><img onclick="paintImage(this)" src="../../img/thumb.png"></td>
+										<td><img onclick="addImage(this.src)" src="../../img/thumbActive.png"></td>
+										<td><img onclick="addImage(this.src)" src="../../img/detail.png"></td>
+										<td><img onclick="addImage(this.src)" src="../../img/detailActive.png"></td>
+										<td><img onclick="addImage(this.src)" src="../../img/detailHover.png"></td>
+										<td><img onclick="addImage(this.src)" src="../../img/faces/face(1).jpg"></td>
+										<td><img onclick="addImage(this.src)" src="../../img/faces/face(2).jpg"></td>
+										<td><img onclick="addImage(this.src)" src="../../img/faces/face(3).jpg"></td>
+										<td><img onclick="addImage(this.src)" src="../../img/faces/face(4).jpg"></td>
+										<td><img onclick="addImage(this.src)" src="../../img/fav.png"></td>
+										<td><img onclick="addImage(this.src)" src="../../img/favActive.png"></td>
+										<td><img onclick="addImage(this.src)" src="../../img/favHover.png"></td>
+										<td><img onclick="addImage(this.src)" src="../../img/photo.jpg"></td>
+										<td><img onclick="addImage(this.src)" src="../../img/qq.png"></td>
+										<td><img onclick="addImage(this.src)" src="../../img/thumb.png"></td>
 									</tr>
 								</table>
 							</div>
@@ -298,7 +299,7 @@
 								</div>
 								<div id="text_item6" class="mui-control-content maker_text">
 									<input type="text" id="text_input" />
-									<button class="mui-btn mui-btn-primary" onclick="finishText()">完成</button>
+									<button class="mui-btn mui-btn-primary" onclick="addText()">完成</button>
 								</div>
 							</div>
 						</div>

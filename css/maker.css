@@ -123,6 +123,7 @@ body {
 
 /*controllers*/
 
+#controllerTop li,
 #controllerBottom li {
 	display: inline-block;
 }
@@ -131,7 +132,7 @@ body {
 	font-size: 20px;
 }
 
-#controllerBottom .procBtn i:active {
+.procBtn i:active {
 	color: #777777;
 }
 
@@ -149,4 +150,22 @@ body {
 
 .icon-remove {
 	color: #E26A6A;
+}
+.icon-bin{
+	color:#2C3E50;
+}
+.icon-text {
+	color: #4183D7;
+}
+
+.icon-image {
+	color: #F64747;
+}
+
+.icon-download {
+	color: #3A539B;
+}
+
+.icon-save {
+	color: #1E824C;
 }
