@@ -12,8 +12,8 @@ function initial() {
 		selection: false //禁止拖选
 	});
 	canvas.setBackgroundColor("white");
-	canvas.setWidth(width);
-	canvas.setHeight(height-350);
+	canvas.setWidth(400);
+	canvas.setHeight(350);
 	canvas.renderAll();
 }
 
@@ -150,7 +150,6 @@ function takePicture() {
 			mui.toast("获取图片失败!");
 			alert(error.message);
 		}, {
-			resolution: "480*320",
 			format: fmt
 		}
 	);
