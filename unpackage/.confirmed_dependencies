@@ -24,7 +24,11 @@
 			"img/faces/face(4).jpg",
 			"js/fabric/fabric.min.js",
 			"css/iconfont.css",
+<<<<<<< HEAD
 			"css/iconfont.ttf"
+=======
+			"css/iconfont.woff"
+>>>>>>> branch 'master' of https://github.com/ahang39/EmotIcons
 		]
 	},
 	"index.html": {
@@ -57,7 +61,12 @@
 			"img/faces/face(2).jpg",
 			"js/index.js",
 			"img/faces/face(4).jpg",
-			"css/iconfont.ttf"
+			"css/iconfont.ttf",
+			"css/index.css",
+			"css/iconfont.css",
+			"css/mui.min.css",
+			"js/mui.js",
+			"js/jump.js"
 		],
 		"refer": [
 			"module/maker/maker.html"
@@ -71,10 +80,14 @@
 			"css/mui.min.css",
 			"img/photo.jpg",
 			"js/jump.js",
-			"css/personalCenter.css"
+			"css/personalCenter.css",
+			"js/account/account.js",
+			"js/login.js"
 		],
 		"refer": [
-			"module/personalCenter/profile.html"
+			"module/personalCenter/profile.html",
+			"module/personalCenter/about.html",
+			"module/personalCenter/notification_setting.html"
 		]
 	},
 	"module/maker2/maker.html": {
@@ -88,51 +101,43 @@
 			"css/mui.min.css"
 		]
 	},
-	"module/mainView/storage.html": {
+	"module/personalCenter/login.html": {
 		"resources": [
-			"module/mainView/_storage.html"
-		],
-		"refer": [
-			"module/mainView/_storage.html"
-		]
-	},
-	"module/showImage/image.html": {
-		"resources": [
-			"img/faces/face(1).jpg",
-			"css/iconfont.ttf",
-			"img/qq.png",
+			"js/login.js",
+			"js/mui.min.js",
 			"fonts/mui.ttf",
-			"css/image.css"
-		]
-	},
-	"module/mainView/square.html": {
-		"resources": [
-			"css/index.css",
-			"js/mui.js",
-			"module/mainView/_square.html",
-			"js/index.js",
-			"fonts/mui.ttf",
-			"css/iconfont.css"
-		],
-		"refer": [
-			"module/mainView/_square.html"
-		]
-	},
-	"module/mainView/_square.html": {
-		"resources": [
-			"img/plus.png",
-			"css/index.css",
-			"css/iconfont.ttf",
-			"fonts/mui.ttf",
-			"css/iconfont.css",
 			"css/mui.min.css",
-			"js/mui.js",
-			"js/index.js"
+			"css/personalCenter.css"
 		]
 	},
-	"module/mainView/_storage.html": {
+	"module/personalCenter/profile.html": {
+		"refer": [
+			"module/personalCenter/login.html"
+		],
 		"resources": [
-			"img/plus.png"
+			"js/mui.min.js",
+			"js/personalCenter.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/personalCenter.css",
+			"js/account/account.js"
+		]
+	},
+	"module/personalCenter/about.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/personalCenter.css"
+		]
+	},
+	"module/personalCenter/notification_setting.html": {
+		"resources": [
+			"js/mui.min.js",
+			"js/personalCenter.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/personalCenter.css"
 		]
 	}
 }

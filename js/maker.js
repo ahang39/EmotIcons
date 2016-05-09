@@ -2,9 +2,17 @@ var canvas = null;
 var selectedItem = null; //保存当前选中的对象
 var isText = false;
 var width = window.screen.width;
+<<<<<<< HEAD
 var height = document.height;
+=======
+//var height = document.height;
+>>>>>>> branch 'master' of https://github.com/ahang39/EmotIcons
 mui.plusReady(function() {
-	initial();
+	console.log(width);
+	canvas = new fabric.Canvas('maker');
+	canvas.setBackgroundColor("white");
+	canvas.renderAll();
+	//initial();
 });
 
 function initial() {
@@ -13,7 +21,7 @@ function initial() {
 	});
 	canvas.setBackgroundColor("white");
 	canvas.setWidth(width);
-	canvas.setHeight(height - 300);
+	canvas.setHeight(height);
 	canvas.renderAll();
 }
 

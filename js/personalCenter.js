@@ -1,7 +1,3 @@
-function setUsername(username){
-	//网络同步操作省略
-	plus.storage.setItem("username",username);
-}
 mui.plusReady(function(){
 	mui("#exit_panel").on('tap','#exit_btn',function(){
 		plus.ui.confirm("确定退出登录吗?", function(i) {
@@ -45,7 +41,6 @@ mui.plusReady(function(){
 			var i=e.index;
 			if(e.index==0){
 				setUsername(e.value);
-				mui.openWindow("module/personalCenter/profile.html");
 			}
 		},"","姓名",bts);
 	});
