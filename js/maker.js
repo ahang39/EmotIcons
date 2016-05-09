@@ -13,7 +13,7 @@ function initial() {
 	});
 	canvas.setBackgroundColor("white");
 	canvas.setWidth(width);
-	canvas.setHeight(height);
+	canvas.setHeight(height-350);
 	canvas.renderAll();
 }
 
