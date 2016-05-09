@@ -177,7 +177,6 @@ function takePicture() {
 			mui.toast("获取图片失败!");
 			alert(error.message);
 		}, {
-			resolution: "480*320",
 			format: fmt
 		}
 	);
