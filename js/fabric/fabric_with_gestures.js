@@ -21926,7 +21926,7 @@ fabric.Image.filters.BaseFilter = fabric.util.createClass(/** @lends fabric.Imag
         left -= offsetX;
         top -= offsetY;
       }
-      console.log(ctx.strokeStyle);
+      //console.log(ctx.strokeStyle);
       ctx[method](chars, left, top);
       this[shortM].toLive && ctx.restore();
     },

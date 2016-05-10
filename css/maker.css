@@ -4,7 +4,34 @@ body {
 	width: 100%;
 	overflow-x: hidden;
 }
-
+@font-face {
+	font-family: "happy";
+	src: url('../fonts/zhankukuaileti.ttf');
+}
+@font-face {
+	font-family: "boka";
+	src: url('../fonts/whz_boka.ttf');
+}
+@font-face {
+	font-family: "paofu";
+	src: url('../fonts/paofu.ttf');
+}
+@font-face {
+	font-family: "xinchao";
+	src: url('../fonts/whz_xinchao.ttf');
+}
+@font-face {
+	font-family: "zongyi";
+	src: url('../fonts/whz_zongyi.ttf');
+}
+@font-face {
+	font-family: "gaoduanhei";
+	src: url('../fonts/zhankugaoduanhei.ttf');
+}
+@font-face {
+	font-family: "laihu";
+	src: url('../fonts/SetoFont.ttf');
+}
 .mheader {
 	background-color: #F89406;
 	height: 50px;
@@ -110,6 +137,7 @@ body {
 	height: 35px;
 	width: 35px;
 	margin: 2px 10px;
+	font-size: 20px;
 }
 
 .maker_img {

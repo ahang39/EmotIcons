@@ -25,7 +25,7 @@
 			<div id="controllerTop">
 				<ul class="mui-table-view mui-grid-view">
 					<li class="mui-table-view-cell mui-col-xs-2 procBtn " onclick="removeAll()"><i class="iconfont icon-bin"></i></li>
-					<li class="mui-table-view-cell mui-col-xs-2 procBtn " onclick=""><i class="iconfont icon-text"></i></li>
+					<li class="mui-table-view-cell mui-col-xs-2 procBtn " onclick="addText()"><i class="iconfont icon-text"></i></li>
 					<li class="mui-table-view-cell mui-col-xs-2 procBtn" onclick="imageSelect()"><i class="iconfont icon-image"></i></li>
 					<li class="mui-table-view-cell mui-col-xs-2 procBtn"><i class="iconfont icon-download" onclick="saveToAlbum()"></i></li>
 					<li class="mui-table-view-cell mui-col-xs-2 procBtn"><i class="iconfont icon-save" onclick="save()"></i></li>
@@ -88,9 +88,6 @@
 							</a>
 								<a class="mui-control-item" href="#text_item5">
 								样式
-							</a>
-								<a class="mui-control-item" href="#text_item6">
-								新建
 							</a>
 							</div>
 							<div>
@@ -276,16 +273,25 @@
 											<table class="img_choice">
 												<tr>
 													<td>
-														<div onclick="changeTextFontFamily(this)" style="font-family: '微软雅黑';">字</div>
+														<div onclick="changeTextFontFamily(this)" style="font-family: 'microsoft yahei';">雅黑</div>
 													</td>
 													<td>
-														<div onclick="changeTextFontFamily(this)" style="font-family: '宋体';">字</div>
+														<div onclick="changeTextFontFamily(this)" style="font-family: happy;">快乐</div>
 													</td>
 													<td>
-														<div onclick="changeTextFontFamily(this)" style="font-family: '幼圆';">字</div>
+														<div onclick="changeTextFontFamily(this)" style="font-family: boka;">波卡</div>
 													</td>
 													<td>
-														<div onclick="changeTextFontFamily(this)" style="font-family: 'blackadder itc';">字</div>
+														<div onclick="changeTextFontFamily(this)" style="font-family: xinchao;">新潮</div>
+													</td>
+													<td>
+														<div onclick="changeTextFontFamily(this)" style="font-family: gaoduanhei;">高端黑</div>
+													</td>
+													<td>
+														<div onclick="changeTextFontFamily(this)" style="font-family: zongyi;">综艺</div>
+													</td>
+													<td>
+														<div onclick="changeTextFontFamily(this)" style="font-family: laihu;">濑户</div>
 													</td>
 												</tr>
 											</table>
@@ -293,14 +299,36 @@
 									</div>
 								</div>
 								<div id="text_item4" class="mui-control-content maker_text">
-
+									<div id="table-wrapper">
+										<div id="table-scroll">
+											<table class="img_choice">
+												<tr>
+													<td>
+														<div onclick="changeTextFontEffect()">效果</div>
+													</td>
+													<td>
+														<div onclick="changeTextFontEffect()">效果</div>
+													</td>
+												</tr>
+											</table>
+										</div>
+									</div>
 								</div>
 								<div id="text_item5" class="mui-control-content maker_text">
-
-								</div>
-								<div id="text_item6" class="mui-control-content maker_text">
-									<input type="text" id="text_input" />
-									<button class="mui-btn mui-btn-primary" onclick="addText()">完成</button>
+									<div id="table-wrapper">
+										<div id="table-scroll">
+											<table class="img_choice">
+												<tr>
+													<td>
+														<div onclick="changeTextFontStyle(this)" style="font-style: normal;">正常</div>
+													</td>
+													<td>
+														<div onclick="changeTextFontStyle(this)" style="font-style: oblique;">斜体</div>
+													</td>
+												</tr>
+											</table>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>

@@ -105,7 +105,12 @@ function addImage(src, wid) {
 	canvas.renderAll();
 }
 
-function addText(flag) {
+function addText() {
+	mui.prompt("文字","新建文字",['确定',"取消"],function(e){
+		if(e.index==0){
+			console.log(e.value))
+		}
+	});
 	var input = document.getElementById("text_input");
 	var text = input.value;
 	var text = new fabric.Text(text, {
@@ -114,9 +119,8 @@ function addText(flag) {
 		fontFamily: 'Comic Sans',
 		fontSize: 40,
 		fontWeight: 'normal',
-		shadow: 'green -5px -5px 3px',
 		fontStyle: 'normal',
-		textBackgroundColor: 'rgb(0,200,0)'
+		textBackgroundColor: 'rgb(255,255,255)'
 	});
 	text.on('selected', function() {
 		document.getElementById("text_change").value = this.getText();
@@ -151,7 +155,12 @@ function changeTextBackgroundColor(obj) {
 
 function changeTextShadowColor(obj) {
 	if (isText) {
-		selectedItem.setTextBackgroundColor(obj.style.backgroundColor);
+		selectedItem.setShadow({
+		  color: obj.style.backgroundColor,
+		  blur: 10,
+		  offsetX: 2,
+		  offsetY: 2
+		});
 		canvas.renderAll();
 	}
 }
@@ -160,6 +169,23 @@ function changeTextFontFamily(obj) {
 	if (isText) {
 		console.log(obj.style.fontFamily);
 		selectedItem.setFontFamily(obj.style.fontFamily);
+		canvas.renderAll();
+	}
+}
+
+function changeTextFontEffect(obj){
+	if(isText){
+		console.log(obj.style.textShadow);
+		selectedItem.setShadow('2px 2px 10px rgba(0,0,0,0.2)');
+		selectedItem.setStroke('red');
+		selectedItem.setStrokeWidth("1px");
+		canvas.renderAll();
+	}
+}
+function changeTextFontStyle(obj){
+	if(isText){
+		console.log(obj.style.fontStyle);
+		selectedItem.setFontStyle(obj.style.fontStyle);
 		canvas.renderAll();
 	}
 }

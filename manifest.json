@@ -337,7 +337,16 @@
 					"img/faces/face(4).jpg",
 					"js/fabric/fabric_with_gestures.js",
 					"css/iconfont.css",
-					"css/iconfont.woff"
+					"css/iconfont.woff",
+					"fonts/zhankukuaileti.ttf",
+					"fonts/xiaowanzi.ttf",
+					"fonts/paofu.ttf",
+					"fonts/zhankugaoduanhei.ttf",
+					"fonts/jianzhi.ttf",
+					"fonts/SetoFont.ttf",
+					"fonts/whz_xinchao.ttf",
+					"fonts/whz_zongyi.ttf",
+					"fonts/whz_boka.ttf"
 				],
 				"refer": [],
 				"priority": 0
@@ -419,7 +428,8 @@
 					"img/qq.png",
 					"css/iconfont.css",
 					"css/image.css",
-					"css/iconfont.woff"
+					"css/iconfont.woff",
+					"fonts/mui.ttf"
 				],
 				"refer": [],
 				"priority": 0
@@ -429,18 +439,23 @@
 					"css/index.css",
 					"fonts/mui.ttf",
 					"js/mui.js",
-					"js/index.js"
+					"js/index.js",
+					"module/mainView/square.html",
+					"module/mainView/_square.html",
+					"css/iconfont.css"
 				],
-				"refer": [
-					"module/mainView/_square.html"
-				],
+				"refer": [],
 				"priority": 0
 			},
 			"module/mainView/storage.html": {
-				"resources": [],
-				"refer": [
-					"module/mainView/_storage.html"
+				"resources": [
+					"module/mainView/_storage.html",
+					"fonts/mui.ttf",
+					"css/index.css",
+					"js/mui.js",
+					"js/index.js"
 				],
+				"refer": [],
 				"priority": 0
 			},
 			"module/personalCenter/privacy_setting.html": {
