@@ -9,8 +9,8 @@
 		<link href="../../css/mui.min.css" rel="stylesheet" />
 		<link href="../../css/index.css" rel="stylesheet" />
 		<link href="../../css/iconfont.css" rel="stylesheet" />
-		<script src="../../js/images.js"></script>
 		<script src="../../js/index.js"></script>
+		<script src="../../js/jump.js"></script>
 		<script>
 			mui.init({
 				subpages: [{
@@ -23,29 +23,36 @@
 					extras: {} //额外扩展参数
 				}]
 			});
-			console.log(getImages());
+			mui.plusReady(function() {
+				mui("body").on("tap", "#searchIcon", function() {
+					toggleSearch();
+				});
+				mui("body").on("tap", "#personalCenter", function() {
+					plus.webview.show('personalCenter');
+				});
+				mui("body").on("tap", "#storage", function() {
+					plus.webview.show('storage');
+				});
+			});
 		</script>
 	</head>
 
 	<body>
 		<header id="navBar" class="mui-bar mui-bar-nav navBar">
 			<div class="quarter quarter1">
-				<div class="mui-icon mui-icon-home leftButton" onclick="plus.webview.show('personalCenter');"></div>
+				<div id="personalCenter" class="mui-icon mui-icon-home leftButton"></div>
 			</div>
+			<div id="square" class="quarter quarter2"><a class="active ">斗图广场</a></div>
+			<div id="storage"class="quarter quarter3"><a>军火仓库</a></div>
+			<div class="quarter quarter4 ">
+				<div id="searchIcon " class="mui-icon mui-icon-search rightButton " ></div>
 			</div>
-			<div class="quarter quarter2">
-				<a class="active">斗图广场</a></div>
-			<div class="quarter quarter3 " onclick="plus.webview.show('storage');"><a>军火仓库</a></div>
-			<div class="quarter quarter4">
-				<div id="searchIcon" class="mui-icon mui-icon-search rightButton " onclick="toggleSearch() "></div>
-			</div>
-			<div id="search" class="search" style="visibility: hidden;">
-				<form id="searchForm" action=" ">
-					<input id="searchInput" type="search" class="mui-input-clear" placeholder="请输入作者名或表情名 " name="search ">
+			<div id="search" class="search" style="visibility: hidden; ">
+				<form id="searchForm " action=" ">
+					<input id="searchInput " type="search " class="mui-input-clear " placeholder="请输入作者名或表情名 " name="search ">
 				</form>
 			</div>
 		</header>
-		<div class="mui-backdrop " onclick="toggleSearch(); "></div>
 
 	</body>
 

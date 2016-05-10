@@ -23,17 +23,28 @@
 					extras: {} //额外扩展参数
 				}]
 			});
+			mui.plusReady(function() {
+				mui("body").on("tap","#square",function(){
+					plus.webview.show('square');
+				});
+				mui("body").on("tap","#personalCenter",function(){
+					plus.webview.show('personalCenter');
+				});
+			});
 		</script>
 	</head>
 
 	<body>
 		<header id="navBar" class="mui-bar mui-bar-nav navBar">
 			<div class="quarter quarter1">
-				<div class="mui-icon mui-icon-home leftButton" onclick="plus.webview.show('personalCenter');"></div>
+				<div id="personalCenter" class="mui-icon mui-icon-home leftButton"></div>
 			</div>
 			<div class="quarter quarter2">
-				<a onclick="plus.webview.show('square');">斗图广场</a></div>
-			<div class="quarter quarter3 " onclick=""><a class="active">军火仓库</a></div>
+				<a id="square">斗图广场</a>
+			</div>
+			<div class="quarter quarter3 ">
+				<a id="storage" class="active">军火仓库</a>
+			</div>
 		</header>
 	</body>
 

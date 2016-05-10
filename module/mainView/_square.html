@@ -35,6 +35,11 @@
 					});
 				}
 			});
+			mui.plusReady(function() {
+				mui("body").on("tap","#maker",function(){
+					 plus.webview.show('maker');
+				});
+			});
 		</script>
 	</head>
 
@@ -43,102 +48,14 @@
 		<div id="refreshContainer" class="mui-content mui-scroll-wrapper">
 			<div class="mui-scroll">
 				<div class="container">
-					<div id="leftCol" class="left-container">
-					<!--	<div class="picShow">
-							<div id="detail">
-								<p>作者:碉堡啦</p>
-								<p>表情数量: 201</p>
-								<p>上传日期: 2006-12-14</p>
-							</div>
-							<div id="front">
-								<img class="emotIcon" src="../../img/faces/face(1).jpg" alt="" />
-								<p class="name"><span>军火商: </span><span id="author">叼爆炸</span> </p>
-								<div class="container">
-									<ul class="mui-table-view mui-grid-view">
-										<li onclick="showImage()" id="detailBtn" class="mui-table-view-cell mui-col-xs-3 picIcon">
-											<i class="mui-icon iconfont icon-menu">
-											</i>
-										</li>
-										<li class="mui-table-view-cell mui-col-xs-4 picIcon">
-											<i class="mui-icon iconfont icon-like"></i>
-											<span>收藏</span>
-										</li>
-										<li class="mui-table-view-cell mui-col-xs-5 picIcon">
-											<i class="mui-icon iconfont icon-thumb"></i>
-											<span>赞</span>
-										</li>
-									</ul>
-								</div>
-							</div>
-						</div>
-						<div class="picShow">
-							<img class="emotIcon" src="../../img/faces/face(2).jpg" />
-							<p class="name"><span>军火商: </span><span id="author">叼爆炸</span> </p>
-							<div class="container">
-								<ul class="mui-table-view mui-grid-view">
-									<li class="mui-table-view-cell mui-col-xs-3 picIcon">
-										<i class="mui-icon iconfont icon-menu"></i>
-									</li>
-									<li class="mui-table-view-cell mui-col-xs-4 picIcon">
-										<i class="mui-icon iconfont icon-like"></i>
-										<span>收藏</span>
-									</li>
-									<li class="mui-table-view-cell mui-col-xs-5 picIcon">
-										<i class="mui-icon iconfont icon-thumb"></i>
-										<span>赞</span>
-									</li>
-								</ul>
-							</div>
-						</div>-->
-					</div>
-					<div id="rightCol" class="right-container">
-						<!--<div class="picShow">
-							<img class="emotIcon" src="../../img/faces/face(3).jpg" alt="" />
-							<p class="name"><span>军火商: </span><span id="author">1234567890</span> </p>
-							<div class="container">
-								<ul class="mui-table-view mui-grid-view">
-									<li class="mui-table-view-cell mui-col-xs-3 picIcon">
-										<i class="mui-icon iconfont icon-menu"></i>
-									</li>
-									<li class="mui-table-view-cell mui-col-xs-4 picIcon">
-										<i class="mui-icon iconfont icon-like"></i>
-										<span>收藏</span>
-									</li>
-									<li class="mui-table-view-cell mui-col-xs-5 picIcon">
-										<i class="mui-icon iconfont icon-thumb"></i>
-										<span>赞</span>
-									</li>
-								</ul>
-
-							</div>
-
-						</div>
-						<div class="picShow">
-							<img class="emotIcon" src="../../img/faces/face(4).jpg" alt="" />
-							<p class="name"><span>军火商: </span><span id="author">叼爆炸</span> </p>
-							<div class="container">
-								<ul class="mui-table-view mui-grid-view">
-									<li class="mui-table-view-cell mui-col-xs-3 picIcon">
-										<i class="mui-icon iconfont icon-menu"></i>
-									</li>
-									<li class="mui-table-view-cell mui-col-xs-4 picIcon">
-										<i class="mui-icon iconfont icon-like"></i>
-										<span>收藏</span>
-									</li>
-									<li class="mui-table-view-cell mui-col-xs-5 picIcon">
-										<i class="mui-icon iconfont icon-thumb"></i>
-										<span>赞</span>
-									</li>
-								</ul>
-							</div>
-						</div>-->
-					</div>
+					<div id="leftCol" class="left-container"></div>
+					<div id="rightCol" class="right-container"></div>
 				</div>
 				<div style="height: 135px;"></div>
 			</div>
 		</div>
 		<div class="mask">
-			<div class="circle" onclick="plus.webview.show('maker')">
+			<div id="maker"class="circle">
 				<img src="../../img/plus.png" class="plusIcon" />
 			</div>
 		</div>

@@ -34,6 +34,11 @@
 					mui('#refreshContainer').pullRefresh().pullupLoading();
 				});
 			}
+			mui.plusReady(function() {
+				mui("body").on("tap","#maker",function(){
+					 plus.webview.show('maker');
+				});
+			});
 		</script>
 	</head>
 
@@ -42,13 +47,12 @@
 		<div id="refreshContainer" class="mui-content mui-scroll-wrapper">
 			<div class="mui-scroll">
 				<div id="storageContainer">
-				
 				</div>
 			</div>
 			<div style="height: 135px;"></div>
 		</div>
 		<div class="mask">
-			<div class="circle" onclick="plus.webview.show('maker')">
+			<div id="maker" class="circle">
 				<img src="../../img/plus.png" class="plusIcon" />
 			</div>
 		</div>
