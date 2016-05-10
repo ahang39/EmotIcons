@@ -5,7 +5,10 @@ var width = 400;
 var height = 350;
 var filepath;
 mui.plusReady(function() {
+	width=plus.screen.resolutionWidth;
+	height=plus.screen.resolutionHeight-350;
 	initial();
+
 });
 
 function initial() {
@@ -19,7 +22,7 @@ function initial() {
 	});
 	canvas.on("object:selected", function() {
 		selectedItem=canvas.getActiveObject();
-		console.log(selectedItem);
+		//console.log(selectedItem);
 	});
 	canvas.setBackgroundColor("white");
 	canvas.setWidth(width);
@@ -103,6 +106,10 @@ function addImage(src, wid) {
 		img.on("selected", function() {
 			selectedItem = this;
 			isText = false;
+			document.getElementById("image_option").className="mui-control-item mui-active";
+			document.getElementById("text_option").className="mui-control-item";
+			document.getElementById("item1").className="mui-control-content maker_img mui-active";
+			document.getElementById("item2").className="mui-control-content maker_img";
 		});
 		canvas.add(img).setActiveObject(img);
 	});
@@ -110,29 +117,32 @@ function addImage(src, wid) {
 }
 
 function addText() {
-	mui.prompt("文字","新建文字",['确定',"取消"],function(e){
-		if(e.index==0){
-			console.log(e.index);
-		}
-	});
-	var input = document.getElementById("text_input");
-	var text = input.value;
-	var text = new fabric.Text(text, {
-		left: 100,
-		top: 100,
-		fontFamily: 'Comic Sans',
-		fontSize: 40,
-		fontWeight: 'normal',
-		fontStyle: 'normal',
-		textBackgroundColor: 'rgb(255,255,255)'
-	});
-	text.on('selected', function() {
-		document.getElementById("text_change").value = this.getText();
-		selectedItem = this;
-		isText = true;
-	});
-	canvas.add(text);
-	canvas.renderAll();
+	var bts=["确认","取消"];
+		plus.nativeUI.prompt("新建文字",function(e){
+			if(e.index==0){
+				var mText = e.value;
+				var text = new fabric.Text(mText, {
+					left: 100,
+					top: 100,
+					fontFamily: 'Comic Sans',
+					fontSize: 40,
+					fontWeight: 'normal',
+					fontStyle: 'normal',
+					textBackgroundColor: 'rgb(255,255,255)'
+				});
+				text.on('selected', function() {
+					document.getElementById("text_change").value = this.getText();
+					selectedItem = this;
+					isText = true;
+					document.getElementById("image_option").className="mui-control-item";
+					document.getElementById("text_option").className+=" mui-active";
+					document.getElementById("item1").className="mui-control-content maker_img";
+					document.getElementById("item2").className="mui-control-content mui-active maker_img";
+				});
+				canvas.add(text);
+				canvas.renderAll();
+			}
+		},"","新建文字",bts);
 }
 
 function changeText() {
