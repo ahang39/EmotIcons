@@ -3,7 +3,7 @@ var selectedItem = null; //保存当前选中的对象
 var isText = false;
 var width = 400;
 var height = 350;
-var path;
+var filepath;
 mui.plusReady(function() {
 	initial();
 });
@@ -11,6 +11,15 @@ mui.plusReady(function() {
 function initial() {
 	canvas = new fabric.Canvas('maker', {
 		selection: false //禁止拖选
+	});
+	canvas.on("selection:cleared", function() {
+		console.log("cleared");
+		isText=null;
+		selectedItem=null;
+	});
+	canvas.on("object:selected", function() {
+		selectedItem=canvas.getActiveObject();
+		console.log(selectedItem);
 	});
 	canvas.setBackgroundColor("white");
 	canvas.setWidth(width);
@@ -44,21 +53,17 @@ function removeItem() {
 	if (selectedItem) {
 		selectedItem.remove();
 		canvas.renderAll();
-		selectedItem = null;
-		isText = false;
 	}
 }
 
 function removeAll() {
 	canvas.clear();
-	selectedItem = null;
-	isText = false;
 }
 
 function saveToAlbum() {
 	save();
-	plus.gallery.save(path, function() {
-		alert("保存图片到相册成功");
+	plus.gallery.save(filepath, function() {
+		mui.toast("保存图片到相册成功");
 	}, function(e) {
 		console.log("failed" + JSON.stringify(e));
 	});
@@ -79,12 +84,11 @@ function save() {
 	var second = time.getTime();
 	path = "_doc/emoticon" + second + ".png";
 	bitmap.save(path, {}, function(i) {
-		console.log('保存图片成功：' + JSON.stringify(i));
+		console.log('保存图片成功：' + i.target);
+		filepath=  i.target;
 	}, function(e) {
 		console.log('保存图片失败：' + JSON.stringify(e));
 	});
-	path = path.substring(1, path.length);
-	path = "../../../" + path;
 }
 
 function addImage(src, wid) {
