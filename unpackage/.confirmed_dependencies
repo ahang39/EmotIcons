@@ -29,9 +29,16 @@
 	},
 	"module/personalCenter/profile.html": {
 		"resources": [
-			"fonts/mui.ttf"
+			"fonts/mui.ttf",
+			"js/account/account.js",
+			"js/personalCenter.js",
+			"css/personalCenter.css",
+			"js/mui.min.js",
+			"css/mui.min.css"
 		],
-		"refer": []
+		"refer": [
+			"module/personalCenter/login.html"
+		]
 	},
 	"module/mainView/_square.html": {
 		"resources": [
@@ -129,7 +136,8 @@
 			"fonts/mui.ttf",
 			"css/index.css",
 			"js/mui.js",
-			"js/index.js"
+			"js/index.js",
+			"css/iconfont.css"
 		]
 	},
 	"module/personalCenter/privacy_setting.html": {
@@ -157,6 +165,11 @@
 			"fonts/mui.ttf",
 			"css/mui.min.css",
 			"css/personalCenter.css"
+		]
+	},
+	"module/personalCenter/login.html": {
+		"resources": [
+			"js/login.js"
 		]
 	}
 }

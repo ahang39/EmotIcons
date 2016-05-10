@@ -453,7 +453,8 @@
 					"fonts/mui.ttf",
 					"css/index.css",
 					"js/mui.js",
-					"js/index.js"
+					"js/index.js",
+					"css/iconfont.css"
 				],
 				"refer": [],
 				"priority": 0

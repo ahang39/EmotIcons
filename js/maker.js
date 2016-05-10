@@ -3,7 +3,6 @@ var selectedItem = null; //保存当前选中的对象
 var isText = false;
 var width = 400;
 var height = 350;
-var filepath;
 mui.plusReady(function() {
 	width=plus.screen.resolutionWidth;
 	height=plus.screen.resolutionHeight-350;
@@ -63,35 +62,83 @@ function removeAll() {
 	canvas.clear();
 }
 
-function saveToAlbum() {
-	save();
+function saveToAlbum(filepath) {
 	plus.gallery.save(filepath, function() {
+		console.log("保存图片到相册");
 		mui.toast("保存图片到相册成功");
 	}, function(e) {
 		console.log("failed" + JSON.stringify(e));
 	});
 }
 
+function saveToClound(filepath){
+	var task = plus.uploader.createUpload( "http://tu.myway5.com/php/index.php", 
+		{ method:"POST",blocksize:204800,priority:100 },
+		function ( t, status ) {
+			// 上传完成
+			if ( status == 200 ) { 
+				console.log(t.responseText);
+				alert( "Upload success: " + t.url );
+			} else {
+				alert( "Upload failed: " + status );
+			}
+		}
+	);
+	task.addFile( filepath, {key:"file"} );
+	task.addFile( filepath, {key:"file"} );
+	console.log(filepath);
+	task.addData( "action", "datasync_action" );
+	task.addData( "sub_action", "fileUpload" );
+	//task.addEventListener( "statechanged", onStateChanged, false );
+	task.start();
+}
+
 function save() {
-	canvas.deactivateAll();
-	var bitmap = new plus.nativeObj.Bitmap();
-	var dataURL = canvas.toDataURL({
-		format: 'png'
-	});
-	bitmap.loadBase64Data(dataURL, function() {
-		console.log("success");
-	}, function(e) {
-		console.log("failed" + JSON.stringify(e));
-	});
-	var time = new Date();
-	var second = time.getTime();
-	path = "_doc/emoticon" + second + ".png";
-	bitmap.save(path, {}, function(i) {
-		console.log('保存图片成功：' + i.target);
-		filepath=  i.target;
-	}, function(e) {
-		console.log('保存图片失败：' + JSON.stringify(e));
-	});
+	var saveOption=false;
+	var filepath;
+	var bts = [{
+		title: "保存"
+	}, {
+		title: "保存并共享"
+	}];
+	plus.nativeUI.actionSheet({
+			title: "保存图片",
+			cancel: "取消",
+			buttons: bts
+		},
+		function(e) {
+			if (e.index == 1)
+				saveOption=false;
+			else if (e.index == 2)
+				saveOption=true;
+			canvas.deactivateAll();
+			var bitmap = new plus.nativeObj.Bitmap();
+			var dataURL = canvas.toDataURL({
+				format: 'png'
+			});
+			bitmap.loadBase64Data(dataURL, function() {
+				console.log("success");
+			}, function(e) {
+				console.log("failed" + JSON.stringify(e));
+			});
+			var time = new Date();
+			var second = time.getTime();
+			path = "_doc/emoticon" + second + ".png";
+			bitmap.save(path, {}, function(i) {
+				console.log('保存图片成功：' + i.target);
+				filepath=  i.target;
+				saveToAlbum(filepath);
+				if(saveOption)
+				{
+					saveToClound(filepath);
+				}
+				
+			}, function(e) {
+				console.log('保存图片失败：' + JSON.stringify(e));
+			});
+		}
+	);
+	
 }
 
 function addImage(src, wid) {
