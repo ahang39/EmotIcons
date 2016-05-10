@@ -108,7 +108,7 @@ function addImage(src, wid) {
 function addText() {
 	mui.prompt("文字","新建文字",['确定',"取消"],function(e){
 		if(e.index==0){
-			console.log(e.value);
+			console.log(e.index);
 		}
 	});
 	var input = document.getElementById("text_input");
