@@ -108,7 +108,8 @@ body {
 
 /*share*/
 .circleWrap{
-	padding;
+	display: inline-block; 
+	width:32%;
 }
 .circle {
 	margin-left: auto;

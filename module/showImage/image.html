@@ -11,7 +11,7 @@
 		<link href="../../css/iconfont.css" rel="stylesheet" />
 		<script type="text/javascript" charset="UTF-8">
 			mui.init();
-			/*mui.plusReady(function() {
+			mui.plusReady(function() {
 				plus.share.getServices(function(s) {
 					shares = s;
 					for (var i in s) {
@@ -20,27 +20,53 @@
 						}
 					}
 				}, function(e) {
-					alert("获取分享服务列表失败：" + e.message);
+					mui.toast("获取失败");
+					//alert("获取分享服务列表失败" + e.message);
 				});
 			});
 
-			function shareWeixinMessage() {
+			function shareWechatFriends() {
 				sharewx.send({
-					content: "DCloud HBuilder-做最好的HTML5开发工具",
-					href: "http://www.dcloud.io/",
+					content: "有了表情军工厂, 斗图还有谁?!",
+					href: "www.vigorwww.com:8080/Optimus",
+					thumbs: "../../img/qq.png",
 					extra: {
 						scene: "WXSceneTimeline"
 					}
 				}, function() {
-					alert("分享成功！");
+					mui.toast("分享成功！");
 				}, function(e) {
-					alert("分享失败：" + e.message);
+					mui.toast("分享失败");
 				});
-			}*/
-			mui.plusReady(function(){
-				mui("body").on("tap","#back",function(){
+			}
+
+			function shareWechat() {
+				var shareContent = "有了表情军工厂, 斗图还有谁?!";
+				var picture = "file:///var/mobile/Containers/Data/Application/CB42E1F2-E6E6-48CB-B3A4-CA4097551BFB/Library/Pandora/apps/HBuilder/doc/emoticon1462962654729.png";
+				var msg = {
+					content: shareContent,
+					pictures: [picture],
+					extra: {
+						scene: "WXSceneSession"
+					}
+				}
+				sharewx.send(msg, function() {
+					mui.toast("分享成功！");
+				}, function(e) {
+					console.log("分享失败" + e.message);
+				});
+			}
+			mui.plusReady(function() {
+				mui("body").on("tap", "#back", function() {
 					mui.back();
 				});
+				mui("body").on("tap", "#shareWechat", function() {
+					shareWechat();
+				});
+				mui("body").on("tap", "#shareWechatFriends", function() {
+					shareWechatFriends();
+				});
+				mui("body").on("tap", "#shareQQ", function() {});
 			});
 		</script>
 	</head>
@@ -79,23 +105,23 @@
 			<ul class="mui-table-view">
 				<li class="mui-table-view-cell">
 					<div style="overflow-x:auto;width:100%;">
-						<div class=".circleWrap" style="display: inline-block; width:32%">
-							<div class="circle">
-								<img src="../../img/微信.png" alt="" />
+						<div class="circleWrap">
+							<div id="shareWechat" class="circle">
+								<img src="../../img/wechat.png" />
 							</div>
 							<p>转发到微信</p>
 						</div>
-						<div class=".circleWrap" style="display: inline-block; width:32%">
-							<div class="circle">
-								<img src="../../img/朋友圈.png" alt="" />
+						<div class="circleWrap">
+							<div id="shareWechatFriends" class="circle">
+								<img src="../../img/friends.png" />
 							</div>
-							<p>转发到微信</p>
+							<p>转发到朋友圈</p>
 						</div>
-						<div class=".circleWrap" style="display: inline-block; width:32%">
-							<div class="circle">
-								<img src="../../img/qq.png" alt="" />
+						<div class="circleWrap">
+							<div id="shareQQ" class="circle">
+								<img src="../../img/qq.png" />
 							</div>
-							<p>转发到微信</p>
+							<p>假的 还没做</p>
 						</div>
 
 					</div>

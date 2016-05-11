@@ -1,175 +1,175 @@
 {
-	"module/mainView/_storage.html": {
-		"resources": [
-			"css/index.css",
-			"img/plus.png",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"css/iconfont.woff",
-			"js/mui.js",
-			"js/index.js"
-		],
-		"refer": []
-	},
-	"personalCenter.html": {
-		"refer": [
-			"module/personalCenter/profile.html",
-			"module/personalCenter/privacy_setting.html",
-			"module/personalCenter/common_setting.html",
-			"module/personalCenter/notification_setting.html"
-		],
-		"resources": [
-			"js/account/account.js",
-			"js/personalCenter.js",
-			"js/login.js",
-			"img/photo.jpg",
-			"css/personalCenter.css",
-			"fonts/mui.ttf"
-		]
-	},
-	"module/personalCenter/profile.html": {
-		"resources": [
-			"fonts/mui.ttf",
-			"js/account/account.js",
-			"js/personalCenter.js",
-			"css/personalCenter.css",
-			"js/mui.min.js",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"module/personalCenter/login.html"
-		]
-	},
-	"module/mainView/_square.html": {
-		"resources": [
-			"css/index.css",
-			"img/plus.png",
-			"css/iconfont.css",
-			"css/mui.min.css",
-			"js/mui.js",
-			"js/index.js",
-			"css/iconfont.woff"
-		],
-		"refer": []
-	},
-	"module/maker/maker.html": {
-		"resources": [
-			"js/fabric/fabric_with_gestures.js",
-			"css/maker.css",
-			"img/favActive.png",
-			"img/detail.png",
-			"img/thumb.png",
-			"img/detailActive.png",
-			"img/favHover.png",
-			"img/faces/face(3).jpg",
-			"img/thumbActive.png",
-			"img/detailHover.png",
-			"img/faces/face(2).jpg",
-			"img/fav.png",
-			"js/maker.js",
-			"img/faces/face(4).jpg",
-			"img/faces/face(1).jpg",
-			"img/qq.png",
-			"css/iconfont.css",
-			"css/iconfont.woff",
-			"fonts/mui.ttf",
-			"img/photo.jpg",
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"fonts/zhankukuaileti.ttf",
-			"fonts/xiaowanzi.ttf",
-			"fonts/paofu.ttf",
-			"fonts/zhankugaoduanhei.ttf",
-			"fonts/jianzhi.ttf",
-			"fonts/SetoFont.ttf",
-			"fonts/whz_xinchao.ttf",
-			"fonts/whz_zongyi.ttf",
-			"fonts/whz_boka.ttf"
-		],
-		"refer": []
-	},
-	"index.html": {
-		"resources": [
-			"js/mui.min.js",
-			"css/mui.min.css"
-		],
-		"refer": [
-			"module/mainView/storage.html",
-			"module/maker/maker.html",
-			"module/showImage/image.html",
-			"personalCenter.html",
-			"module/mainView/square.html"
-		]
-	},
-	"module/showImage/image.html": {
-		"resources": [
-			"img/faces/face(1).jpg",
-			"img/qq.png",
-			"css/iconfont.css",
-			"css/image.css",
-			"css/iconfont.woff",
-			"fonts/mui.ttf"
-		],
-		"refer": []
-	},
-	"module/mainView/square.html": {
-		"resources": [
-			"css/index.css",
-			"fonts/mui.ttf",
-			"js/mui.js",
-			"js/index.js",
-			"module/mainView/square.html",
-			"module/mainView/_square.html",
-			"css/iconfont.css"
-		],
-		"refer": [
-			"module/mainView/_square.html",
-			"module/mainView/square.html"
-		]
-	},
-	"module/mainView/storage.html": {
-		"refer": [
-			"module/mainView/_storage.html"
-		],
-		"resources": [
-			"module/mainView/_storage.html",
-			"fonts/mui.ttf",
-			"css/index.css",
-			"js/mui.js",
-			"js/index.js",
-			"css/iconfont.css"
-		]
-	},
-	"module/personalCenter/privacy_setting.html": {
-		"resources": [
-			"js/mui.min.js",
-			"css/mui.min.css",
-			"css/personalCenter.css",
-			"js/personalCenter.js",
-			"fonts/mui.ttf"
-		]
-	},
-	"module/personalCenter/common_setting.html": {
-		"resources": [
-			"js/mui.min.js",
-			"js/personalCenter.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"css/personalCenter.css"
-		]
-	},
-	"module/personalCenter/notification_setting.html": {
-		"resources": [
-			"js/mui.min.js",
-			"js/personalCenter.js",
-			"fonts/mui.ttf",
-			"css/mui.min.css",
-			"css/personalCenter.css"
-		]
-	},
-	"module/personalCenter/login.html": {
-		"resources": [
-			"js/login.js"
-		]
-	}
+  "module/mainView/_storage.html": {
+    "resources": [
+      "css/index.css",
+      "img/plus.png",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "css/iconfont.woff",
+      "js/mui.js",
+      "js/index.js"
+    ],
+    "refer": []
+  },
+  "personalCenter.html": {
+    "refer": [
+      "module/personalCenter/profile.html",
+      "module/personalCenter/privacy_setting.html",
+      "module/personalCenter/common_setting.html",
+      "module/personalCenter/notification_setting.html"
+    ],
+    "resources": [
+      "js/account/account.js",
+      "js/personalCenter.js",
+      "js/login.js",
+      "img/photo.jpg",
+      "css/personalCenter.css",
+      "fonts/mui.ttf"
+    ]
+  },
+  "module/personalCenter/profile.html": {
+    "resources": [
+      "fonts/mui.ttf",
+      "js/account/account.js",
+      "js/personalCenter.js",
+      "css/personalCenter.css",
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "module/personalCenter/login.html"
+    ]
+  },
+  "module/mainView/_square.html": {
+    "resources": [
+      "css/index.css",
+      "img/plus.png",
+      "css/iconfont.css",
+      "css/mui.min.css",
+      "js/mui.js",
+      "js/index.js",
+      "css/iconfont.woff"
+    ],
+    "refer": []
+  },
+  "module/maker/maker.html": {
+    "resources": [
+      "js/fabric/fabric_with_gestures.js",
+      "css/maker.css",
+      "img/favActive.png",
+      "img/detail.png",
+      "img/thumb.png",
+      "img/detailActive.png",
+      "img/favHover.png",
+      "img/faces/face(3).jpg",
+      "img/thumbActive.png",
+      "img/detailHover.png",
+      "img/faces/face(2).jpg",
+      "img/fav.png",
+      "js/maker.js",
+      "img/faces/face(4).jpg",
+      "img/faces/face(1).jpg",
+      "img/qq.png",
+      "css/iconfont.css",
+      "css/iconfont.woff",
+      "fonts/mui.ttf",
+      "img/photo.jpg",
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "fonts/zhankukuaileti.ttf",
+      "fonts/xiaowanzi.ttf",
+      "fonts/paofu.ttf",
+      "fonts/zhankugaoduanhei.ttf",
+      "fonts/jianzhi.ttf",
+      "fonts/SetoFont.ttf",
+      "fonts/whz_xinchao.ttf",
+      "fonts/whz_zongyi.ttf",
+      "fonts/whz_boka.ttf"
+    ],
+    "refer": []
+  },
+  "index.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css"
+    ],
+    "refer": [
+      "module/mainView/storage.html",
+      "module/maker/maker.html",
+      "module/showImage/image.html",
+      "personalCenter.html",
+      "module/mainView/square.html"
+    ]
+  },
+  "module/showImage/image.html": {
+    "resources": [
+      "img/faces/face(1).jpg",
+      "img/qq.png",
+      "css/iconfont.css",
+      "css/image.css",
+      "css/iconfont.woff",
+      "fonts/mui.ttf"
+    ],
+    "refer": []
+  },
+  "module/mainView/square.html": {
+    "resources": [
+      "css/index.css",
+      "fonts/mui.ttf",
+      "js/mui.js",
+      "js/index.js",
+      "module/mainView/square.html",
+      "module/mainView/_square.html",
+      "css/iconfont.css"
+    ],
+    "refer": [
+      "module/mainView/_square.html",
+      "module/mainView/square.html"
+    ]
+  },
+  "module/mainView/storage.html": {
+    "refer": [
+      "module/mainView/_storage.html"
+    ],
+    "resources": [
+      "module/mainView/_storage.html",
+      "fonts/mui.ttf",
+      "css/index.css",
+      "js/mui.js",
+      "js/index.js",
+      "css/iconfont.css"
+    ]
+  },
+  "module/personalCenter/privacy_setting.html": {
+    "resources": [
+      "js/mui.min.js",
+      "css/mui.min.css",
+      "css/personalCenter.css",
+      "js/personalCenter.js",
+      "fonts/mui.ttf"
+    ]
+  },
+  "module/personalCenter/common_setting.html": {
+    "resources": [
+      "js/mui.min.js",
+      "js/personalCenter.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/personalCenter.css"
+    ]
+  },
+  "module/personalCenter/notification_setting.html": {
+    "resources": [
+      "js/mui.min.js",
+      "js/personalCenter.js",
+      "fonts/mui.ttf",
+      "css/mui.min.css",
+      "css/personalCenter.css"
+    ]
+  },
+  "module/personalCenter/login.html": {
+    "resources": [
+      "js/login.js"
+    ]
+  }
 }

@@ -128,8 +128,7 @@ function save() {
 				console.log('保存图片成功：' + i.target);
 				filepath=  i.target;
 				saveToAlbum(filepath);
-				if(saveOption)
-				{
+				if(saveOption){
 					saveToClound(filepath);
 				}
 				
