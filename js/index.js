@@ -1,5 +1,6 @@
-var pageNum=1;//初始化页数为1
-var noMore=false;
+var pageNum = 1; //初始化页数为1
+var noMore = false;
+
 function getDefaultStyle(obj, attribute) {
 	return obj.currentStyle ? obj.currentStyle[attribute] : document.defaultView.getComputedStyle(obj, false)[attribute];
 }
@@ -37,31 +38,20 @@ function goMaker() {
 	});
 }
 
-function addEvent() {
-	mui(".picShow").on("tap", ".emotIcon", function() {
-		var detail = document.getElementById("detail");
-		detail.style.visibility = "visible";
-	});
-	mui(".picShow").on("tap", "#detail", function() {
-		var detail = document.getElementById("detail");
-		detail.style.visibility = "hidden";
-	});
-}
-
-function getImages(pageNum){	
-	mui.ajax("http://tu.myway5.com/php/index.php",{
-		data:{
-			action:'datasync_action',
-			sub_action:'getImages',
-			page:pageNum
+function getImages(pageNum) {
+	mui.ajax("http://tu.myway5.com/php/index.php", {
+		data: {
+			action: 'datasync_action',
+			sub_action: 'getImages',
+			page: pageNum
 		},
-		dataType:'json',
-		type:'POST',
-		timeout:10000,
-		success:function(respon,status,xhr){
-			if(respon.hasNext=="false")
-				noMore=true;
-			for(i=0;i<respon.images.length;i++)
+		dataType: 'json',
+		type: 'POST',
+		timeout: 10000,
+		success: function(respon, status, xhr) {
+			if (respon.hasNext == "false")
+				noMore = true;
+			for (i = 0; i < respon.images.length; i++)
 				squareInsert(respon.images[i]);
 		}
 	});
@@ -73,24 +63,31 @@ function squareInsert(image) {
 	var rightCol = document.getElementById("rightCol").offsetHeight;
 	var col = (leftCol <= rightCol) ? 'leftCol' : 'rightCol';
 	picShow.className = "picShow";
-	picShow.innerHTML = "<div id='detail'><p>作者:"+image.username+"</p><p>表情数量: 1</p><p>上传日期: "+image.time+"</p></div><div id='front'><img class='emotIcon' src='http://tu.myway5.com/"+image.image+"' alt='' /><p class='name'><span>军火商: </span><span id='author'>"+image.username+"</span> </p><div class='container'><ul class='mui-table-view mui-grid-view'><li onclick=\"plus.webview.show('image');\" id='detailBtn' class='mui-table-view-cell mui-col-xs-3 picIcon'><i class='mui-icon iconfont icon-menu'></i></li><li class='mui-table-view-cell mui-col-xs-4 picIcon'><i class='mui-icon iconfont icon-like'></i><span>收藏</span></li><li class='mui-table-view-cell mui-col-xs-5 picIcon'><i class='mui-icon iconfont icon-thumb'></i><span>赞"+image.zan+"</span></li></ul></div></div>";
+	picShow.innerHTML = "<div id='detail" + image.id + "' class='detail'><p>作者:" + image.username + "</p><p>表情数量: 1</p><p>上传日期: " + image.time + "</p></div><div id='front'><img id='emotIcon" + image.id + "' class='emotIcon' src='http://tu.myway5.com/" + image.image + "' /><p class='name'><span>军火商: </span><span id='author'>" + image.username + "</span> </p><div class='container'><ul class='mui-table-view mui-grid-view'><li onclick=\"plus.webview.show('image');\" id='detailBtn' class='mui-table-view-cell mui-col-xs-3 picIcon'><i class='mui-icon iconfont icon-menu'></i></li><li class='mui-table-view-cell mui-col-xs-4 picIcon'><i class='mui-icon iconfont icon-like'></i><span>收藏</span></li><li class='mui-table-view-cell mui-col-xs-5 picIcon'><i class='mui-icon iconfont icon-thumb'></i><span>赞" + image.zan + "</span></li></ul></div></div>";
 	document.getElementById(col).appendChild(picShow);
-	addEvent();
+	mui(".picShow").on("tap", "#emotIcon" + image.id, function() {
+		var detail = document.getElementById("detail" + image.id);
+		detail.style.visibility = "visible";
+	});
+	mui(".picShow").on("tap", "#detail" + image.id, function() {
+		var detail = document.getElementById("detail" + image.id);
+		detail.style.visibility = "hidden";
+	});
 }
 
 function pullDownSquare() {
-	location.reload();
-	mui('#refreshContainer').pullRefresh().endPulldownToRefresh();
-	addEvent();
+	setTimeout(function() {
+		location.reload();
+		mui('#refreshContainer').pullRefresh().endPulldownToRefresh();
+	}, 1500);
 }
 
 function pullUpSquare() {
+	getImages(pageNum);
+	pageNum++;
 	setTimeout(function() {
-		getImages(pageNum);
-		pageNum++;
+		mui('#refreshContainer').pullRefresh().endPullupToRefresh(noMore); //参数为true代表没有更多数据了。
 	}, 1000);
-	mui('#refreshContainer').pullRefresh().endPullupToRefresh(noMore); //参数为true代表没有更多数据了。
-	addEvent();
 }
 
 function storageInsert() {
@@ -101,8 +98,10 @@ function storageInsert() {
 }
 
 function pullDownStorage() {
-	location.reload();
-	mui('#refreshContainer').pullRefresh().endPulldownToRefresh();
+	setTimeout(function() {
+		location.reload();
+		mui('#refreshContainer').pullRefresh().endPulldownToRefresh();
+	}, 200);
 }
 
 function pullUpStorage() {
@@ -111,5 +110,5 @@ function pullUpStorage() {
 			storageInsert();
 		}
 		mui('#refreshContainer').pullRefresh().endPullupToRefresh(false); //参数为true代表没有更多数据了。
-	}, 1000);
+	}, 200);
 }

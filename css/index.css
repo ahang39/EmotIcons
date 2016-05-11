@@ -196,7 +196,7 @@ body {
 	z-index: -9999;
 }
 
-#detail {
+.detail {
 	background-color: #aaaaaa;
 	z-index: 999;
 	width: 98%;
@@ -205,7 +205,7 @@ body {
 	visibility: hidden;
 }
 
-#detail p {
+.detail p {
 	color: black;
 	width: 100%;
 }

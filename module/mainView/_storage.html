@@ -27,7 +27,7 @@
 				mui.plusReady(function() {
 					setTimeout(function() {
 						mui('#refreshContainer').pullRefresh().pullupLoading();
-					}, 1000);
+					}, 500);
 				});
 			} else {
 				mui.ready(function() {
@@ -43,13 +43,11 @@
 	</head>
 
 	<body>
-		<div id="mask" class="mui-backdrop" style="visibility: hidden;"></div>
 		<div id="refreshContainer" class="mui-content mui-scroll-wrapper">
 			<div class="mui-scroll">
 				<div id="storageContainer">
 				</div>
 			</div>
-			<div style="height: 135px;"></div>
 		</div>
 		<div class="mask">
 			<div id="maker" class="circle">

@@ -9,37 +9,51 @@
 		<link href="css/mui.min.css" rel="stylesheet" />
 		<script type="text/javascript" charset="UTF-8">
 			mui.init({
-				statusBarBackground: '#f89406',
-				preloadPages: [{
+				statusBarBackground: '#f89406'
+			});
+			mui.plusReady(function() {
+				plus.nativeUI.toast("加载中", {
+					duration: 'long'
+				});
+				var square = mui.preload({
 					url: 'module/mainView/square.html',
 					id: 'square',
-					show: {
-						aniShow: "zoom-fade-out",
-						aniClose: "slide-out-right"
-					}
-				}, {
+					styles: {}, //窗口参数
+					extras: {} //自定义扩展参数
+				});
+				var maker = mui.preload({
 					url: 'module/maker/maker.html',
-					id: 'maker'
-				}, {
+					id: 'maker',
+					styles: {}, //窗口参数
+					extras: {} //自定义扩展参数
+				});
+				var image = mui.preload({
 					url: 'module/showImage/image.html',
-					id: 'image'
-				}, {
+					id: 'image',
+					styles: {}, //窗口参数
+					extras: {} //自定义扩展参数
+				});
+				var personalCenter = mui.preload({
 					url: 'personalCenter.html',
-					id: 'personalCenter'
-				}, {
+					id: 'personalCenter',
+					styles: {}, //窗口参数
+					extras: {} //自定义扩展参数
+				});
+				var storage = mui.preload({
 					url: 'module/mainView/storage.html',
-					id: 'storage'
-				}]
-			});
-			mui.plusReady(function(){
-				alert("完成");
+					id: 'storage',
+					styles: {}, //窗口参数
+					extras: {} //自定义扩展参数
+				});
+				setTimeout(function() {
+					plus.webview.show('square');
+				}, 3500);
 			});
 		</script>
 	</head>
 
-	<body>
-		<button style="height:100px;width:100px;" onclick="plus.webview.show('square')">square</button>
-		<button style="height:100px;width:100px;" onclick="location.reload();">refresh</button>
+	<body style="background-color: #F89406;">
+		<img style="display:block;margin-left: auto;margin-right: auto; margin-top: 100px;"src="img/qq.png" />
 	</body>
 
 </html>
