@@ -203,7 +203,8 @@
 					"_index.html",
 					"css/index.css",
 					"css/iconfont.css",
-					"js/mui.js"
+					"js/mui.js",
+					"img/qq.png"
 				],
 				"refer": [
 					"test.html",
@@ -429,7 +430,9 @@
 					"css/iconfont.css",
 					"css/image.css",
 					"css/iconfont.woff",
-					"fonts/mui.ttf"
+					"fonts/mui.ttf",
+					"img/friends.png",
+					"img/wechat.png"
 				],
 				"refer": [],
 				"priority": 0

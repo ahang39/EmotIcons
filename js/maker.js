@@ -84,8 +84,8 @@ function saveToClound(filepath){
 			}
 		}
 	);
-	task.addFile( filepath, {key:"file"} );
-	task.addFile( filepath, {key:"file"} );
+	task.addFile("_doc/emoticon1462985861223.png", {key:"file"} );
+	//task.addFile( filepath, {key:"file"} );
 	console.log(filepath);
 	task.addData( "action", "datasync_action" );
 	task.addData( "sub_action", "fileUpload" );
