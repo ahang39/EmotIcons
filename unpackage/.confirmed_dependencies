@@ -16,7 +16,8 @@
 			"module/personalCenter/profile.html",
 			"module/personalCenter/privacy_setting.html",
 			"module/personalCenter/common_setting.html",
-			"module/personalCenter/notification_setting.html"
+			"module/personalCenter/notification_setting.html",
+			"module/personalCenter/file.html"
 		],
 		"resources": [
 			"js/account/account.js",
@@ -92,7 +93,8 @@
 		"resources": [
 			"js/mui.min.js",
 			"css/mui.min.css",
-			"img/qq.png"
+			"img/qq.png",
+			"js/initial.js"
 		],
 		"refer": [
 			"module/mainView/storage.html",
@@ -173,6 +175,15 @@
 	"module/personalCenter/login.html": {
 		"resources": [
 			"js/login.js"
+		]
+	},
+	"module/personalCenter/file.html": {
+		"resources": [
+			"js/common.js",
+			"img/fdisk.png",
+			"img/ffile.png",
+			"img/fdir.png",
+			"img/fup.png"
 		]
 	}
 }

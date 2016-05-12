@@ -204,7 +204,8 @@
 					"css/index.css",
 					"css/iconfont.css",
 					"js/mui.js",
-					"img/qq.png"
+					"img/qq.png",
+					"js/initial.js"
 				],
 				"refer": [
 					"test.html",
@@ -245,7 +246,8 @@
 					"module/personalCenter/common_setting.html",
 					"module/personalCenter/privacy_setting.html",
 					"module/personalCenter/about.html",
-					"module/personalCenter/profile.html"
+					"module/personalCenter/profile.html",
+					"module/personalCenter/file.html"
 				],
 				"priority": 0
 			},
@@ -469,6 +471,17 @@
 					"css/personalCenter.css",
 					"js/personalCenter.js",
 					"fonts/mui.ttf"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"module/personalCenter/file.html": {
+				"resources": [
+					"js/common.js",
+					"img/fdisk.png",
+					"img/ffile.png",
+					"img/fdir.png",
+					"img/fup.png"
 				],
 				"refer": [],
 				"priority": 0

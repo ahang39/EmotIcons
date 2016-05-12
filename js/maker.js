@@ -84,7 +84,8 @@ function saveToClound(filepath){
 			}
 		}
 	);
-	task.addFile("_doc/emoticon1462985861223.png", {key:"file"} );
+	task.addFile(filepath, {key:"file"} );
+	task.addFile(filepath, {key:"file_src"} );
 	//task.addFile( filepath, {key:"file"} );
 	console.log(filepath);
 	task.addData( "action", "datasync_action" );
@@ -113,6 +114,7 @@ function save() {
 				saveOption=true;
 			canvas.deactivateAll();
 			var bitmap = new plus.nativeObj.Bitmap();
+			console.log(JSON.stringify(canvas.toJSON()));
 			var dataURL = canvas.toDataURL({
 				format: 'png'
 			});
@@ -131,7 +133,6 @@ function save() {
 				if(saveOption){
 					saveToClound(filepath);
 				}
-				
 			}, function(e) {
 				console.log('保存图片失败：' + JSON.stringify(e));
 			});

@@ -11,6 +11,12 @@ mui.plusReady(function(){
 			id:"profile.html"
 		});
 	});
+	mui("#setting_panel").on('tap',"#file_setting",function(){
+		mui.openWindow({
+			url:"module/personalCenter/file.html",
+			id:"file.html"
+		});
+	});
 	mui("#setting_panel").on('tap',"#notification_setting",function(){
 		mui.openWindow({
 			url:"module/personalCenter/notification_setting.html",
