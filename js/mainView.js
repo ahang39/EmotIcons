@@ -20,10 +20,6 @@ function toggleSearch() {
 	}
 }
 
-function showImage() {
-	plus.webview.show('image');
-}
-
 function goMaker() {
 	mui.openWindow({
 		url: "module/maker/maker.html",
@@ -63,7 +59,7 @@ function squareInsert(image) {
 	var rightCol = document.getElementById("rightCol").offsetHeight;
 	var col = (leftCol <= rightCol) ? 'leftCol' : 'rightCol';
 	picShow.className = "picShow";
-	picShow.innerHTML = "<div id='detail" + image.id + "' class='detail'><p>作者:" + image.username + "</p><p>表情数量: 1</p><p>上传日期: " + image.time + "</p></div><div id='front'><img id='emotIcon" + image.id + "' class='emotIcon' src='http://tu.myway5.com/" + image.image + "' /><p class='name'><span>军火商: </span><span id='author'>" + image.username + "</span> </p><div class='container'><ul class='mui-table-view mui-grid-view'><li onclick=\"plus.webview.show('image');\" id='detailBtn' class='mui-table-view-cell mui-col-xs-3 picIcon'><i class='mui-icon iconfont icon-menu'></i></li><li class='mui-table-view-cell mui-col-xs-4 picIcon'><i class='mui-icon iconfont icon-like'></i><span>收藏</span></li><li class='mui-table-view-cell mui-col-xs-5 picIcon'><i class='mui-icon iconfont icon-thumb'></i><span>赞" + image.zan + "</span></li></ul></div></div>";
+	picShow.innerHTML = "<div id='detail" + image.id + "' class='detail'><p>作者:" + image.username + "</p><p>表情数量: 1</p><p>上传日期: " + image.time + "</p></div><div id='front"+image.id+"'><img id='emotIcon" + image.id + "' class='emotIcon' src='http://tu.myway5.com/" + image.image + "' /><p class='name'><span>军火商: </span><span id='author"+image.id+"'>" + image.username + "</span> </p><div class='container'><ul class='mui-table-view mui-grid-view'><li  id='detailBtn"+image.id+"' class='mui-table-view-cell mui-col-xs-3 picIcon'><i class='mui-icon iconfont icon-menu'></i></li><li class='mui-table-view-cell mui-col-xs-4 picIcon'><i class='mui-icon iconfont icon-like'></i><span>收藏</span></li><li class='mui-table-view-cell mui-col-xs-5 picIcon'><i class='mui-icon iconfont icon-thumb'></i><span>赞" + image.zan + "</span></li></ul></div></div>";
 	document.getElementById(col).appendChild(picShow);
 	mui(".picShow").on("tap", "#emotIcon" + image.id, function() {
 		var detail = document.getElementById("detail" + image.id);
@@ -72,6 +68,9 @@ function squareInsert(image) {
 	mui(".picShow").on("tap", "#detail" + image.id, function() {
 		var detail = document.getElementById("detail" + image.id);
 		detail.style.visibility = "hidden";
+	});
+	mui(".picShow").on("tap", "#detailBtn"+image.id, function() {
+		plus.webview.show("image");
 	});
 }
 
