@@ -90,7 +90,7 @@ body {
 /*footer*******/
 
 .mask {
-/*	background: -webkit-linear-gradient( rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 1) 50%);*/
+	/*	background: -webkit-linear-gradient( rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 1) 50%);*/
 	width: 100%;
 	position: fixed;
 	bottom: 20px;
@@ -147,9 +147,11 @@ body {
 .container {
 	width: 100%;
 }
-#storageContainer{
+
+#storageContainer {
 	margin: 3px;
 }
+
 .picShow {
 	position: relative;
 	margin-top: 3px;
@@ -163,6 +165,7 @@ body {
 
 .emotIcon {
 	width: 100%;
+	margin-bottom: 10px;
 }
 
 .picShow .picIcon {
@@ -192,22 +195,92 @@ body {
 	color: #f89406;
 }
 
-#front {
+.front {
 	z-index: -9999;
 }
 
 .detail {
-	background-color: #aaaaaa;
+	padding: 0;
+	margin: 0;
 	z-index: 999;
-	width: 98%;
 	height: 98%;
+	max-width: 98%;
 	position: absolute;
-	visibility: hidden;
+	float: right;
 }
 
 .detail p {
 	color: black;
-	width: 100%;
+}
+
+.detail .detailItem {
+	border-radius: 5px;
+	padding: 0;
+	width: 0;
+	height: 24%;
+	margin-top: 0.5%;
+	display: block;
+	overflow: hidden;
+	color: #eeeeee;
+	font-size: 12px;
+}
+
+.detail .active {
+	-webkit-animation: showDetailItem 500ms;
+	width: 98%!important;
+	padding: 10px;
+}
+
+.detail .disactive {
+	-webkit-animation: hideDetailItem 500ms;
+	width: 0!important;
+	padding: 0;
+}
+
+.blur {
+	-webkit-animation: blur 500ms;
+	-webkit-filter: blur(5px)!important;
+}
+
+.clear {
+	-webkit-animation: clear 500ms;
+	-webkit-filter: none!important;
+}
+
+@-webkit-keyframes blur {
+	from {}
+	to {
+		-webkit-filter: blur(5px);
+	}
+}
+
+@-webkit-keyframes clear {
+	from {
+		-webkit-filter: blur(5px);
+	}
+	to {}
+}
+
+@-webkit-keyframes showDetailItem {
+	from {
+		width: 0;
+		padding: 0;
+	}
+	to {
+		width: 98%;
+		padding: 10px;
+	}
+}
+
+@-webkit-keyframes hideDetailItem {
+	from {
+		width: 98%;
+		padding: 10px;
+	}
+	to {
+		width: 0;
+		padding: 0;
+	}
 }
 
 

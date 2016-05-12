@@ -11,27 +11,28 @@ body {
 	background-color: #F89406;
 	padding: 0;
 	text-align: center;
+	color: white;
 }
 
 .navBar .navTitle {
-	color: white;
+	width: 70%;
 	font-size: 20px;
-	width: 88%;
-	display: inline-block;
-	margin-left: auto;
-	margin-right: auto;
+	height: 100%;
+	float: left;
+	overflow:hidden;
+	text-overflow:ellipsis;
+	white-space:nowrap;
 }
 
 .navBar #back {
 	display: inline-block;
-	height: 65px;
-	color: white;
-	width: 10%;
+	width:15%;
+	height:100%;
+	float:left;
 }
 
-.navBar #back:active {
-	color: white;
-	background-color: #FCAF43;
+.navBar #back:active{
+	background-color: rgba(170,170,170,0.1);
 }
 
 
