@@ -110,7 +110,7 @@ function pullDownSquare() {
     setTimeout(function () {
         location.reload();
         mui('#refreshContainer').pullRefresh().endPulldownToRefresh();
-    }, 1500);
+    }, 500);
 }
 
 function pullUpSquare() {
@@ -118,7 +118,7 @@ function pullUpSquare() {
     pageNum++;
     setTimeout(function () {
         mui('#refreshContainer').pullRefresh().endPullupToRefresh(noMore); //参数为true代表没有更多数据了。
-    }, 1000);
+    }, 500);
 }
 
 function storageInsert() {
