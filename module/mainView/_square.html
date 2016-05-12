@@ -1,60 +1,129 @@
 <!DOCTYPE html>
 <html>
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
-    <title></title>
-    <script src="../../js/mui.js"></script>
-    <link href="../../css/mui.min.css" rel="stylesheet" />
-    <link href="../../css/index.css" rel="stylesheet" />
-    <link href="../../css/iconfont.css" rel="stylesheet" />
-    <script src="../../js/jump.js"></script>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../../js/mui.js"></script>
+		<link href="../../css/mui.min.css" rel="stylesheet" />
+		<link href="../../css/mainView.css" rel="stylesheet" />
+		<link href="../../css/iconfont.css" rel="stylesheet" />
+		<script src="../../js/jump.js"></script>
 		<script src="../../js/mainView.js"></script>
-    <script type="text/javascript">
-        mui.init({
-            pullRefresh: {
-                container: '#refreshContainer',
-                down: {
-                    callback: pullDownSquare
-                },
-                up: {
-                    callback: pullUpSquare
-                }
-            }
-        });
-        if (mui.os.plus) {
-            mui.plusReady(function () {
-            	
-                setTimeout(function () {
-                mui('#refreshContainer').pullRefresh().pullupLoading();
-                                }, 500);
-            });
-        } else {
-            mui.ready(function () {
-                    mui('#refreshContainer').pullRefresh().pullupLoading();
-            });
-        }
-        mui.plusReady(function () {
-            mui("body").on("tap", "#maker", function () {
-                plus.webview.show('maker');
-            });
-        });
-    </script>
-</head>
+		<script type="text/javascript">
+			mui.init({
+				pullRefresh: {
+					container: '#refreshContainer',
+					down: {
+						callback: pullDownSquare
+					},
+					up: {
+						callback: pullUpSquare
+					}
+				}
+			});
+			if (mui.os.plus) {
+				mui.plusReady(function() {
+					setTimeout(function() {
+						mui('#refreshContainer').pullRefresh().pullupLoading();
+					}, 500);
+				});
+			} else {
+				mui.ready(function() {
+					mui('#refreshContainer').pullRefresh().pullupLoading();
+				});
+			}
+			mui.plusReady(function() {
+				mui("body").on("tap", "#maker", function() {
+					plus.webview.show('maker');
+				});
+			});
+		</script>
+	</head>
 
-<body>
-    <div id="refreshContainer" class="mui-content mui-scroll-wrapper">
-        <div class="mui-scroll">
-            <div>
-                <div id="leftCol" class="left-container"></div>
-                <div id="rightCol" class="right-container"></div>
-            </div>
-        </div>
-    </div>
-    <div class="mask">
-        <div id="maker" class="circle">
-            <img src="../../img/plus.png" class="plusIcon" />
-        </div>
-    </div>
-</body>
+	<body>
+		<div id="refreshContainer" class="mui-content mui-scroll-wrapper">
+			<div class="mui-scroll">
+				<div>
+					<div id="leftCol" class="left-container">
+						<div class="picShow">
+							<ul id='_detail' class='detail'>
+								<li id="_author" class="detailItem" style="background-color:rgba(23,23,23,0.6);white-space: nowrap; "><span>作者:</span></li>
+								<li id="_works" class="detailItem" style="background-color:rgba(23,23,23,0.6);white-space: nowrap; ">作品数:</li>
+								<li id="_uploadDate" class="detailItem" style="background-color:rgba(23,23,23,0.6);white-space: nowrap; ">上传日期:</li>
+								<li id="_subscibe" class="detailItem" style="background-color:rgba(23,23,23,0.6);">这个人很懒, 什么都没有留下:</li>
+							</ul>
+							<div id="_front" class='front'>
+								<img id='_emotIcon' class='emotIcon' src='../../img/qq.png' />
+								<div class='container'>
+									<ul class='mui-table-view mui-grid-view'>
+										<li id='detailBtn' class='mui-table-view-cell mui-col-xs-3 picIcon'>
+											<i class='mui-icon iconfont icon-menu'></i>
+										</li>
+										<li class='mui-table-view-cell mui-col-xs-4 picIcon'>
+											<i class='mui-icon iconfont icon-like'></i><span>收藏</span>
+										</li>
+										<li class='mui-table-view-cell mui-col-xs-5 picIcon'>
+											<i class='mui-icon iconfont icon-thumb'></i><span>赞</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+						
+								<script>
+									mui(".picShow").on("tap", "#_emotIcon", function() {
+										var author = document.getElementById("_author");
+										var works = document.getElementById("_works");
+										var uploadDate = document.getElementById("_uploadDate");
+										var subscribe = document.getElementById("_subscibe");
+										var detail = document.getElementById("_detail");
+										var front = document.getElementById("_front");
+										front.className = "blur front"
+										setTimeout(function() {
+											author.className = "active detailItem";
+										}, 50);
+										setTimeout(function() {
+											works.className = "active detailItem";
+										}, 100);
+										setTimeout(function() {
+											uploadDate.className = "active detailItem";
+										}, 150);
+										setTimeout(function() {
+											subscribe.className = "active detailItem";
+										}, 200);
+									});
+									mui(".picShow").on("tap", "#_detail", function() {
+										var author = document.getElementById("_author");
+										var works = document.getElementById("_works");
+										var uploadDate = document.getElementById("_uploadDate");
+										var subscribe = document.getElementById("_subscibe");
+										var detail = document.getElementById("_detail");
+										var front = document.getElementById("_front");
+										front.className = "clear front"
+										setTimeout(function() {
+											author.className = "disactive detailItem";
+										}, 50);
+										setTimeout(function() {
+											works.className = "disactive detailItem";
+										}, 100);
+										setTimeout(function() {
+											uploadDate.className = "disactive detailItem";
+										}, 150);
+										setTimeout(function() {
+											subscribe.className = "disactive detailItem";
+										}, 200);
+									});
+								</script>
+					</div>
+					<div id="rightCol" class="right-container"> </div>
+				</div>
+			</div>
+		</div>
+		<div class="mask">
+			<div id="maker" class="circle">
+				<img src="../../img/plus.png" class="plusIcon" />
+			</div>
+		</div>
+	</body>
