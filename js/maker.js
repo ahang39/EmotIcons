@@ -94,6 +94,25 @@ function saveToClound(filepath){
 	task.start();
 }
 
+function saveData(path,data){
+	plus.io.resolveLocalFileSystemURL( "_doc", function ( entry ) {
+		var w=null;
+		var time = new Date();
+		var second = time.getTime();
+		entry.getFile("data/"+second+".dat",{create:true},function(fileEntry){
+			fileEntry.createWriter(function(writer){
+				w=writer;
+				w.write(path+"\n"+data);
+				writer.onwrite=function(e){
+					console.log( "Write data success!" );
+				};
+			});
+		});
+		
+	}, function ( e ) {
+		console.log(e.message);
+	} );
+}
 function save() {
 	var saveOption=false;
 	var filepath;
@@ -114,25 +133,29 @@ function save() {
 				saveOption=true;
 			canvas.deactivateAll();
 			var bitmap = new plus.nativeObj.Bitmap();
-			console.log(JSON.stringify(canvas.toJSON()));
 			var dataURL = canvas.toDataURL({
 				format: 'png'
 			});
 			bitmap.loadBase64Data(dataURL, function() {
-				console.log("success");
+				//console.log("success");
 			}, function(e) {
 				console.log("failed" + JSON.stringify(e));
 			});
 			var time = new Date();
 			var second = time.getTime();
-			path = "_doc/emoticon" + second + ".png";
+			path = "_doc/picture/emoticon" + second + ".png";
 			bitmap.save(path, {}, function(i) {
 				console.log('保存图片成功：' + i.target);
 				filepath=  i.target;
 				saveToAlbum(filepath);
 				if(saveOption){
 					saveToClound(filepath);
+					//这里存在服务器文件与本地文件对应的问题，
+					//解决办法就是
+					//将本地路径传到服务器上保存，获取数据时查看这个路径是否存在文件
+					//若存在则不下载图片，直接使用本地图片
 				}
+				saveData(filepath,JSON.stringify(canvas.toJSON()));
 			}, function(e) {
 				console.log('保存图片失败：' + JSON.stringify(e));
 			});

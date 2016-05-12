@@ -28,9 +28,5 @@ function initDir(){
 		});
 		plus.storage.setItem("init","yes");
 	}, function ( e ) {
-		outLine( "Update "+item.id+" information failed: "+e.message );
 	} );
-}
-function releaseResource(){
-	
 }

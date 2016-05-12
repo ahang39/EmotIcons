@@ -17,7 +17,8 @@
 			"module/personalCenter/privacy_setting.html",
 			"module/personalCenter/common_setting.html",
 			"module/personalCenter/notification_setting.html",
-			"module/personalCenter/file.html"
+			"module/personalCenter/file.html",
+			"module/personalCenter/about.html"
 		],
 		"resources": [
 			"js/account/account.js",
@@ -49,7 +50,10 @@
 			"css/mui.min.css",
 			"js/mui.js",
 			"js/index.js",
-			"css/iconfont.woff"
+			"css/iconfont.woff",
+			"js/mainView.js",
+			"img/qq.png",
+			"css/mainView.css"
 		],
 		"refer": []
 	},
@@ -125,7 +129,9 @@
 			"js/index.js",
 			"module/mainView/square.html",
 			"module/mainView/_square.html",
-			"css/iconfont.css"
+			"css/iconfont.css",
+			"js/mainView.js",
+			"css/mainView.css"
 		],
 		"refer": [
 			"module/mainView/_square.html",
@@ -184,6 +190,14 @@
 			"img/ffile.png",
 			"img/fdir.png",
 			"img/fup.png"
+		]
+	},
+	"module/personalCenter/about.html": {
+		"resources": [
+			"js/mui.min.js",
+			"fonts/mui.ttf",
+			"css/mui.min.css",
+			"css/personalCenter.css"
 		]
 	}
 }

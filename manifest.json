@@ -420,7 +420,10 @@
 					"css/mui.min.css",
 					"js/mui.js",
 					"js/index.js",
-					"css/iconfont.woff"
+					"css/iconfont.woff",
+					"js/mainView.js",
+					"img/qq.png",
+					"css/mainView.css"
 				],
 				"refer": [],
 				"priority": 0
@@ -447,7 +450,9 @@
 					"js/index.js",
 					"module/mainView/square.html",
 					"module/mainView/_square.html",
-					"css/iconfont.css"
+					"css/iconfont.css",
+					"js/mainView.js",
+					"css/mainView.css"
 				],
 				"refer": [],
 				"priority": 0
