@@ -309,17 +309,32 @@ function getFromAlbum() {
 }
 
 function compressImage(src,dst){
-	console.log(src);
-	plus.zip.compressImage({
-			src:src,
-			dst:dst,
-			quality:20
-		},
-		function() {
-			addImage(plus.io.convertLocalFileSystemURL(dst));//压缩成功后加载到页面上
-		},function(error) {
-			alert("Compress error!");
+	plus.io.resolveLocalFileSystemURL(src,function(fileEntry){
+		var quality=20;
+		fileEntry.file(function(file){
+			if(file.size/1024>250)
+			{
+				quality=20;
+			}else{
+				quality=100;
+			}
+			plus.zip.compressImage({
+						src:src,
+						dst:dst,
+						quality:quality
+					},
+					function() {
+						addImage(plus.io.convertLocalFileSystemURL(dst));//压缩成功后加载到页面上
+					},function(error) {
+						alert("Compress error!");
+				});
+		},function(e){
+			console.log(e.message);
+		});
+	},function(e){
+		console.log(e.message);
 	});
+	
 }
 
 function takePicture() {
@@ -334,6 +349,7 @@ function takePicture() {
 			time=new Date();
 			second=time.getTime();
 			dst="_doc/material/other/"+second+".jpg";
+			//将相机照片压缩并添加到素材的other文件夹中
 			compressImage(path,dst);
 		},
 		function(error) {
