@@ -3,6 +3,7 @@ var selectedItem = null; //保存当前选中的对象
 var isText = false;
 var width = 400;
 var height = 350;
+var saveOption=false;
 mui.plusReady(function() {
 	width=plus.screen.resolutionWidth;
 	height=plus.screen.resolutionHeight-350;
@@ -71,7 +72,7 @@ function saveToAlbum(filepath) {
 	});
 }
 
-function saveToClound(filepath){
+function saveToClound(filepath,localDataPath){
 	var task = plus.uploader.createUpload( "http://tu.myway5.com/php/index.php", 
 		{ method:"POST",blocksize:204800,priority:100 },
 		function ( t, status ) {
@@ -90,6 +91,7 @@ function saveToClound(filepath){
 	console.log(filepath);
 	task.addData( "action", "datasync_action" );
 	task.addData( "sub_action", "fileUpload" );
+	task.addData("localDataPath",localDataPath);
 	//task.addEventListener( "statechanged", onStateChanged, false );
 	task.start();
 }
@@ -99,12 +101,19 @@ function saveData(path,data){
 		var w=null;
 		var time = new Date();
 		var second = time.getTime();
-		entry.getFile("data/"+second+".dat",{create:true},function(fileEntry){
+		var localDataPath="data/"+second+".dat";
+		entry.getFile(localDataPath,{create:true},function(fileEntry){
 			fileEntry.createWriter(function(writer){
 				w=writer;
 				w.write(path+"\n"+data);
 				writer.onwrite=function(e){
-					console.log( "Write data success!" );
+					if(saveOption){
+						saveToClound(path,localDataPath);
+						//这里存在服务器文件与本地文件对应的问题，
+						//解决办法就是
+						//将本地data路径传到服务器上保存，获取数据时查看这个路径是否存在文件
+						//若存在则不下载图片，直接使用本地图片
+					}
 				};
 			});
 		});
@@ -114,7 +123,6 @@ function saveData(path,data){
 	} );
 }
 function save() {
-	var saveOption=false;
 	var filepath;
 	var bts = [{
 		title: "保存"
@@ -147,14 +155,7 @@ function save() {
 			bitmap.save(path, {}, function(i) {
 				console.log('保存图片成功：' + i.target);
 				filepath=  i.target;
-				saveToAlbum(filepath);
-				if(saveOption){
-					saveToClound(filepath);
-					//这里存在服务器文件与本地文件对应的问题，
-					//解决办法就是
-					//将本地路径传到服务器上保存，获取数据时查看这个路径是否存在文件
-					//若存在则不下载图片，直接使用本地图片
-				}
+				saveToAlbum(filepath);//加载到相册
 				saveData(filepath,JSON.stringify(canvas.toJSON()));
 			}, function(e) {
 				console.log('保存图片失败：' + JSON.stringify(e));

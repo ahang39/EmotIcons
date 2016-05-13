@@ -1,3 +1,5 @@
+//所有的账号相关操作
+
 function setProfile(data){
 	if(data.id!=null){
 		plus.storage.setItem("id",data.id);
