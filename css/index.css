@@ -1,0 +1,67 @@
+body {
+	box-sizing: content-box;
+}
+
+#wrapper {
+	padding-top: 100px;
+	background: -webkit-linear-gradient(250deg, #f8be06, #f89406);
+}
+
+#textWrapper {
+	padding: 15px;
+	width: 80%;
+	color: #f89d06;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: white;
+	border-radius: 5px;
+	-webkit-box-shadow: 0 0 4px 4px #A15F02;
+}
+
+#row1Content {
+	line-height: 50px;
+	font-size: 50px;
+	letter-spacing: -10px;
+	font-family: gaoduanhei;
+	font-weight: bold;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 1), 0 -1px 1px rgba(0, 0, 0, .3);
+	display: inline-block;
+}
+
+#row2Content {
+	margin-left: 15%;
+	line-height: 75px;
+	font-size: 75px;
+	letter-spacing: -5px;
+	font-family: gaoduanhei;
+	font-weight: bold;
+	text-shadow: 0 1px 1px rgba(255, 255, 255, 1), 0 -1px 1px rgba(0, 0, 0, .3);
+}
+
+#faceWrapper {
+	vertical-align: middle;
+	display: inline-block;
+}
+
+#face {
+	color: #f89406;
+	font-size: 50px;
+	-webkit-animation: roll 1s infinite;
+	animation-direction: alternate;
+}
+
+@-webkit-keyframes roll {
+	from {margin-left: 5px;}
+	to {
+		-webkit-transform: rotate(360deg);
+		margin-left: 125px;
+	}
+}
+
+@-webkit-keyframes move {
+	from {}
+	to {
+		position: fixed;
+		bottom: 50px;
+	}
+}
