@@ -297,11 +297,28 @@ function imageSelect() {
 
 function getFromAlbum() {
 	plus.gallery.pick(function(path) {
-		addImage(path);
+		time=new Date();
+		second=time.getTime();
+		dst="_doc/material/other/"+second+".jpg";
+		compressImage(path,dst);
 	}, function(e) {
 		mui.toast("取消选择图片");
 	}, {
 		filter: "image"
+	});
+}
+
+function compressImage(src,dst){
+	console.log(src);
+	plus.zip.compressImage({
+			src:src,
+			dst:dst,
+			quality:20
+		},
+		function() {
+			addImage(plus.io.convertLocalFileSystemURL(dst));//压缩成功后加载到页面上
+		},function(error) {
+			alert("Compress error!");
 	});
 }
 
@@ -314,7 +331,10 @@ function takePicture() {
 			//alert("Capture image success: " + path);
 			path = path.substring(1, path.length);
 			path = "../../../" + path;
-			addImage(path);
+			time=new Date();
+			second=time.getTime();
+			dst="_doc/material/other/"+second+".jpg";
+			compressImage(path,dst);
 		},
 		function(error) {
 			mui.toast("获取图片失败!");
