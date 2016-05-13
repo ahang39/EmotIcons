@@ -47,11 +47,13 @@ body {
 	color: #f89406;
 	font-size: 50px;
 	-webkit-animation: roll 1s infinite;
-	animation-direction: alternate;
+	-webkit-animation-direction: alternate;
 }
 
 @-webkit-keyframes roll {
-	from {margin-left: 5px;}
+	from {
+		margin-left: 5px;
+	}
 	to {
 		-webkit-transform: rotate(360deg);
 		margin-left: 125px;
