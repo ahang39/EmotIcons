@@ -47,6 +47,11 @@ function initDir(){
 		},function(){
 			console.log("初始化other失败");
 		});
+		entry.getDirectory("tempMaker",{create:true,exclusive:false},function(dir){
+			console.log("初始化tempMaker成功");
+		},function(){
+			console.log("初始化tempMaker失败");
+		});
 		plus.storage.setItem("init","yes");
 	}, function ( e ) {
 	} );

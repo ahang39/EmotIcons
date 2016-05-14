@@ -30,7 +30,7 @@ function initial() {
 	canvas.renderAll();
 	getImageItem();
 }
-
+//动态添加图片素材到制作器内
 function getImageItem(){
 	var str="";
 	plus.io.resolveLocalFileSystemURL("_doc",function(fs){	
@@ -109,7 +109,18 @@ function removeItem() {
 function removeAll() {
 	canvas.clear();
 }
-
+//用来保存所有制作中用到的素材图片到临时文件夹
+function saveTempFile(src,callback){
+	plus.io.resolveLocalFileSystemURL(src,function(file){
+		plus.io.resolveLocalFileSystemURL("_doc/tempMaker",function(dir){
+			file.copyTo(dir,file.name,function(dirEntry){callback},function(e){console.log(e.message)});
+		},function(e){
+			console.log(e.message);
+		})
+	},function(e){
+		console.log(e.message);
+	});
+}
 function saveToAlbum(filepath) {
 	plus.gallery.save(filepath, function() {
 		console.log("保存图片到相册");
@@ -118,31 +129,60 @@ function saveToAlbum(filepath) {
 		console.log("failed" + JSON.stringify(e));
 	});
 }
-
-function saveToClound(filepath,localDataPath){
-	var task = plus.uploader.createUpload( "http://tu.myway5.com/php/index.php", 
-		{ method:"POST",blocksize:204800,priority:100 },
-		function ( t, status ) {
-			// 上传完成
-			if ( status == 200 ) { 
-				console.log(t.responseText);
-				alert( "Upload success: " + t.url );
-			} else {
-				alert( "Upload failed: " + status );
-			}
-		}
-	);
-	task.addFile(filepath, {key:"file"} );
-	task.addFile(filepath, {key:"file_src"} );
-	//task.addFile( filepath, {key:"file"} );
-	console.log(filepath);
-	task.addData( "action", "datasync_action" );
-	task.addData( "sub_action", "fileUpload" );
-	task.addData("localDataPath",localDataPath);
-	//task.addEventListener( "statechanged", onStateChanged, false );
-	task.start();
+//上传成功时的回调函数，这里要清空tempMaker文件夹
+function onStateChanged(upload,status){
+	if ( upload.state == 4 && status == 200 ) {
+		plus.io.resolveLocalFileSystemURL("_doc/tempMaker",function(dirEntry){
+			dirEntry.removeRecursively(function(dir){
+				plus.io.resolveLocalFileSystemURL( "_doc", function ( entry ) {
+					entry.getDirectory("tempMaker",{create:true,exclusive:false},function(mdir){
+						console.log("创建tempMaker成功");
+					},function(){
+						console.log("创建tempMaker失败");
+					});
+				},function(e){
+					console.log(e.message+"获取doc出错");
+				});
+			},function(e){console.log(e.message+"删除出错");});
+		},function(e){
+			console.log(e.message);
+		})
+	}
 }
 
+//保存到服务器时，需要将素材和canvas数据同时传到服务器上，以实现其他人改图的功能
+function saveToCloud(filepath,localDataPath){
+	src="_doc/tempMaker";
+	date=new Date();
+	second=date.getTime();
+	zipFile="_doc/resource/src"+second;
+	plus.zip.compress(src,zipFile,function(){
+		var task = plus.uploader.createUpload( "http://tu.myway5.com/php/index.php", 
+			{ method:"POST",blocksize:204800,priority:100 },
+			function ( t, status ) {
+				// 上传完成
+				if ( status == 200 ) { 
+					console.log(t.responseText);
+					alert( "Upload success: " + t.url );
+				} else {
+					alert( "Upload failed: " + status );
+				}
+			}
+		);
+		task.addFile(filepath, {key:"file"} );
+		task.addFile(zipFile+".zip", {key:"file_src"} );
+		//task.addFile( filepath, {key:"file"} );
+		console.log("回调成功"+zipFile);
+		task.addData( "action", "datasync_action" );
+		task.addData( "sub_action", "fileUpload" );
+		task.addData("localDataPath",localDataPath);
+		task.addEventListener( "statechanged", onStateChanged, false );
+		task.start();
+	},function(e){console.log(e.message)});
+	
+}
+
+//保存图片制作的数据，包括图片地址，canvas数据
 function saveData(path,data){
 	plus.io.resolveLocalFileSystemURL( "_doc", function ( entry ) {
 		var w=null;
@@ -155,7 +195,7 @@ function saveData(path,data){
 				w.write(path+"\n"+data);
 				writer.onwrite=function(e){
 					if(saveOption){
-						saveToClound(path,localDataPath);
+						saveTempFile("_doc/"+localDataPath,saveToCloud(path,localDataPath));//保存数据到临时目录
 						//这里存在服务器文件与本地文件对应的问题，
 						//解决办法就是
 						//将本地data路径传到服务器上保存，获取数据时查看这个路径是否存在文件
@@ -213,6 +253,7 @@ function save() {
 }
 
 function addImage(src, wid) {
+	saveTempFile(src);
 	if (!arguments[1]) wid = width * 0.7;
 	fabric.Image.fromURL(src, function(img) {
 		wid = img.getWidth() > wid ? wid : img.getWidth();
