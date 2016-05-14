@@ -28,6 +28,53 @@ function initial() {
 	canvas.setWidth(width);
 	canvas.setHeight(height);
 	canvas.renderAll();
+	getImageItem();
+}
+
+function getImageItem(){
+	var str="";
+	plus.io.resolveLocalFileSystemURL("_doc",function(fs){	
+		fs.getDirectory("material/expression",{create:false},function(dir){
+			var directoryReader = dir.createReader();
+			directoryReader.readEntries(function(entries){
+				for( i=0; i < entries.length; i++ ) {
+					str=str+"<td><img onclick='addImage(this.src)' src="+entries[i].fullPath+"></td>";
+				}
+						
+				fs.getDirectory("material/face",{create:false},function(dir){
+					var directoryReader = dir.createReader();
+					directoryReader.readEntries(function(entries){
+						for( i=0; i < entries.length; i++ ) {
+							str=str+"<td><img onclick='addImage(this.src)' src="+entries[i].fullPath+"></td>";
+						}
+						fs.getDirectory("material/other",{create:false},function(dir){
+							var directoryReader = dir.createReader();
+							directoryReader.readEntries(function(entries){
+								for( i=0; i < entries.length; i++ ) {
+									str=str+"<td><img onclick='addImage(this.src)' src="+entries[i].fullPath+"></td>";
+								}
+								document.getElementById("img_item").innerHTML=str;
+							},function(e){
+								console.log(e.message);
+							});
+						},function(e){
+							console.log(e.message);
+						});
+					},function(e){
+						console.log(e.message);
+					});
+				},function(e){
+					console.log(e.message);
+				});
+		
+			},function(e){
+				console.log(e.message);
+			});
+		},function(e){
+			console.log(e.message);
+		});
+
+	});
 }
 
 function flipX() {

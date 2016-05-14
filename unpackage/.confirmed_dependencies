@@ -7,7 +7,8 @@
 			"css/mui.min.css",
 			"css/iconfont.woff",
 			"js/mui.js",
-			"js/index.js"
+			"js/index.js",
+			"img/faces/face(2).jpg"
 		],
 		"refer": []
 	},
@@ -98,7 +99,9 @@
 			"js/mui.min.js",
 			"css/mui.min.css",
 			"img/qq.png",
-			"js/initial.js"
+			"js/initial.js",
+			"css/index.css",
+			"js/index.js"
 		],
 		"refer": [
 			"module/mainView/storage.html",
@@ -117,7 +120,10 @@
 			"css/iconfont.woff",
 			"fonts/mui.ttf",
 			"img/friends.png",
-			"img/wechat.png"
+			"img/wechat.png",
+			"js/image.js",
+			"js/mui.min.js",
+			"css/mui.min.css"
 		],
 		"refer": []
 	},
@@ -131,7 +137,8 @@
 			"module/mainView/_square.html",
 			"css/iconfont.css",
 			"js/mainView.js",
-			"css/mainView.css"
+			"css/mainView.css",
+			"css/mui.min.css"
 		],
 		"refer": [
 			"module/mainView/_square.html",
