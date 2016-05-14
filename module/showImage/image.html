@@ -6,69 +6,10 @@
 		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
 		<title></title>
 		<script src="../../js/mui.min.js"></script>
+		<script src="../../js/image.js"></script>
 		<link href="../../css/mui.min.css" rel="stylesheet" />
 		<link href="../../css/image.css" rel="stylesheet" />
 		<link href="../../css/iconfont.css" rel="stylesheet" />
-		<script type="text/javascript" charset="UTF-8">
-			mui.init();
-			mui.plusReady(function() {
-				plus.share.getServices(function(s) {
-					shares = s;
-					for (var i in s) {
-						if ('weixin' == s[i].id) {
-							sharewx = s[i];
-						}
-					}
-				}, function(e) {
-					mui.toast("获取失败");
-					//alert("获取分享服务列表失败" + e.message);
-				});
-			});
-
-			function shareWechatFriends() {
-				sharewx.send({
-					content: "有了表情军工厂, 斗图还有谁?!",
-					href: "www.vigorwww.com:8080/Optimus",
-					thumbs: "../../img/qq.png",
-					extra: {
-						scene: "WXSceneTimeline"
-					}
-				}, function() {
-					mui.toast("分享成功！");
-				}, function(e) {
-					mui.toast("分享失败");
-				});
-			}
-
-			function shareWechat() {
-				var shareContent = "有了表情军工厂, 斗图还有谁?!";
-				var picture = "file:///var/mobile/Containers/Data/Application/CB42E1F2-E6E6-48CB-B3A4-CA4097551BFB/Library/Pandora/apps/HBuilder/doc/emoticon1462962654729.png";
-				var msg = {
-					content: shareContent,
-					pictures: [picture],
-					extra: {
-						scene: "WXSceneSession"
-					}
-				}
-				sharewx.send(msg, function() {
-					mui.toast("分享成功！");
-				}, function(e) {
-					console.log("分享失败" + e.message);
-				});
-			}
-			mui.plusReady(function() {
-				mui("body").on("tap", "#back", function() {
-					mui.back();
-				});
-				mui("body").on("tap", "#shareWechat", function() {
-					shareWechat();
-				});
-				mui("body").on("tap", "#shareWechatFriends", function() {
-					shareWechatFriends();
-				});
-				mui("body").on("tap", "#shareQQ", function() {});
-			});
-		</script>
 	</head>
 
 	<body>
@@ -81,20 +22,20 @@
 				<a id="share" href="#forward">
 					<span class="iconfont icon-share"></span>
 				</a>
-				<h1 id="title">够了你们这群水笔</h1>
-				<h2 id="producer">作者: <span id="producerName">叼爆炸</span></h2>
-				<div id="image">
-					<img src="../../img/faces/face(1).jpg" alt="" />
+				<h1 id="title"></h1>
+				<h2 id="producer">作者: <span id="producerName"></span></h2>
+				<div id="imageWrapper">
+					<img id="image" src="" alt="" />
 				</div>
 				<ul id="btnGroup" class="mui-table-view mui-grid-view">
 					<li class="mui-table-view-cell mui-col-xs-3 iconbtn"> </li>
 					<li class="mui-table-view-cell mui-col-xs-4 iconbtn">
 						<i class="mui-icon iconfont icon-like"></i>
-						<span>收藏</span>
+						<span id="likeCount">收藏</span>
 					</li>
 					<li class="mui-table-view-cell mui-col-xs-5 iconbtn">
 						<i class="mui-icon iconfont icon-thumb"></i>
-						<span>赞</span>
+						<span id="thumbCount">赞</span>
 					</li>
 				</ul>
 			</div>
@@ -121,11 +62,9 @@
 							</div>
 							<p>假的 还没做</p>
 						</div>
-
 					</div>
-		</div>
-		</li>
-		</ul>
+				</li>
+			</ul>
 		</div>
 	</body>
 

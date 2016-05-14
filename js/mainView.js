@@ -65,8 +65,22 @@ function squareInsert(image) {
 	console.log(col);*/
 	picShow.className = "picShow";
 	/*	picShow.innerHTML = "<div id='detail" + image.id + "' class='detail'><p>作者:" + image.username + "</p><p>表情数量: 1</p><p>上传日期: " + image.time + "</p></div><div id='front"+image.id+"'><img id='emotIcon" + image.id + "' class='emotIcon' src='http://tu.myway5.com/" + image.image + "' /><p class='name'><span>军火商: </span><span id='author"+image.id+"'>" + image.username + "</span> </p><div class='container'><ul class='mui-table-view mui-grid-view'><li  id='detailBtn"+image.id+"' class='mui-table-view-cell mui-col-xs-3 picIcon'><i class='mui-icon iconfont icon-menu'></i></li><li class='mui-table-view-cell mui-col-xs-4 picIcon'><i class='mui-icon iconfont icon-like'></i><span>收藏</span></li><li class='mui-table-view-cell mui-col-xs-5 picIcon'><i class='mui-icon iconfont icon-thumb'></i><span>赞" + image.zan + "</span></li></ul></div></div>";*/
-	picShow.innerHTML = "<ul id='detail" + image.id + "' class='detail'><li id='author" + image.id + "' class='detailItem' style='background-color:rgba(23,23,23,0.6);white-space: nowrap; '><span>作者:" + image.username + "</span></li><li id='works" + image.id + "' class='detailItem' style='background-color:rgba(23,23,23,0.6);white-space: nowrap; '>作品数:</li><li id='uploadDate" + image.id + "' class='detailItem' style='background-color:rgba(23,23,23,0.6);white-space: nowrap; '>上传日期:" + image.time + "</li><li id='subscibe" + image.id + "' class='detailItem' style='background-color:rgba(23,23,23,0.6);'>这个人很懒, 什么都没有留下:</li></ul><div id='front" + image.id + "' class='front'><img id='emotIcon" + image.id + "' class='emotIcon' src='http://tu.myway5.com/" + image.image + "'/><div class='container'><ul class='mui-table-view mui-grid-view'><li id='detailBtn' class='mui-table-view-cell mui-col-xs-3 picIcon'><i class='mui-icon iconfont icon-menu'></i></li><li class='mui-table-view-cell mui-col-xs-4 picIcon'><i class='mui-icon iconfont icon-like'></i><span>收藏</span></li><li class='mui-table-view-cell mui-col-xs-5 picIcon'><i class='mui-icon iconfont icon-thumb'></i><span>赞</span></li></ul></div></div>";
+	picShow.innerHTML = "<ul id='detail" + image.id + "' class='detail'><li id='author" + image.id + "' class='detailItem' style='background-color:rgba(23,23,23,0.6);white-space: nowrap; '><span>作者:" + image.username + "</span></li><li id='works" + image.id + "' class='detailItem' style='background-color:rgba(23,23,23,0.6);white-space: nowrap; '>作品数:</li><li id='uploadDate" + image.id + "' class='detailItem' style='background-color:rgba(23,23,23,0.6);white-space: nowrap; '>上传日期:" + image.time + "</li><li id='subscibe" + image.id + "' class='detailItem' style='background-color:rgba(23,23,23,0.6);'>这个人很懒, 什么都没有留下:</li></ul><div id='front" + image.id + "' class='front'><img id='emotIcon" + image.id + "' class='emotIcon' src='http://tu.myway5.com/" + image.image + "'/><div class='container'><ul class='mui-table-view mui-grid-view'><li id='detailBtn" + image.id + "' class='mui-table-view-cell mui-col-xs-3 picIcon'><i class='mui-icon iconfont icon-menu'></i></li><li class='mui-table-view-cell mui-col-xs-4 picIcon'><i class='mui-icon iconfont icon-like'></i><span>收藏</span></li><li class='mui-table-view-cell mui-col-xs-5 picIcon'><i class='mui-icon iconfont icon-thumb'></i><span>赞</span></li></ul></div></div>";
 	document.getElementById(col).appendChild(picShow);
+	mui('.picShow').on("tap", "#detailBtn" + image.id, function() {
+		var showImage = plus.webview.getWebviewById("image");
+		//showImage.evalJS("initial({name:haha});");
+		var data = {
+			title: "無題",
+			author: image.username,
+			url: "http://tu.myway5.com/" + image.image,
+			likeCount: 0,
+			thumbCount: 0
+		};
+		showImage.evalJS("initial('" + JSON.stringify(data) + "');");
+		plus.webview.show(showImage, "zoom-fade-out");
+
+	});
 	mui(".picShow").on("tap", "#emotIcon" + image.id, function() {
 		var author = document.getElementById("author" + image.id);
 		var works = document.getElementById("works" + image.id);
