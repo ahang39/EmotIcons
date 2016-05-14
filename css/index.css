@@ -4,7 +4,7 @@ body {
 
 #wrapper {
 	padding-top: 100px;
-	background: -webkit-linear-gradient(250deg, #f8be06, #f89406);
+	background: -webkit-linear-gradient(270deg, #FB9300, #f8be06);
 }
 
 #textWrapper {
@@ -46,7 +46,7 @@ body {
 #face {
 	color: #f89406;
 	font-size: 50px;
-	-webkit-animation: roll 1s infinite;
+	-webkit-animation: roll 1.2s infinite;
 	-webkit-animation-direction: alternate;
 }
 
@@ -66,4 +66,23 @@ body {
 		position: fixed;
 		bottom: 50px;
 	}
+}
+
+
+/*spinner*/
+.spinner {
+  width: 40px;
+  height: 40px;
+  margin: 60% auto;
+  background-color: #A15F02;
+  border-radius: 100%; 
+  -webkit-animation: scaleout 1s infinite ease-in-out;
+}
+ 
+@-webkit-keyframes scaleout {
+  0% { -webkit-transform: scale(0.0) }
+  100% {
+    -webkit-transform: scale(1.0);
+    opacity: 0;
+  }
 }

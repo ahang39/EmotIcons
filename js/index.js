@@ -1,8 +1,7 @@
 mui.init({
-	statusBarBackground: '#f8be06'
+	statusBarBackground: '#f89406'
 });
 mui.plusReady(function() {
-	plus.nativeUI.toast("加载中");
 	var wrapper = document.getElementById("wrapper");
 	wrapper.style.height = plus.display.resolutionHeight+"px";
 	wrapper.style.width = plus.display.resolutionWidth+"px";
@@ -38,5 +37,5 @@ mui.plusReady(function() {
 		});
 		setTimeout(function() {
 			plus.webview.show('square');
-		}, 5000);
+		}, 3000);
 });
