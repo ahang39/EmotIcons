@@ -61,7 +61,6 @@ function initial() {
 	canvas.renderAll();
 	getImageItem();
 }
-
 //适配器，将从网络中加载的dat文件修改成可用的dat文件，主要工作是更改本地的图片地址
 function adapter(){
 	var str="";
@@ -77,17 +76,21 @@ function adapter(){
 								reader.onloadend = function ( e ) {
 									console.log( e.target.result);
 								};
-								reader.readAsText( fileEntry,"UTF-8");
-							},function(e){console.log(e.message);});
+								reader.readAsText(fileEntry, "UTF-8");
+							},
+							function(e) {
+								console.log(e.message);
+							});
+						}
 					}
-				}
-			})
+				});
 		});
 	});
 }
 
-function getEditorArguments(src,localDataPath){
-	alert(src);alert(localDataPath);
+function getEditorArguments(src, localDataPath) {
+	alert(src);
+	alert(localDataPath);
 }
 //动态添加图片素材到制作器内
 function getImageItem() {
@@ -171,22 +174,27 @@ function removeItem() {
 	}
 }
 
-function removeTempMaker(){
-	plus.io.resolveLocalFileSystemURL("_doc/tempMaker",function(dirEntry){
-			dirEntry.removeRecursively(function(dir){
-				plus.io.resolveLocalFileSystemURL( "_doc", function ( entry ) {
-					entry.getDirectory("tempMaker",{create:true,exclusive:false},function(mdir){
-						console.log("创建tempMaker成功");
-					},function(){
-						console.log("创建tempMaker失败");
-					});
-				},function(e){
-					console.log(e.message+"获取doc出错");
+function removeTempMaker() {
+	plus.io.resolveLocalFileSystemURL("_doc/tempMaker", function(dirEntry) {
+		dirEntry.removeRecursively(function(dir) {
+			plus.io.resolveLocalFileSystemURL("_doc", function(entry) {
+				entry.getDirectory("tempMaker", {
+					create: true,
+					exclusive: false
+				}, function(mdir) {
+					console.log("创建tempMaker成功");
+				}, function() {
+					console.log("创建tempMaker失败");
 				});
-			},function(e){console.log(e.message+"删除出错");});
-		},function(e){
-			console.log(e.message);
+			}, function(e) {
+				console.log(e.message + "获取doc出错");
+			});
+		}, function(e) {
+			console.log(e.message + "删除出错");
 		});
+	}, function(e) {
+		console.log(e.message);
+	});
 }
 
 function removeAll() {
@@ -218,8 +226,8 @@ function saveToAlbum(filepath) {
 	});
 }
 //上传成功时的回调函数，这里要清空tempMaker文件夹
-function onStateChanged(upload,status){
-	if ( upload.state == 4 && status == 200 ) {
+function onStateChanged(upload, status) {
+	if (upload.state == 4 && status == 200) {
 		removeTempMaker();
 	}
 }
@@ -238,11 +246,11 @@ function saveToCloud(filepath, localDataPath) {
 			},
 			function(t, status) {
 				console.log(t.responseText);
-				if ( status == 200 ) { 
-					responData=JSON.parse(t.responseText);
-					if(responData.online=="false"){
+				if (status == 200) {
+					responData = JSON.parse(t.responseText);
+					if (responData.online == "false") {
 						alert("尚未登录");
-					}else if(responData.upload_status=="success")
+					} else if (responData.upload_status == "success")
 						alert("上传成功");
 					else
 						alert("上传失败");
@@ -290,7 +298,7 @@ function saveData(path, data) {
 						//解决办法就是
 						//将本地data路径传到服务器上保存，获取数据时查看这个路径是否存在文件
 						//若存在则不下载图片，直接使用本地图片
-					}else{
+					} else {
 						removeTempMaker();
 					}
 				};
@@ -321,8 +329,13 @@ function save() {
 				saveOption = true;
 			canvas.deactivateAll();
 			var bitmap = new plus.nativeObj.Bitmap();
+			var clipJson = getClipJson();
 			var dataURL = canvas.toDataURL({
-				format: 'png'
+				format: 'png',
+				left: clipJson.left,
+				top: clipJson.top,
+				width: clipJson.width,
+				height: clipJson.height
 			});
 			bitmap.loadBase64Data(dataURL, function() {
 				//console.log("success");
@@ -334,10 +347,10 @@ function save() {
 			path = "_doc/picture/emoticon" + second + ".png";
 			bitmap.save(path, {}, function(i) {
 				console.log('保存图片成功：' + i.target);
-				filepath=  i.target;
-				saveToAlbum(filepath);//加载到相册
-				saveData(filepath,JSON.stringify(canvas.toJSON()));
-				removeAll();//清空画布
+				filepath = i.target;
+				saveToAlbum(filepath); //加载到相册
+				saveData(filepath, JSON.stringify(canvas.toJSON()));
+				removeAll(); //清空画布
 			}, function(e) {
 				console.log('保存图片失败：' + JSON.stringify(e));
 			});
