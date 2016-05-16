@@ -1,13 +1,40 @@
 var canvas = null;
 var selectedItem = null; //保存当前选中的对象
 var isText = false;
-var width=400;
-var height=350;
+var width = 400;
+var height = 350;
 var saveOption = false;
 mui.plusReady(function() {
-	width=plus.screen.resolutionWidth;
-	height=plus.screen.resolutionHeight-350;
+	var width = plus.display.resolutionWidth;
+	var height = plus.display.resolutionHeight - 350;
 	initial();
+	mui("body").on("tap", "#removeAll", function() {
+		removeAll();
+	});
+	mui("body").on("tap", "#addText", function() {
+		addText();
+	});
+	mui("body").on("tap", "#imageSelect", function() {
+		imageSelect();
+	});
+	mui("body").on("tap", "#testme", function() {
+		testme();
+	});
+	mui("body").on("tap", "#save", function() {
+		save();
+	});
+	mui("body").on("tap", "#flipX", function() {
+		flipX();
+	});
+	mui("body").on("tap", "#bringForward", function() {
+		bringForward();
+	});
+	mui("body").on("tap", "#sendBackward", function() {
+		sendBackward();
+	});
+	mui("body").on("tap", "#removeItem", function() {
+		removeItem();
+	});
 });
 
 function initial() {
@@ -26,13 +53,18 @@ function initial() {
 	canvas.setBackgroundColor("white");
 	canvas.setWidth(width);
 	canvas.setHeight(height);
+<<<<<<< HEAD
 	canvas.setBackgroundColor('rgba(255, 73, 64, 0.0)');
 	if(isEditMode){
 		canvas.loadFromJSON(json);//从tempMaker中加载dat数据
 	}
+=======
+	canvas.setBackgroundColor('rgba(255,255,255,0)');
+>>>>>>> branch 'master' of https://github.com/ahang39/EmotIcons
 	canvas.renderAll();
 	getImageItem();
 }
+<<<<<<< HEAD
 
 //适配器，将从网络中加载的dat文件修改成可用的dat文件，主要工作是更改本地的图片地址
 function adapter(){
@@ -60,48 +92,58 @@ function adapter(){
 
 function test() {
 	console.log(canvas.backgroundColor);
+=======
+function getEditorArguments(src,localDataPath){
+	alert(src);alert(localDataPath);
+>>>>>>> branch 'master' of https://github.com/ahang39/EmotIcons
 }
 //动态添加图片素材到制作器内
-function getImageItem(){
-	var str="";
-	plus.io.resolveLocalFileSystemURL("_doc",function(fs){	
-		fs.getDirectory("material/expression",{create:false},function(dir){
+function getImageItem() {
+	var str = "";
+	plus.io.resolveLocalFileSystemURL("_doc", function(fs) {
+		fs.getDirectory("material/expression", {
+			create: false
+		}, function(dir) {
 			var directoryReader = dir.createReader();
 			directoryReader.readEntries(function(entries) {
 				for (i = 0; i < entries.length; i++) {
 					str = str + "<td><img onclick='addImage(this.src)' src=" + entries[i].fullPath + "></td>";
 				}
-						
-				fs.getDirectory("material/face",{create:false},function(dir){
+
+				fs.getDirectory("material/face", {
+					create: false
+				}, function(dir) {
 					var directoryReader = dir.createReader();
-					directoryReader.readEntries(function(entries){
-						for( i=0; i < entries.length; i++ ) {
-							str=str+"<td><img onclick='addImage(this.src)' src="+entries[i].fullPath+"></td>";
+					directoryReader.readEntries(function(entries) {
+						for (i = 0; i < entries.length; i++) {
+							str = str + "<td><img onclick='addImage(this.src)' src=" + entries[i].fullPath + "></td>";
 						}
-						fs.getDirectory("material/other",{create:false},function(dir){
+						fs.getDirectory("material/other", {
+							create: false
+						}, function(dir) {
 							var directoryReader = dir.createReader();
 							directoryReader.readEntries(function(entries) {
 								for (i = 0; i < entries.length; i++) {
 									str = str + "<td><img onclick='addImage(this.src)' src=" + entries[i].fullPath + "></td>";
 								}
-								document.getElementById("img_item").innerHTML=str;
-							},function(e){
+								document.getElementById("img_item").innerHTML = str;
+							}, function(e) {
 								console.log(e.message);
 							});
-						},function(e){
+						}, function(e) {
 							console.log(e.message);
 						});
-					},function(e){
+					}, function(e) {
 						console.log(e.message);
 					});
-				},function(e){
+				}, function(e) {
 					console.log(e.message);
 				});
-		
-			},function(e){
+
+			}, function(e) {
 				console.log(e.message);
 			});
-		},function(e){
+		}, function(e) {
 			console.log(e.message);
 		});
 
@@ -513,4 +555,100 @@ function convertCanvasToImage() {
 	var image = new Image();
 	image.src = canvas.toDataURL();
 	return image;
+}
+
+function testme() {
+	canvas.deactivateAll();
+	canvas.renderAll();
+	var ctx = canvas.getContext();
+	var imgData = ctx.getImageData(0, 0, canvas.getWidth(), canvas.getHeight());
+	var pixelWidth = canvas.getWidth() * 4;
+	var pixelHeight = canvas.getHeight();
+	var topEmpty;
+	var bottomEmpty;
+	var leftEmpty;
+	var rightEmpty;
+	for (var y = 0; y < pixelHeight; y++) { //top
+		var rowEmpty = true;
+		for (var x = 0; x < pixelWidth; x += 4) {
+			var pixelData = new Array(
+				imgData.data[x + pixelWidth * y + 0],
+				imgData.data[x + pixelWidth * y + 1],
+				imgData.data[x + pixelWidth * y + 2],
+				imgData.data[x + pixelWidth * y + 3]
+			);
+			if (pixelData[3] != 0) {
+				rowEmpty = false;
+				break;
+			}
+		}
+		if (!rowEmpty) {
+			topEmpty = y;
+			break;
+		}
+	}
+	for (var y = pixelHeight - 1; y >= 0; y--) { //bottom
+		var rowEmpty = true;
+		for (var x = 0; x < pixelWidth; x += 4) {
+			var pixelData = new Array(
+				imgData.data[x + pixelWidth * y + 0],
+				imgData.data[x + pixelWidth * y + 1],
+				imgData.data[x + pixelWidth * y + 2],
+				imgData.data[x + pixelWidth * y + 3]
+			);
+			if (pixelData[3] != 0) {
+				rowEmpty = false;
+				break;
+			}
+		}
+		if (!rowEmpty) {
+			bottomEmpty = y;
+			break;
+		}
+	}
+	for (var x = 0; x < pixelWidth; x += 4) { //left
+		var colEmpty = true;
+		for (var y = 0; y < pixelHeight; y++) {
+			var pixelData = new Array(
+				imgData.data[x + pixelWidth * y + 0],
+				imgData.data[x + pixelWidth * y + 1],
+				imgData.data[x + pixelWidth * y + 2],
+				imgData.data[x + pixelWidth * y + 3]
+			);
+			if (pixelData[3] != 0) {
+				colEmpty = false;
+				break;
+			}
+		}
+		if (!colEmpty) {
+			leftEmpty = x;
+			break;
+		}
+	}
+	for (var x = pixelWidth - 4; x >= 0; x -= 4) { //right
+		var colEmpty = true;
+		for (var y = 0; y < pixelHeight; y++) {
+			var pixelData = new Array(
+				imgData.data[x + pixelWidth * y + 0],
+				imgData.data[x + pixelWidth * y + 1],
+				imgData.data[x + pixelWidth * y + 2],
+				imgData.data[x + pixelWidth * y + 3]
+			);
+			if (pixelData[3] != 0) {
+				colEmpty = false;
+				break;
+			}
+		}
+		if (!colEmpty) {
+			rightEmpty = x;
+			break;
+		}
+	}
+	var realData = ctx.getImageData(leftEmpty / 4, topEmpty, (rightEmpty - leftEmpty) / 4, bottomEmpty - topEmpty);
+	console.log(leftEmpty / 4);
+	console.log(topEmpty);
+	console.log((rightEmpty - leftEmpty) / 4);
+	console.log(bottomEmpty - topEmpty);
+	ctx.putImageData(realData, 0, 0);
+
 }

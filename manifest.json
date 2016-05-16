@@ -410,7 +410,10 @@
 					"css/iconfont.woff",
 					"js/mui.js",
 					"js/index.js",
-					"img/faces/face(2).jpg"
+					"img/faces/face(2).jpg",
+					"js/mainView.js",
+					"css/mainView.css",
+					"fonts/iconfont.ttf"
 				],
 				"refer": [],
 				"priority": 0
@@ -427,7 +430,8 @@
 					"js/mainView.js",
 					"img/qq.png",
 					"css/mainView.css",
-					"fonts/mui.ttf"
+					"fonts/mui.ttf",
+					"fonts/iconfont.ttf"
 				],
 				"refer": [],
 				"priority": 0
@@ -444,7 +448,8 @@
 					"img/wechat.png",
 					"js/image.js",
 					"js/mui.min.js",
-					"css/mui.min.css"
+					"css/mui.min.css",
+					"fonts/iconfont.ttf"
 				],
 				"refer": [],
 				"priority": 0
