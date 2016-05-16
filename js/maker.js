@@ -4,6 +4,7 @@ var isText = false;
 var width = 400;
 var height = 350;
 var saveOption = false;
+var isEditMode=false;
 mui.plusReady(function() {
 	var width = plus.display.resolutionWidth;
 	var height = plus.display.resolutionHeight - 350;
@@ -68,7 +69,7 @@ function adapter(){
 		fs.getDirectory("material/expression",{create:false},function(dir){
 			var directoryReader=dir.createReader();
 			directoryReader.readEntries(function(entries){
-				for(i=0;i<entries.length,i++){
+				for(i=0;i<entries.length;i++){
 					if(entries[i].name.match(".dat")){
 						dir.getFile(entries[i].name,{create:false},
 							function(fileEntry){
