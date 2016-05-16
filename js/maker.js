@@ -106,6 +106,24 @@ function removeItem() {
 	}
 }
 
+function removeTempMaker(){
+	plus.io.resolveLocalFileSystemURL("_doc/tempMaker",function(dirEntry){
+			dirEntry.removeRecursively(function(dir){
+				plus.io.resolveLocalFileSystemURL( "_doc", function ( entry ) {
+					entry.getDirectory("tempMaker",{create:true,exclusive:false},function(mdir){
+						console.log("创建tempMaker成功");
+					},function(){
+						console.log("创建tempMaker失败");
+					});
+				},function(e){
+					console.log(e.message+"获取doc出错");
+				});
+			},function(e){console.log(e.message+"删除出错");});
+		},function(e){
+			console.log(e.message);
+		});
+}
+
 function removeAll() {
 	canvas.clear();
 }
@@ -132,21 +150,7 @@ function saveToAlbum(filepath) {
 //上传成功时的回调函数，这里要清空tempMaker文件夹
 function onStateChanged(upload,status){
 	if ( upload.state == 4 && status == 200 ) {
-		plus.io.resolveLocalFileSystemURL("_doc/tempMaker",function(dirEntry){
-			dirEntry.removeRecursively(function(dir){
-				plus.io.resolveLocalFileSystemURL( "_doc", function ( entry ) {
-					entry.getDirectory("tempMaker",{create:true,exclusive:false},function(mdir){
-						console.log("创建tempMaker成功");
-					},function(){
-						console.log("创建tempMaker失败");
-					});
-				},function(e){
-					console.log(e.message+"获取doc出错");
-				});
-			},function(e){console.log(e.message+"删除出错");});
-		},function(e){
-			console.log(e.message);
-		})
+		removeTempMaker();
 	}
 }
 
@@ -161,9 +165,15 @@ function saveToCloud(filepath,localDataPath){
 			{ method:"POST",blocksize:204800,priority:100 },
 			function ( t, status ) {
 				// 上传完成
+				console.log(t.responseText);
 				if ( status == 200 ) { 
-					console.log(t.responseText);
-					alert( "Upload success: " + t.url );
+					responData=JSON.parse(t.responseText);
+					if(responData.online=="false"){
+						alert("尚未登录");
+					}else if(responData.upload_status=="success")
+						alert("上传成功");
+					else
+						alert("上传失败");
 				} else {
 					alert( "Upload failed: " + status );
 				}
@@ -200,6 +210,8 @@ function saveData(path,data){
 						//解决办法就是
 						//将本地data路径传到服务器上保存，获取数据时查看这个路径是否存在文件
 						//若存在则不下载图片，直接使用本地图片
+					}else{
+						removeTempMaker();
 					}
 				};
 			});
@@ -244,6 +256,7 @@ function save() {
 				filepath=  i.target;
 				saveToAlbum(filepath);//加载到相册
 				saveData(filepath,JSON.stringify(canvas.toJSON()));
+				removeAll();//清空画布
 			}, function(e) {
 				console.log('保存图片失败：' + JSON.stringify(e));
 			});
