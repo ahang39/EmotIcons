@@ -53,18 +53,13 @@ function initial() {
 	canvas.setBackgroundColor("white");
 	canvas.setWidth(width);
 	canvas.setHeight(height);
-<<<<<<< HEAD
 	canvas.setBackgroundColor('rgba(255, 73, 64, 0.0)');
 	if(isEditMode){
 		canvas.loadFromJSON(json);//从tempMaker中加载dat数据
 	}
-=======
-	canvas.setBackgroundColor('rgba(255,255,255,0)');
->>>>>>> branch 'master' of https://github.com/ahang39/EmotIcons
 	canvas.renderAll();
 	getImageItem();
 }
-<<<<<<< HEAD
 
 //适配器，将从网络中加载的dat文件修改成可用的dat文件，主要工作是更改本地的图片地址
 function adapter(){
@@ -90,12 +85,8 @@ function adapter(){
 	});
 }
 
-function test() {
-	console.log(canvas.backgroundColor);
-=======
 function getEditorArguments(src,localDataPath){
 	alert(src);alert(localDataPath);
->>>>>>> branch 'master' of https://github.com/ahang39/EmotIcons
 }
 //动态添加图片素材到制作器内
 function getImageItem() {
