@@ -54,7 +54,8 @@
 			"css/iconfont.woff",
 			"js/mainView.js",
 			"img/qq.png",
-			"css/mainView.css"
+			"css/mainView.css",
+			"fonts/mui.ttf"
 		],
 		"refer": []
 	},
@@ -90,7 +91,8 @@
 			"fonts/SetoFont.ttf",
 			"fonts/whz_xinchao.ttf",
 			"fonts/whz_zongyi.ttf",
-			"fonts/whz_boka.ttf"
+			"fonts/whz_boka.ttf",
+			"js/login.js"
 		],
 		"refer": []
 	},
