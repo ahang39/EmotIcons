@@ -96,7 +96,8 @@
 			"fonts/whz_xinchao.ttf",
 			"fonts/whz_zongyi.ttf",
 			"fonts/whz_boka.ttf",
-			"js/login.js"
+			"js/login.js",
+			"fonts/iconfont.ttf"
 		],
 		"refer": []
 	},
