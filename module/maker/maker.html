@@ -10,7 +10,7 @@
 		<link href="../../css/iconfont.css" rel="stylesheet" />
 		<link href="../../css/maker.css" rel="stylesheet" />
 		<script type="text/javascript" charset="UTF-8">
-			mui.init(); 
+			mui.init();
 		</script>
 		<script src="../../js/fabric/fabric_with_gestures.js"></script>
 		<script src="../../js/maker.js"></script>
@@ -24,21 +24,21 @@
 		<div class="content">
 			<div id="controllerTop">
 				<ul class="mui-table-view mui-grid-view">
-					<li class="mui-table-view-cell mui-col-xs-2 procBtn " onclick="removeAll()"><i class="iconfont icon-bin"></i></li>
-					<li class="mui-table-view-cell mui-col-xs-2 procBtn " onclick="addText()"><i class="iconfont icon-text"></i></li>
-					<li class="mui-table-view-cell mui-col-xs-2 procBtn" onclick="imageSelect()"><i class="iconfont icon-image"></i></li>
-					<li class="mui-table-view-cell mui-col-xs-2 procBtn" onclick="test()">test</li>
+					<li id="removeAll" class="mui-table-view-cell mui-col-xs-2 procBtn "><i class="iconfont icon-bin"></i></li>
+					<li id="addText" class="mui-table-view-cell mui-col-xs-2 procBtn"><i class="iconfont icon-text"></i></li>
+					<li id="imageSelect" class="mui-table-view-cell mui-col-xs-2 procBtn"><i class="iconfont icon-image"></i></li>
+					<li id="testme" class="mui-table-view-cell mui-col-xs-2 procBtn">test</li>
 					<li class="mui-table-view-cell mui-col-xs-2 procBtn"></li>
-					<li class="mui-table-view-cell mui-col-xs-2 procBtn"><i class="iconfont icon-save" onclick="save()"></i></li>
+					<li id="save" class="mui-table-view-cell mui-col-xs-2 procBtn"><i class="iconfont icon-save"></i></li>
 				</ul>
 			</div>
 			<canvas id="maker" height="300" width="400"></canvas>
 			<div id="controllerBottom">
 				<ul class="mui-table-view mui-grid-view">
-					<li class="mui-table-view-cell mui-col-xs-3 procBtn " onclick="flipX()"><i class="iconfont icon-change"></i></li>
-					<li class="mui-table-view-cell mui-col-xs-3 procBtn" onclick="bringForward()"><i class="iconfont icon-up"></i></li>
-					<li class="mui-table-view-cell mui-col-xs-3 procBtn"><i class="iconfont icon-down" onclick="sendBackward()"></i></li>
-					<li class="mui-table-view-cell mui-col-xs-3 procBtn"><i class="iconfont icon-remove" onclick="removeItem()"></i></li>
+					<li id="flipX" class="mui-table-view-cell mui-col-xs-3 procBtn"><i class="iconfont icon-change"></i></li>
+					<li id="bringForward" class="mui-table-view-cell mui-col-xs-3 procBtn"><i class="iconfont icon-up"></i></li>
+					<li id="sendBackward" class="mui-table-view-cell mui-col-xs-3 procBtn"><i class="iconfont icon-down"></i></li>
+					<li id="removeItem" class="mui-table-view-cell mui-col-xs-3 procBtn"><i class="iconfont icon-remove"></i></li>
 				</ul>
 			</div>
 			<div style="padding: 10px 10px;">
@@ -52,7 +52,7 @@
 							<div id="table-scroll">
 								<table class="img_choice">
 									<tr id="img_item">
-										
+
 									</tr>
 								</table>
 							</div>
@@ -315,4 +315,5 @@
 			</div>
 		</div>
 	</body>
+
 </html>
