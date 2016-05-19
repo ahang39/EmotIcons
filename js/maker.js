@@ -106,6 +106,7 @@ function getEditorArguments(src, localDataPath) {
 		dtask.start(); 
 	}
 }
+
 //动态添加图片素材到制作器内
 function getImageItem() {
 	var str = "";
