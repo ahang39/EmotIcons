@@ -55,9 +55,6 @@ function initial() {
 	canvas.setWidth(width);
 	canvas.setHeight(height);
 	canvas.setBackgroundColor('rgba(255, 73, 64, 0.0)');
-	if(isEditMode){
-		canvas.loadFromJSON(json);//从tempMaker中加载dat数据
-	}
 	canvas.renderAll();
 	getImageItem();
 }
@@ -75,6 +72,8 @@ function adapter(){
 								reader=new plus.io.FileReader();
 								reader.onloadend = function ( e ) {
 									console.log( e.target.result);
+									canvas.loadFromJSON(e.target.result);//从tempMaker中加载dat数据
+									canvas.renderAll();
 								};
 								reader.readAsText(fileEntry, "UTF-8");
 							},
@@ -89,8 +88,23 @@ function adapter(){
 }
 
 function getEditorArguments(src, localDataPath) {
-	alert(src);
-	alert(localDataPath);
+	if(src!=""&&localDataPath!=""){
+		//从网络中加载资源到tempMaker中并解压
+		console.log( "http://tu.myway5.com"+src);
+		var dtask = plus.downloader.createDownload( "http://tu.myway5.com"+src,
+		{method:"GET",filename:"_doc/tempMaker/ddd.zip",timeout:5000},
+		function ( d, status ) {
+			// 下载完成
+			if ( status == 200 ) { 
+				adapter();
+				alert( "Download success: " + d.filename );
+			} else {
+				 alert( "Download failed: " + status ); 
+			}  
+		});
+		//dtask.addEventListener( "statechanged", onStateChanged, false );
+		dtask.start(); 
+	}
 }
 //动态添加图片素材到制作器内
 function getImageItem() {
