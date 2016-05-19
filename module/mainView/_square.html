@@ -47,8 +47,8 @@
 			<div class="mui-scroll">
 				<div>
 					<div id="leftCol" class="left-container">
-						<div class="picShow">
-							<ul id='_detail' class='detail'>
+					<!--	<div class="picShow">
+							<ul id='_detail' class='detail' style="visibility: hidden;">
 								<li id="_author" class="detailItem" style="background-color:rgba(23,23,23,0.6);white-space: nowrap; "><span>作者:</span></li>
 								<li id="_works" class="detailItem" style="background-color:rgba(23,23,23,0.6);white-space: nowrap; ">作品数:</li>
 								<li id="_uploadDate" class="detailItem" style="background-color:rgba(23,23,23,0.6);white-space: nowrap; ">上传日期:</li>
@@ -83,16 +83,17 @@
 										front.className = "blur front"
 										setTimeout(function() {
 											author.className = "active detailItem";
-										}, 50);
+										}, 80);
 										setTimeout(function() {
 											works.className = "active detailItem";
-										}, 100);
+										}, 60);
 										setTimeout(function() {
 											uploadDate.className = "active detailItem";
-										}, 150);
+										}, 40);
 										setTimeout(function() {
 											subscribe.className = "active detailItem";
-										}, 200);
+											detail.style.visibility="visible";	
+										}, 20);
 									});
 									mui(".picShow").on("tap", "#_detail", function() {
 										var author = document.getElementById("_author");
@@ -104,18 +105,19 @@
 										front.className = "clear front"
 										setTimeout(function() {
 											author.className = "disactive detailItem";
-										}, 50);
+										}, 20);
 										setTimeout(function() {
 											works.className = "disactive detailItem";
-										}, 100);
+										}, 40);
 										setTimeout(function() {
 											uploadDate.className = "disactive detailItem";
-										}, 150);
+										}, 60);
 										setTimeout(function() {
 											subscribe.className = "disactive detailItem";
-										}, 200);
+											detail.style.visibility="hidden";	
+										}, 80);
 									});
-								</script>
+								</script>-->
 					</div>
 					<div id="rightCol" class="right-container"> </div>
 				</div>
