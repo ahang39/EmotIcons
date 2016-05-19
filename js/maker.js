@@ -53,18 +53,9 @@ function initial() {
 	});
 	canvas.setBackgroundColor("white");
 	canvas.setWidth(width);
-<<<<<<< HEAD
 	canvas.setHeight(height);
 	canvas.setBackgroundColor('rgba(255, 73, 64, 0.0)');
-=======
-	canvas.setHeight(height);
-	canvas.setBackgroundColor('rgba(255, 73, 64, 0.0)');
-	if (isEditMode) {
-		canvas.loadFromJSON(json); //从tempMaker中加载dat数据
-	}
->>>>>>> branch 'master' of https://github.com/ahang39/EmotIcons
 	canvas.renderAll();
-<<<<<<< HEAD
 	getImageItem();
 }
 //适配器，将从网络中加载的dat文件修改成可用的dat文件，主要工作是更改本地的图片地址
@@ -104,7 +95,6 @@ function adapter() {
 								reader = new plus.io.FileReader();
 								reader.onloadend = function(e) {
 									console.log(e.target.result);
->>>>>>> branch 'master' of https://github.com/ahang39/EmotIcons
 								};
 								reader.readAsText(fileEntry, "UTF-8");
 							},
@@ -119,7 +109,6 @@ function adapter() {
 }
 
 function getEditorArguments(src, localDataPath) {
-<<<<<<< HEAD
 	if(src!=""&&localDataPath!=""){
 		//从网络中加载资源到tempMaker中并解压
 		console.log( "http://tu.myway5.com"+src);
@@ -137,10 +126,6 @@ function getEditorArguments(src, localDataPath) {
 		//dtask.addEventListener( "statechanged", onStateChanged, false );
 		dtask.start(); 
 	}
-=======
-	alert(src);
-	alert(localDataPath);
->>>>>>> branch 'master' of https://github.com/ahang39/EmotIcons
 }
 
 //动态添加图片素材到制作器内
