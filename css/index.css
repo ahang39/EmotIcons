@@ -9,7 +9,8 @@ body {
 
 #wrapper {
 	padding-top: 100px;
-	background: -webkit-linear-gradient(270deg, #FB9300, #f8be06);
+	/*background: -webkit-linear-gradient(270deg, #FB9300, #f8be06);*/
+	background-color: white;
 }
 
 #textWrapper {
