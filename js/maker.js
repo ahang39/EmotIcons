@@ -4,7 +4,7 @@ var isText = false;
 var width = 400;
 var height = 350;
 var saveOption = false;
-var isEditMode=false;
+var isEditMode = false;
 mui.plusReady(function() {
 	var width = plus.display.resolutionWidth;
 	var height = plus.display.resolutionHeight - 350;
@@ -55,35 +55,39 @@ function initial() {
 	canvas.setWidth(width);
 	canvas.setHeight(height);
 	canvas.setBackgroundColor('rgba(255, 73, 64, 0.0)');
-	if(isEditMode){
-		canvas.loadFromJSON(json);//从tempMaker中加载dat数据
+	if (isEditMode) {
+		canvas.loadFromJSON(json); //从tempMaker中加载dat数据
 	}
 	canvas.renderAll();
 	getImageItem();
 }
 //适配器，将从网络中加载的dat文件修改成可用的dat文件，主要工作是更改本地的图片地址
-function adapter(){
-	var str="";
-	plus.io.resolveLocalFileSystemURL("_doc",function(fs){
-		fs.getDirectory("material/expression",{create:false},function(dir){
-			var directoryReader=dir.createReader();
-			directoryReader.readEntries(function(entries){
-				for(i=0;i<entries.length;i++){
-					if(entries[i].name.match(".dat")){
-						dir.getFile(entries[i].name,{create:false},
-							function(fileEntry){
-								reader=new plus.io.FileReader();
-								reader.onloadend = function ( e ) {
-									console.log( e.target.result);
+function adapter() {
+	var str = "";
+	plus.io.resolveLocalFileSystemURL("_doc", function(fs) {
+		fs.getDirectory("material/expression", {
+			create: false
+		}, function(dir) {
+			var directoryReader = dir.createReader();
+			directoryReader.readEntries(function(entries) {
+				for (i = 0; i < entries.length; i++) {
+					if (entries[i].name.match(".dat")) {
+						dir.getFile(entries[i].name, {
+								create: false
+							},
+							function(fileEntry) {
+								reader = new plus.io.FileReader();
+								reader.onloadend = function(e) {
+									console.log(e.target.result);
 								};
 								reader.readAsText(fileEntry, "UTF-8");
 							},
 							function(e) {
 								console.log(e.message);
 							});
-						}
 					}
-				});
+				}
+			});
 		});
 	});
 }
@@ -655,5 +659,106 @@ function testme() {
 	console.log((rightEmpty - leftEmpty) / 4);
 	console.log(bottomEmpty - topEmpty);
 	ctx.putImageData(realData, 0, 0);
+}
 
+function getClipJson() {
+	canvas.deactivateAll();
+	canvas.renderAll();
+	var ctx = canvas.getContext();
+	var imgData = ctx.getImageData(0, 0, canvas.getWidth(), canvas.getHeight());
+	var pixelWidth = canvas.getWidth() * 4;
+	var pixelHeight = canvas.getHeight();
+	var topEmpty;
+	var bottomEmpty;
+	var leftEmpty;
+	var rightEmpty;
+	for (var y = 0; y < pixelHeight; y++) { //top
+		var rowEmpty = true;
+		for (var x = 0; x < pixelWidth; x += 4) {
+			var pixelData = new Array(
+				imgData.data[x + pixelWidth * y + 0],
+				imgData.data[x + pixelWidth * y + 1],
+				imgData.data[x + pixelWidth * y + 2],
+				imgData.data[x + pixelWidth * y + 3]
+			);
+			if (pixelData[3] != 0) {
+				rowEmpty = false;
+				break;
+			}
+		}
+		if (!rowEmpty) {
+			topEmpty = y;
+			break;
+		}
+	}
+	for (var y = pixelHeight - 1; y >= 0; y--) { //bottom
+		var rowEmpty = true;
+		for (var x = 0; x < pixelWidth; x += 4) {
+			var pixelData = new Array(
+				imgData.data[x + pixelWidth * y + 0],
+				imgData.data[x + pixelWidth * y + 1],
+				imgData.data[x + pixelWidth * y + 2],
+				imgData.data[x + pixelWidth * y + 3]
+			);
+			if (pixelData[3] != 0) {
+				rowEmpty = false;
+				break;
+			}
+		}
+		if (!rowEmpty) {
+			bottomEmpty = y;
+			break;
+		}
+	}
+	for (var x = 0; x < pixelWidth; x += 4) { //left
+		var colEmpty = true;
+		for (var y = 0; y < pixelHeight; y++) {
+			var pixelData = new Array(
+				imgData.data[x + pixelWidth * y + 0],
+				imgData.data[x + pixelWidth * y + 1],
+				imgData.data[x + pixelWidth * y + 2],
+				imgData.data[x + pixelWidth * y + 3]
+			);
+			if (pixelData[3] != 0) {
+				colEmpty = false;
+				break;
+			}
+		}
+		if (!colEmpty) {
+			leftEmpty = x;
+			break;
+		}
+	}
+	for (var x = pixelWidth - 4; x >= 0; x -= 4) { //right
+		var colEmpty = true;
+		for (var y = 0; y < pixelHeight; y++) {
+			var pixelData = new Array(
+				imgData.data[x + pixelWidth * y + 0],
+				imgData.data[x + pixelWidth * y + 1],
+				imgData.data[x + pixelWidth * y + 2],
+				imgData.data[x + pixelWidth * y + 3]
+			);
+			if (pixelData[3] != 0) {
+				colEmpty = false;
+				break;
+			}
+		}
+		if (!colEmpty) {
+			rightEmpty = x;
+			break;
+		}
+	}
+	var realData = ctx.getImageData(leftEmpty / 4, topEmpty, (rightEmpty - leftEmpty) / 4, bottomEmpty - topEmpty);
+	console.log(leftEmpty / 4);
+	console.log(topEmpty);
+	console.log((rightEmpty - leftEmpty) / 4);
+	console.log(bottomEmpty - topEmpty);
+	ctx.putImageData(realData, 0, 0);
+	var clipJson = {
+		left: leftEmpty / 4,
+		top: topEmpty,
+		width: (rightEmpty - leftEmpty) / 4,
+		height: bottomEmpty - topEmpty
+	};
+	return clipJson;
 }
