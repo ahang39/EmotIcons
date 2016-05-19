@@ -59,25 +59,6 @@ function initial() {
 	getImageItem();
 }
 //适配器，将从网络中加载的dat文件修改成可用的dat文件，主要工作是更改本地的图片地址
-function adapter(){
-	var str="";
-	plus.io.resolveLocalFileSystemURL("_doc",function(fs){
-		fs.getDirectory("material/expression",{create:false},function(dir){
-			var directoryReader=dir.createReader();
-			directoryReader.readEntries(function(entries){
-				for(i=0;i<entries.length;i++){
-					if(entries[i].name.match(".dat")){
-						dir.getFile(entries[i].name,{create:false},
-							function(fileEntry){
-								reader=new plus.io.FileReader();
-								reader.onloadend = function ( e ) {
-									console.log( e.target.result);
-									canvas.loadFromJSON(e.target.result);//从tempMaker中加载dat数据
-									canvas.renderAll();
-=======
-	getImageItem();
-}
-//适配器，将从网络中加载的dat文件修改成可用的dat文件，主要工作是更改本地的图片地址
 function adapter() {
 	var str = "";
 	plus.io.resolveLocalFileSystemURL("_doc", function(fs) {
