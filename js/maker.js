@@ -77,6 +77,8 @@ function adapter() {
 									dataText=e.target.result;//读取到dat文件的内容
 									dataArray=dataText.split("\n");
 									canvasData=dataArray[1];//获取canvas的布局数据
+									
+									
 									canvas.loadFromJSON(canvasData);
 								};
 								reader.readAsText(fileEntry, "UTF-8");
