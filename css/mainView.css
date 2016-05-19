@@ -214,7 +214,6 @@ body {
 
 .detail .detailItem {
 	opacity: 0;
-	visibility: hidden;
 	border-radius: 5px;
 	padding: 10px;
 	width: 100%;
