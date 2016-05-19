@@ -83,15 +83,16 @@
 										front.className = "blur front"
 										setTimeout(function() {
 											author.className = "active detailItem";
-										}, 50);
+										}, 800);
 										setTimeout(function() {
 											works.className = "active detailItem";
-										}, 100);
+										}, 600);
 										setTimeout(function() {
 											uploadDate.className = "active detailItem";
-										}, 150);
+										}, 400);
 										setTimeout(function() {
 											subscribe.className = "active detailItem";
+											detail.style.visibility="visible";	
 										}, 200);
 									});
 									mui(".picShow").on("tap", "#_detail", function() {
@@ -104,16 +105,17 @@
 										front.className = "clear front"
 										setTimeout(function() {
 											author.className = "disactive detailItem";
-										}, 50);
+										}, 200);
 										setTimeout(function() {
 											works.className = "disactive detailItem";
-										}, 100);
+										}, 400);
 										setTimeout(function() {
 											uploadDate.className = "disactive detailItem";
-										}, 150);
+										}, 600);
 										setTimeout(function() {
 											subscribe.className = "disactive detailItem";
-										}, 200);
+											detail.style.visibility="hidden";	
+										}, 800);
 									});
 								</script>
 					</div>
