@@ -4,7 +4,6 @@ var isText = false;
 var width = 400;
 var height = 350;
 var saveOption = false;
-var isEditMode = false;
 mui.plusReady(function() {
 	var width = plus.display.resolutionWidth;
 	var height = plus.display.resolutionHeight - 350;
@@ -62,20 +61,25 @@ function initial() {
 function adapter() {
 	var str = "";
 	plus.io.resolveLocalFileSystemURL("_doc", function(fs) {
-		fs.getDirectory("material/expression", {
+		fs.getDirectory("tempMaker/tempMaker", {
 			create: false
 		}, function(dir) {
 			var directoryReader = dir.createReader();
 			directoryReader.readEntries(function(entries) {
 				for (i = 0; i < entries.length; i++) {
-					if (entries[i].name.match(".dat")) {
+					if (entries[i].name.match(".txt")) {
 						dir.getFile(entries[i].name, {
 								create: false
 							},
 							function(fileEntry) {
 								reader = new plus.io.FileReader();
 								reader.onloadend = function(e) {
-									console.log(e.target.result);
+									dataText=e.target.result;//读取到dat文件的内容
+									dataArray=dataText.split("\n");
+									canvasData=dataArray[1];//获取canvas的布局数据
+									
+									
+									canvas.loadFromJSON(canvasData);
 								};
 								reader.readAsText(fileEntry, "UTF-8");
 							},
@@ -94,12 +98,15 @@ function getEditorArguments(src, localDataPath) {
 		//从网络中加载资源到tempMaker中并解压
 		console.log( "http://tu.myway5.com"+src);
 		var dtask = plus.downloader.createDownload( "http://tu.myway5.com"+src,
-		{method:"GET",filename:"_doc/tempMaker/ddd.zip",timeout:5000},
+		{method:"GET",filename:"_doc/temp.zip",timeout:5000},
 		function ( d, status ) {
 			// 下载完成
 			if ( status == 200 ) { 
-				adapter();
-				alert( "Download success: " + d.filename );
+				plus.zip.decompress("_doc/temp.zip","_doc/tempMaker",function(){
+					adapter();
+				},function(e){
+					console.log(e.message);
+				});
 			} else {
 				 alert( "Download failed: " + status ); 
 			}  
@@ -218,11 +225,15 @@ function removeAll() {
 	canvas.clear();
 }
 //用来保存所有制作中用到的素材图片到临时文件夹
-function saveTempFile(src, callback) {
+function saveTempFile(src, path,localDataPath) {
 	plus.io.resolveLocalFileSystemURL(src, function(file) {
 		plus.io.resolveLocalFileSystemURL("_doc/tempMaker", function(dir) {
 			file.copyTo(dir, file.name, function(dirEntry) {
-				callback
+				console.log("New Path: " + dirEntry.fullPath);
+				if(path!=null&&localDataPath!=null){
+					console.log("保存到云");
+					saveToCloud(path,localDataPath);
+				}
 			}, function(e) {
 				console.log(e.message)
 			});
@@ -251,7 +262,7 @@ function onStateChanged(upload, status) {
 
 //保存到服务器时，需要将素材和canvas数据同时传到服务器上，以实现其他人改图的功能
 function saveToCloud(filepath, localDataPath) {
-	src = "_doc/tempMaker";
+	src = "_doc/tempMaker/";
 	date = new Date();
 	second = date.getTime();
 	zipFile = "_doc/resource/src" + second;
@@ -301,7 +312,7 @@ function saveData(path, data) {
 		var w = null;
 		var time = new Date();
 		var second = time.getTime();
-		var localDataPath = "data/" + second + ".dat";
+		var localDataPath = "data/" + second + ".txt";
 		entry.getFile(localDataPath, {
 			create: true
 		}, function(fileEntry) {
@@ -310,7 +321,8 @@ function saveData(path, data) {
 				w.write(path + "\n" + data);
 				writer.onwrite = function(e) {
 					if (saveOption) {
-						saveTempFile("_doc/" + localDataPath, saveToCloud(path, localDataPath)); //保存数据到临时目录
+						console.log("执行saveTempFile");
+						saveTempFile("_doc/" + localDataPath,path, localDataPath); //保存数据到临时目录
 						//这里存在服务器文件与本地文件对应的问题，
 						//解决办法就是
 						//将本地data路径传到服务器上保存，获取数据时查看这个路径是否存在文件
@@ -344,33 +356,35 @@ function save() {
 				saveOption = false;
 			else if (e.index == 2)
 				saveOption = true;
-			canvas.deactivateAll();
-			var bitmap = new plus.nativeObj.Bitmap();
-			var clipJson = getClipJson();
-			var dataURL = canvas.toDataURL({
-				format: 'png',
-				left: clipJson.left,
-				top: clipJson.top,
-				width: clipJson.width,
-				height: clipJson.height
-			});
-			bitmap.loadBase64Data(dataURL, function() {
-				//console.log("success");
-			}, function(e) {
-				console.log("failed" + JSON.stringify(e));
-			});
-			var time = new Date();
-			var second = time.getTime();
-			path = "_doc/picture/emoticon" + second + ".png";
-			bitmap.save(path, {}, function(i) {
-				console.log('保存图片成功：' + i.target);
-				filepath = i.target;
-				saveToAlbum(filepath); //加载到相册
-				saveData(filepath, JSON.stringify(canvas.toJSON()));
-				removeAll(); //清空画布
-			}, function(e) {
-				console.log('保存图片失败：' + JSON.stringify(e));
-			});
+			if(e.index!=-1){
+				canvas.deactivateAll();
+				var bitmap = new plus.nativeObj.Bitmap();
+				var clipJson = getClipJson();
+				var dataURL = canvas.toDataURL({
+					format: 'png',
+					left: clipJson.left,
+					top: clipJson.top,
+					width: clipJson.width,
+					height: clipJson.height
+				});
+				bitmap.loadBase64Data(dataURL, function() {
+					//console.log("success");
+				}, function(e) {
+					console.log("failed" + JSON.stringify(e));
+				});
+				var time = new Date();
+				var second = time.getTime();
+				path = "_doc/picture/emoticon" + second + ".png";
+				bitmap.save(path, {}, function(i) {
+					console.log('保存图片成功：' + i.target);
+					filepath = i.target;
+					saveToAlbum(filepath); //加载到相册
+					saveData(filepath, JSON.stringify(canvas.toJSON()));
+					removeAll(); //清空画布
+				}, function(e) {
+					console.log('保存图片失败：' + JSON.stringify(e));
+				});
+			}
 		}
 	);
 
