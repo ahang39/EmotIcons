@@ -508,8 +508,6 @@ function imageSelect() {
 		title: "拍照"
 	}, {
 		title: "本地相册"
-	},{
-		title: "抠脸"
 	}];
 	plus.nativeUI.actionSheet({
 			title: "插入图片",
@@ -521,24 +519,10 @@ function imageSelect() {
 				takePicture();
 			else if (e.index == 2)
 				getFromAlbum();
-			else if (e.index == 3)
-				goFaceClip();
 		}
 	);
 }
-function goFaceClip(){
-	mui.openWindow({
-		url: "../../module/maker/faceClip.html",
-		id: "faceClip",
-		styles: {
-			top: 0, //新页面顶部位置
-			bottom: 0 //新页面底部位置
-		},
-		show: {
-			aniShow: "zoom-fade-out"
-		}
-	});
-}
+
 function getFromAlbum() {
 	plus.gallery.pick(function(path) {
 		time = new Date();
