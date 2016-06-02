@@ -295,7 +295,7 @@ function saveToCloud(filepath, localDataPath) {
 			key: "file_src"
 		});
 		//task.addFile( filepath, {key:"file"} );
-		console.log("回调成功" + zipFile);
+		//console.log("回调成功" + zipFile);
 		task.addData("action", "datasync_action");
 		task.addData("sub_action", "fileUpload");
 		task.addData("localDataPath", localDataPath);
