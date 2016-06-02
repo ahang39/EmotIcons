@@ -589,12 +589,12 @@ function takePicture() {
 	cmr.captureImage(function(path) {
 			//alert("Capture image success: " + path);
 			path = path.substring(1, path.length);
-			path = "../../../" + path;
+			//path = "../../../" + path;
 			time = new Date();
 			second = time.getTime();
 			dst = "_doc/material/other/" + second + ".jpg";
 			//将相机照片压缩并添加到素材的other文件夹中
-			compressImage(path, dst);
+			compressImage("_".path, dst);
 		},
 		function(error) {
 			mui.toast("获取图片失败!");
