@@ -23,9 +23,10 @@ mui.plusReady(function() {
 	});
 	mui("body").on("tap", "#confirm", function() {
 		document.getElementById("rangeWrapper").style.visibility = "visible";
+		getTransparent( document.getElementById("transparentRange").value);
 	});
 	mui("body").on("tap", "#cancel", function() {
-		document.getElementById("rangeWrapper").style.visibility = "visible";
+		document.getElementById("rangeWrapper").style.visibility = "hidden";
 	});
 });
 
@@ -58,9 +59,31 @@ function initial() {
 			originData.data[i] = imgData[i];
 		}
 	});
-	canvas.on("mouse:move", function() {});
+	canvas.on("after:render", function() {
+		document.getElementById("rangeWrapper").style.visibility = "hidden";
+		drawContour();
+	});
+	canvas.renderAll();
 }
-
+function drawContour(){
+	var midWid=width/2;
+	var midHei=height/2;
+	ctx.beginPath();
+	ctx.moveTo(100, 150);  
+	ctx.bezierCurveTo(50, 100, 100, 0, 150, 50);  
+	ctx.bezierCurveTo(200, 0, 250, 100, 200, 150); 
+	ctx.bezierCurveTo(250, 200, 200, 300, 150, 250); 
+	ctx.bezierCurveTo( 100, 300, 50, 200,100, 150);   
+	ctx.closePath(); 
+	ctx.moveTo(100, 150);
+	ctx.lineTo(150, 50);
+	ctx.lineTo(200, 150);
+	ctx.lineTo(150, 250);
+	ctx.lineTo(100, 150);
+	ctx.lineWidth = 5;  
+	ctx.strokeStyle = "#ff0000";  
+	ctx.stroke();
+}
 function getTransparent(threshold) {
 	var imgData = originData.data;
 	var newImage = ctx.createImageData(width, height);
@@ -84,6 +107,7 @@ function getTransparent(threshold) {
 	}
 	ctx.clearRect(0, 0, width, height);
 	ctx.putImageData(newImage, 0, 0);
+	drawContour();
 }
 
 function removeAll() {
