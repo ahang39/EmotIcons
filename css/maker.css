@@ -204,3 +204,16 @@ body {
 	margin-top: 100px;
 	
 }
+
+.clipBtn{
+	margin: 10px 0;
+	width: 45%;
+}
+#confirm{
+	float: left;
+	left: 5px;
+}
+#cancel{
+	float: right;
+	right: 5px;
+}

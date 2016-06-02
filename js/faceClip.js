@@ -2,9 +2,12 @@ var canvas = null;
 var width = 375;
 var height = 400;
 var saveOption = false;
+var range = null;
+var originData = null;
+var ctx = null;
 mui.plusReady(function() {
-	var width = plus.display.resolutionWidth;
-	var height = plus.display.resolutionHeight - 350;
+	/*width = plus.display.resolutionWidth;
+	height = plus.display.resolutionHeight - 300;*/
 	initial();
 	mui("body").on("tap", "#removeAll", function() {
 		removeAll();
@@ -18,12 +21,48 @@ mui.plusReady(function() {
 	mui("body").on("tap", "#save", function() {
 		save();
 	});
+	mui("body").on("tap", "#confirm", function() {
+		document.getElementById("rangeWrapper").style.visibility = "visible";
+	});
+	mui("body").on("tap", "#cancel", function() {
+		document.getElementById("rangeWrapper").style.visibility = "visible";
+	});
 });
 
+function initial() {
+	canvas = new fabric.Canvas('maker', {
+		selection: false //禁止拖选
+	});
+	canvas.setWidth(width);
+	canvas.setHeight(height);
+	canvas.setBackgroundColor('rgba(255,255,255, 255)');
+	ctx = canvas.getContext();
 
-function testme() {
-	var ctx = canvas.getContext();
-	var imgData = ctx.getImageData(0, 0, width, height).data;
+	range = document.getElementById("transparentRange");
+	range.addEventListener("input", function() {
+		getTransparent(this.value);
+	});
+	originData = ctx.createImageData(width, height);
+	var length = originData.length;
+	for (var i = 0; i < length; i += 4) {
+		originData.data[i + 0] = 255;
+		originData.data[i + 1] = 255;
+		originData.data[i + 2] = 255;
+		originData.data[i + 3] = 0;
+	}
+	canvas.on("mouse:up", function() {
+		console.log("mouse up");
+		var imgData = ctx.getImageData(0, 0, width, height).data;
+		var length = imgData.length;
+		for (var i = 0; i < length; i++) {
+			originData.data[i] = imgData[i];
+		}
+	});
+	canvas.on("mouse:move", function() {});
+}
+
+function getTransparent(threshold) {
+	var imgData = originData.data;
 	var newImage = ctx.createImageData(width, height);
 	var newImageData = newImage.data;
 	var length = newImageData.length;
@@ -32,40 +71,19 @@ function testme() {
 		var g = imgData[i + 1];
 		var b = imgData[i + 2];
 		var a = imgData[i + 3];
-		var y = Y = 0.299 * r + 0.587 * g + 0.114 * b;
-		//var y = (r + g + b) / 3;
+		//var y = Y = 0.299 * r + 0.587 * g + 0.114 * b;
+		var y = (r + g + b) / 3;
 		newImageData[i + 0] = 0;
-		newImageData[i + 1] =0;
+		newImageData[i + 1] = 0;
 		newImageData[i + 2] = 0;
-		newImageData[i + 3] =255-y;
-		/*
-		if (y >100)
-			newImageData[i + 3] =255;
+		if (y > threshold)
+			newImageData[i + 3] = 0;
 		else
-			newImageData[i + 3] =0;*/
+			newImageData[i + 3] = 255 - y * 255 / threshold;
+
 	}
-	//canvas.on('after:render', function(e) {
-		ctx.clearRect(0, 0, width, height);
-		ctx.putImageData(newImage, 0, 0);
-	//});
-}
-function initial() {
-	canvas = new fabric.Canvas('maker', {
-		selection: false //禁止拖选
-	});
-	canvas.on("selection:cleared", function() {
-		console.log("cleared");
-		isText = null;
-		selectedItem = null;
-	});
-	canvas.on("object:selected", function() {
-		selectedItem = canvas.getActiveObject();
-		//console.log(selectedItem);
-	});
-	canvas.setWidth(width);
-	canvas.setHeight(height);
-	canvas.setBackgroundColor('rgba(255,255,255, 255)');
-	canvas.renderAll();
+	ctx.clearRect(0, 0, width, height);
+	ctx.putImageData(newImage, 0, 0);
 }
 
 function removeAll() {

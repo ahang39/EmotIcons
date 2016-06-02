@@ -31,6 +31,15 @@
 				</ul>
 			</div>
 			<canvas id="maker" style="border: 1px solid black;"></canvas>
+			<div class="clearfix">
+				<button id="confirm" class="mui-btn clipBtn">抠图</button>
+				<button id="cancel" class="mui-btn clipBtn">取消</button>
+			</div>
+
+			<div id="rangeWrapper" class="mui-input-row mui-input-range" style="visibility: hidden;">
+				<label for="transparentRange">阈值</label>
+				<input type="range" id='transparentRange' value="255" max="255">
+			</div>
 		</div>
 	</body>
 
