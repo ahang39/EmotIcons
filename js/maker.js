@@ -1,7 +1,7 @@
 var canvas = null;
 var selectedItem = null; //保存当前选中的对象
 var isText = false;
-var width = 400;
+var width = 375;
 var height = 350;
 var saveOption = false;
 mui.plusReady(function() {
@@ -395,6 +395,7 @@ function addImage(src, wid) {
 	saveTempFile(src);
 	if (!arguments[1]) wid = width * 0.7;
 	fabric.Image.fromURL(src, function(img) {
+		console.log("打开图像 : "+src);
 		wid = img.getWidth() > wid ? wid : img.getWidth();
 		img.scaleToWidth(wid).set({
 			left: 10,

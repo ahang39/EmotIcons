@@ -1,10 +1,10 @@
 var canvas = null;
 var width = 375;
 var height = 400;
-var saveOption = false;
 var range = null;
 var originData = null;
 var ctx = null;
+var faceSavePath = "";
 mui.plusReady(function() {
 	/*width = plus.display.resolutionWidth;
 	height = plus.display.resolutionHeight - 300;*/
@@ -16,19 +16,31 @@ mui.plusReady(function() {
 		imageSelect();
 	});
 	mui("body").on("tap", "#testme", function() {
-		testme();
+		getRealFace();
 	});
 	mui("body").on("tap", "#save", function() {
-		save();
+		clipFace();
 	});
 	mui("body").on("tap", "#confirm", function() {
 		document.getElementById("rangeWrapper").style.visibility = "visible";
-		getTransparent( document.getElementById("transparentRange").value);
+		getTransparent(document.getElementById("transparentRange").value);
 	});
 	mui("body").on("tap", "#cancel", function() {
 		document.getElementById("rangeWrapper").style.visibility = "hidden";
 	});
 });
+
+function clipFace() {
+	getTransparent(document.getElementById("transparentRange").value);
+	getRealFace();
+	save();
+	console.log("gay" + faceSavePath);
+	setTimeout(function() {
+		var maker = plus.webview.getWebviewById("maker");
+		maker.evalJS("addImage(\"" + faceSavePath + "\");");
+		plus.webview.show(maker, "zoom-fade-out");
+	}, 1500);
+}
 
 function initial() {
 	canvas = new fabric.Canvas('maker', {
@@ -52,7 +64,6 @@ function initial() {
 		originData.data[i + 3] = 0;
 	}
 	canvas.on("mouse:up", function() {
-		console.log("mouse up");
 		var imgData = ctx.getImageData(0, 0, width, height).data;
 		var length = imgData.length;
 		for (var i = 0; i < length; i++) {
@@ -61,29 +72,40 @@ function initial() {
 	});
 	canvas.on("after:render", function() {
 		document.getElementById("rangeWrapper").style.visibility = "hidden";
-		drawContour();
+		drawContour(0.6);
 	});
 	canvas.renderAll();
 }
-function drawContour(){
-	var midWid=width/2;
-	var midHei=height/2;
+
+function drawContour(transparent) {
 	ctx.beginPath();
-	ctx.moveTo(100, 150);  
-	ctx.bezierCurveTo(50, 100, 100, 0, 150, 50);  
-	ctx.bezierCurveTo(200, 0, 250, 100, 200, 150); 
-	ctx.bezierCurveTo(250, 200, 200, 300, 150, 250); 
-	ctx.bezierCurveTo( 100, 300, 50, 200,100, 150);   
-	ctx.closePath(); 
-	ctx.moveTo(100, 150);
-	ctx.lineTo(150, 50);
-	ctx.lineTo(200, 150);
-	ctx.lineTo(150, 250);
-	ctx.lineTo(100, 150);
-	ctx.lineWidth = 5;  
-	ctx.strokeStyle = "#ff0000";  
-	ctx.stroke();
+	ctx.moveTo(0, 0);
+	ctx.moveTo(0.24 * width, 0);
+	ctx.lineTo(0.24 * width, 0.3 * height);
+
+	ctx.bezierCurveTo(
+		0.24 * width, 0.675 * height, //上
+		0.467 * width, 0.7125 * height, //下
+		0.5 * width, 0.71 * height); //底部
+	ctx.bezierCurveTo(
+		0.533 * width, 0.7125 * height, //下
+		0.76 * width, 0.675 * height, //上
+		0.76 * width, 0.3 * height); //顶部
+	ctx.bezierCurveTo(
+		0.747 * width, 0.15 * height, //右
+		0.253 * width, 0.15 * height, //左
+		0.24 * width, 0.3 * height); //左点
+	ctx.lineTo(0.24 * width, 0.3 * height);
+	ctx.lineTo(0.24 * width, 0);
+	ctx.lineTo(width, 0);
+	ctx.lineTo(width, height);
+	ctx.lineTo(0, height);
+	ctx.lineTo(0, 0);
+	ctx.closePath();
+	ctx.fillStyle = "rgba(0,0,0," + transparent + ")";
+	ctx.fill();
 }
+
 function getTransparent(threshold) {
 	var imgData = originData.data;
 	var newImage = ctx.createImageData(width, height);
@@ -107,71 +129,75 @@ function getTransparent(threshold) {
 	}
 	ctx.clearRect(0, 0, width, height);
 	ctx.putImageData(newImage, 0, 0);
-	drawContour();
-}
-
-function removeAll() {
-	canvas.clear();
-}
-
-function saveToAlbum(filepath) {
-	plus.gallery.save(filepath, function() {
-		console.log("保存图片到相册");
-		mui.toast("保存图片到相册成功");
-	}, function(e) {
-		console.log("failed" + JSON.stringify(e));
-	});
+	drawContour(1);
 }
 
 function save() {
-	var filepath;
-	var bts = [{
-		title: "保存"
-	}, {
-		title: "保存并共享"
-	}];
-	plus.nativeUI.actionSheet({
-			title: "保存图片",
-			cancel: "取消",
-			buttons: bts
-		},
-		function(e) {
-			if (e.index == 1)
-				saveOption = false;
-			else if (e.index == 2)
-				saveOption = true;
-			if (e.index != -1) {
-				canvas.deactivateAll();
-				var bitmap = new plus.nativeObj.Bitmap();
-				var clipJson = getClipJson();
-				var dataURL = canvas.toDataURL({
-					format: 'png',
-					left: clipJson.left,
-					top: clipJson.top,
-					width: clipJson.width,
-					height: clipJson.height
-				});
-				bitmap.loadBase64Data(dataURL, function() {
-					//console.log("success");
-				}, function(e) {
-					console.log("failed" + JSON.stringify(e));
-				});
-				var time = new Date();
-				var second = time.getTime();
-				path = "_doc/picture/emoticon" + second + ".png";
-				bitmap.save(path, {}, function(i) {
-					console.log('保存图片成功：' + i.target);
-					filepath = i.target;
-					saveToAlbum(filepath); //加载到相册
-					saveData(filepath, JSON.stringify(canvas.toJSON()));
-					removeAll(); //清空画布
-				}, function(e) {
-					console.log('保存图片失败：' + JSON.stringify(e));
-				});
-			}
-		}
-	);
+	canvas.deactivateAll();
+	var imageData = ctx.getImageData(0.24 * width, 0.18 * height, 0.52 * width, 0.55 * height);
+	var newCanvas = document.createElement("canvas");
+	newCanvas.width = 0.52 * width;
+	newCanvas.height = 0.55 * height;
+	newCanvas.getContext("2d").putImageData(imageData, 0, 0);
+	var dataURL = newCanvas.toDataURL("image/png");
+	var bitmap = new plus.nativeObj.Bitmap();
+	bitmap.loadBase64Data(dataURL, function() {}, function(e) {
+		console.log("failed" + JSON.stringify(e));
+	});
+	var time = new Date();
+	var second = time.getTime();
+	path = "_doc/picture/emoticon" + second + ".png";
+	bitmap.save(path, {}, function(i) {
+		console.log('保存图片成功：' + i.target);
+		faceSavePath = i.target;
+		removeAll(); //清空画布
+	}, function(e) {
+		console.log('保存图片失败：' + JSON.stringify(e));
+	});
+}
 
+function getRealFace() {
+	console.log("test");
+	ctx.beginPath();
+	ctx.moveTo(0.24 * width, 0.3 * height);
+	ctx.bezierCurveTo(
+		0.24 * width, 0.675 * height, //上
+		0.467 * width, 0.7125 * height, //下
+		0.5 * width, 0.71 * height); //底部
+	ctx.bezierCurveTo(
+		0.533 * width, 0.7125 * height, //下
+		0.76 * width, 0.675 * height, //上
+		0.76 * width, 0.3 * height); //顶部
+	ctx.bezierCurveTo(
+		0.747 * width, 0.15 * height, //右
+		0.253 * width, 0.15 * height, //左
+		0.24 * width, 0.3 * height); //左点
+
+	var imgData = ctx.getImageData(0, 0, width, height).data;
+	var newImage = ctx.createImageData(width, height);
+	var newImageData = newImage.data;
+	var length = newImageData.length;
+	for (var i = 0; i < length; i += 4) {
+		var r = imgData[i + 0];
+		var g = imgData[i + 1];
+		var b = imgData[i + 2];
+		var a = imgData[i + 3];
+		var x = i / 4 % width;
+		var y = (i / 4 - (i / 4 % width)) / width;
+		if (!ctx.isPointInPath(x + 1, y) || !ctx.isPointInPath(x - 1, y) || !ctx.isPointInPath(x, y + 1) || !ctx.isPointInPath(x, y - 1)) {
+			newImageData[i + 0] = 0;
+			newImageData[i + 1] = 0;
+			newImageData[i + 2] = 0;
+			newImageData[i + 3] = 0;
+		} else {
+			newImageData[i + 0] = r;
+			newImageData[i + 1] = g;
+			newImageData[i + 2] = b;
+			newImageData[i + 3] = a;
+		}
+	}
+	ctx.clearRect(0, 0, width, height);
+	ctx.putImageData(newImage, 0, 0);
 }
 
 function addImage(src, wid) {
@@ -209,6 +235,7 @@ function imageSelect() {
 }
 
 function getFromAlbum() {
+	canvas.clear();
 	plus.gallery.pick(function(path) {
 		time = new Date();
 		second = time.getTime();
@@ -258,7 +285,7 @@ function takePicture() {
 	cmr.captureImage(function(path) {
 			//alert("Capture image success: " + path);
 			path = path.substring(1, path.length);
-			path = "../../../" + path;
+			path = "_" + path;
 			time = new Date();
 			second = time.getTime();
 			dst = "_doc/material/other/" + second + ".jpg";
@@ -277,4 +304,8 @@ function convertCanvasToImage() {
 	var image = new Image();
 	image.src = canvas.toDataURL();
 	return image;
+}
+
+function removeAll() {
+	canvas.clear();
 }
