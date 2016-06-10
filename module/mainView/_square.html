@@ -36,6 +36,7 @@
 			}
 			mui.plusReady(function() {
 				mui("body").on("tap", "#maker", function() {
+					document.getElementById("btnVoice").play();
 					plus.webview.show('maker', "zoom-fade-out");
 				});
 			});
@@ -47,7 +48,7 @@
 			<div class="mui-scroll">
 				<div>
 					<div id="leftCol" class="left-container">
-					<!--	<div class="picShow">
+						<!--	<div class="picShow">
 							<ul id='_detail' class='detail' style="visibility: hidden;">
 								<li id="_author" class="detailItem" style="background-color:rgba(23,23,23,0.6);white-space: nowrap; "><span>作者:</span></li>
 								<li id="_works" class="detailItem" style="background-color:rgba(23,23,23,0.6);white-space: nowrap; ">作品数:</li>
@@ -126,6 +127,7 @@
 		<div class="mask">
 			<div id="maker" class="circle">
 				<img src="../../img/plus.png" class="plusIcon" />
+				<audio id="btnVoice" src="../../voice/btnVoice.mp3" preload="auto" type="audio/mpeg"></audio>
 			</div>
 		</div>
 	</body>

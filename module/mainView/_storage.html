@@ -35,8 +35,9 @@
 				});
 			}
 			mui.plusReady(function() {
-				mui("body").on("tap","#maker",function(){
-					 plus.webview.show('maker',"zoom-fade-out");
+				mui("body").on("tap", "#maker", function() {
+					document.getElementById("btnVoice").play();
+					plus.webview.show('maker', "zoom-fade-out");
 				});
 			});
 		</script>
@@ -46,13 +47,23 @@
 		<div id="refreshContainer" class="mui-content mui-scroll-wrapper">
 			<div class="mui-scroll">
 				<div id="storageContainer">
-					<div class="picShow"><img class='emotIcon' src='../../img/faces/face(2).jpg' /><p class='name'><span>军火商: </span><span id='author'>叼爆炸</span> </p><div class='container'><ul class='mui-table-view mui-grid-view'><li class='mui-table-view-cell mui-col-xs-4 picIcon'><i class='mui-icon iconfont icon-menu'></i></li><li class='mui-table-view-cell mui-col-xs-4 picIcon'><i class='mui-icon iconfont icon-like'></i><span>20</span></li><li class='mui-table-view-cell mui-col-xs-4 picIcon'><i class='mui-icon iconfont icon-thumb'></i><span>35</span></li></ul></div></div>
+					<div class="picShow"><img class='emotIcon' src='../../img/faces/face(2).jpg' />
+						<p class='name'><span>军火商: </span><span id='author'>叼爆炸</span> </p>
+						<div class='container'>
+							<ul class='mui-table-view mui-grid-view'>
+								<li class='mui-table-view-cell mui-col-xs-4 picIcon'><i class='mui-icon iconfont icon-menu'></i></li>
+								<li class='mui-table-view-cell mui-col-xs-4 picIcon'><i class='mui-icon iconfont icon-like'></i><span>20</span></li>
+								<li class='mui-table-view-cell mui-col-xs-4 picIcon'><i class='mui-icon iconfont icon-thumb'></i><span>35</span></li>
+							</ul>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
 		<div class="mask">
 			<div id="maker" class="circle">
 				<img src="../../img/plus.png" class="plusIcon" />
+				<audio id="btnVoice" src="../../voice/btnVoice.mp3" preload="auto" type="audio/mpeg"></audio>
 			</div>
 		</div>
 

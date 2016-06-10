@@ -22,20 +22,6 @@ function toggleSearch() {
 	}
 }
 
-function goMaker() {
-	mui.openWindow({
-		url: "module/maker/maker.html",
-		id: "maker",
-		styles: {
-			top: 0, //新页面顶部位置
-			bottom: 0 //新页面底部位置
-		},
-		show: {
-			aniShow: "zoom-fade-out"
-		}
-	});
-}
-
 function getImages(pageNum) {
 	mui.ajax("http://tu.myway5.com/php/index.php", {
 		data: {
