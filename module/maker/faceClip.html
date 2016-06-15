@@ -26,18 +26,17 @@
 				<ul class="mui-table-view mui-grid-view">
 					<li id="removeAll" class="mui-table-view-cell mui-col-xs-3 procBtn "><i class="iconfont icon-bin"></i></li>
 					<li id="imageSelect" class="mui-table-view-cell mui-col-xs-3 procBtn"><i class="iconfont icon-image"></i></li>
-					<li id="testme" class="mui-table-view-cell mui-col-xs-3 procBtn">test</li>
+					<li class="mui-table-view-cell mui-col-xs-3 procBtn"></li>
 					<li id="save" class="mui-table-view-cell mui-col-xs-3 procBtn"><i class="iconfont icon-save"></i></li>
 				</ul>
 			</div>
 			<canvas id="maker" style="border: 1px solid black;"></canvas>
 			<div class="clearfix">
-				<button id="confirm" class="mui-btn clipBtn">抠图</button>
-				<button id="cancel" class="mui-btn clipBtn">取消</button>
+				<button id="confirm" class="mui-btn">调整亮度</button>
 			</div>
 
 			<div id="rangeWrapper" class="mui-input-row mui-input-range" style="visibility: hidden;">
-				<label for="transparentRange">阈值</label>
+				<label for="transparentRange">亮度</label>
 				<input type="range" id='transparentRange' value="255" max="255">
 			</div>
 		</div>
