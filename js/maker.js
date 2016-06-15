@@ -467,7 +467,6 @@ function changeTextColor(obj) {
 		canvas.renderAll();
 	}
 }
-
 function changeTextFontFamily(obj) {
 	if (isText) {
 		console.log(obj.style.fontFamily);
@@ -479,9 +478,9 @@ function changeTextFontFamily(obj) {
 function changeTextFontEffect(obj) {
 	if (isText) {
 		console.log(obj.style.textShadow);
-		selectedItem.setShadow('2px 2px 10px rgba(0,0,0,0.2)');
-		selectedItem.setStroke('red');
-		selectedItem.setStrokeWidth("1px");
+		selectedItem.setFontFamily(obj.style.fontFamily);
+		selectedItem.setColor(obj.style.color);
+		canvas.renderAll();
 		canvas.renderAll();
 	}
 }
@@ -489,7 +488,7 @@ function changeTextFontEffect(obj) {
 function changeTextFontStyle(obj) {
 	if (isText) {
 		console.log(obj.style.fontStyle);
-		selectedItem.setFontStyle(obj.style.fontStyle);
+		selectedItem.setFontFamily(obj.style.fontFamily);
 		canvas.renderAll();
 	}
 }
