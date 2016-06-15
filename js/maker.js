@@ -17,9 +17,6 @@ mui.plusReady(function() {
 	mui("body").on("tap", "#imageSelect", function() {
 		imageSelect();
 	});
-	mui("body").on("tap", "#testme", function() {
-		testme();
-	});
 	mui("body").on("tap", "#save", function() {
 		save();
 	});
@@ -622,31 +619,6 @@ function convertCanvasToImage() {
 	var image = new Image();
 	image.src = canvas.toDataURL();
 	return image;
-}
-
-function testme() {
-		var ctx = canvas.getContext();
-		var imgData = ctx.getImageData(0, 0,width, height).data;
-		var newImage = ctx.createImageData(width, height);
-		var newImageData = newImage.data;
-		var length = newImageData.length;
-		for (var i = 0; i < length; i += 4) {
-			var r = imgData[i + 0];
-			var g = imgData[i + 1];
-			var b = imgData[i + 2];
-			var a = imgData[i + 3];
-			var y = Y = 0.299 * r + 0.587 * g + 0.114 * b;
-			newImageData[i + 0] = y;
-			newImageData[i + 1] = y;
-			newImageData[i + 2] = y;
-			newImageData[i + 3] = y;
-		}
-		var refresh=true;
-	canvas.on('after:render', function(e) {
-		ctx.clearRect(0, 0, width, height);
-		ctx.putImageData(newImage,0,0);
-		console.log("clearRect");
-		});
 }
 
 function getClipJson() {

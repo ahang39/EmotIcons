@@ -24,12 +24,10 @@
 		<div class="content">
 			<div id="controllerTop">
 				<ul class="mui-table-view mui-grid-view">
-					<li id="removeAll" class="mui-table-view-cell mui-col-xs-2 procBtn "><i class="iconfont icon-bin"></i></li>
-					<li id="addText" class="mui-table-view-cell mui-col-xs-2 procBtn"><i class="iconfont icon-text"></i></li>
-					<li id="imageSelect" class="mui-table-view-cell mui-col-xs-2 procBtn"><i class="iconfont icon-image"></i></li>
-					<li id="testme" class="mui-table-view-cell mui-col-xs-2 procBtn">test</li>
-					<li class="mui-table-view-cell mui-col-xs-2 procBtn"></li>
-					<li id="save" class="mui-table-view-cell mui-col-xs-2 procBtn"><i class="iconfont icon-save"></i></li>
+					<li id="removeAll" class="mui-table-view-cell mui-col-xs-3 procBtn "><i class="iconfont icon-bin"></i></li>
+					<li id="addText" class="mui-table-view-cell mui-col-xs-3 procBtn"><i class="iconfont icon-text"></i></li>
+					<li id="imageSelect" class="mui-table-view-cell mui-col-xs-3 procBtn"><i class="iconfont icon-image"></i></li>
+					<li id="save" class="mui-table-view-cell mui-col-xs-3 procBtn"><i class="iconfont icon-save"></i></li>
 				</ul>
 			</div>
 			<canvas id="maker" height="300" width="400"></canvas>
@@ -41,7 +39,7 @@
 					<li id="removeItem" class="mui-table-view-cell mui-col-xs-3 procBtn"><i class="iconfont icon-remove"></i></li>
 				</ul>
 			</div>
-			<div style="padding: 10px 10px;">
+			<div style="padding: 3px 3px;">
 				<div id="segmentedControl" class="mui-segmented-control">
 					<a id="image_option" class="mui-control-item mui-active" href="#item1">图片</a>
 					<a id="text_option" class="mui-control-item" href="#item2">文字</a>
@@ -59,34 +57,16 @@
 						</div>
 					</div>
 					<div id="item2" class="mui-control-content maker_text">
-						<div style="padding: 10px 10px;">
 							<div id="segmentedControl" class="mui-segmented-control">
-								<a class="mui-control-item mui-active" href="#text_item2">颜色</a>
-								<a class="mui-control-item" href="#text_item3">字体</a>
-								<a class="mui-control-item" href="#text_item4">效果</a>
-								<a class="mui-control-item" href="#text_item5">样式</a>
-								<a class="mui-control-item " href="#text_item1">改字</a>
+								<a class="mui-control-item mui-active" href="#text_item1">颜色</a>
+								<a class="mui-control-item" href="#text_item2">字体</a>
+								<a class="mui-control-item" href="#text_item3">样式</a>
+								<a class="mui-control-item " href="#text_item4">改字</a>
 							</div>
-							<div>
-								<div id="text_item1" class="mui-control-content  mui-active  maker_text">
-									<input type="text" id="text_change" />
-									<button class="mui-btn mui-btn-primary" onclick="changeText()">修改</button>
-								</div>
-
-								<div id="text_item2" class="mui-control-content maker_text">
-									<div id="segmentedControl" class="mui-segmented-control">
-										<a class="mui-control-item mui-active" href="#color_item1">
-										文字色
-									</a>
-										<a class="mui-control-item" href="#color_item2">
-										背景色
-									</a>
-										<a class="mui-control-item" href="#color_item3">
-										阴影色
-									</a>
-									</div>
+							<div style="padding: 5px 5px;">
+								<div id="text_item1" class="mui-control-content maker_text  mui-active">
 									<div>
-										<div id="color_item1" class="mui-control-content  mui-active  maker_text">
+										<div class="mui-control-content  mui-active  maker_text">
 											<div id="table-wrapper">
 												<div id="table-scroll">
 													<table class="img_choice">
@@ -138,113 +118,10 @@
 												</div>
 											</div>
 										</div>
-										<div id="color_item2" class="mui-control-content  maker_text">
-											<div id="table-wrapper">
-												<div id="table-scroll">
-													<table class="img_choice">
-														<tr>
-															<td>
-																<div onclick="changeTextBackgroundColor(this)" style="background-color: #000000;"></div>
-															</td>
-															<td>
-																<div onclick="changeTextBackgroundColor(this)" style="background-color: #EFEFF4;"></div>
-															</td>
-															<td>
-																<div onclick="changeTextBackgroundColor(this)" style="background-color: #F44336;"></div>
-															</td>
-															<td>
-																<div onclick="changeTextBackgroundColor(this)" style="background-color: #e91e63;"></div>
-															</td>
-															<td>
-																<div onclick="changeTextBackgroundColor(this)" style="background-color: #9c27b0;"></div>
-															</td>
-															<td>
-																<div onclick="changeTextBackgroundColor(this)" style="background-color: #673ab7;"></div>
-															</td>
-															<td>
-																<div onclick="changeTextBackgroundColor(this)" style="background-color: #795548;"></div>
-															</td>
-															<td>
-																<div onclick="changeTextBackgroundColor(this)" style="background-color: #2196F3;"></div>
-															</td>
-															<td>
-																<div onclick="changeTextBackgroundColor(this)" style="background-color: #607D8B;"></div>
-															</td>
-															<td>
-																<div onclick="changeTextBackgroundColor(this)" style="background-color: #FF5722;"></div>
-															</td>
-															<td>
-																<div onclick="changeTextBackgroundColor(this)" style="background-color: #FF9800;"></div>
-															</td>
-															<td>
-																<div onclick="changeTextBackgroundColor(this)" style="background-color: #CDDC39;"></div>
-															</td>
-															<td>
-																<div onclick="changeTextBackgroundColor(this)" style="background-color: #4CAF50;"></div>
-															</td>
-															<td>
-																<div onclick="changeTextBackgroundColor(this)" style="background-color: #009688;"></div>
-															</td>
-														</tr>
-													</table>
-												</div>
-											</div>
-										</div>
-										<div id="color_item3" class="mui-control-content  maker_text">
-											<div id="table-wrapper">
-												<div id="table-scroll">
-													<table class="img_choice">
-														<tr>
-															<td>
-																<div onclick="changeTextShadowColor(this)" style="background-color: #000000;"></div>
-															</td>
-															<td>
-																<div onclick="changeTextShadowColor(this)" style="background-color: #EFEFF4;"></div>
-															</td>
-															<td>
-																<div onclick="changeTextShadowColor(this)" style="background-color: #F44336;"></div>
-															</td>
-															<td>
-																<div onclick="changeTextShadowColor(this)" style="background-color: #e91e63;"></div>
-															</td>
-															<td>
-																<div onclick="changeTextShadowColor(this)" style="background-color: #9c27b0;"></div>
-															</td>
-															<td>
-																<div onclick="changeTextShadowColor(this)" style="background-color: #673ab7;"></div>
-															</td>
-															<td>
-																<div onclick="changeTextShadowColor(this)" style="background-color: #795548;"></div>
-															</td>
-															<td>
-																<div onclick="changeTextShadowColor(this)" style="background-color: #2196F3;"></div>
-															</td>
-															<td>
-																<div onclick="changeTextShadowColor(this)" style="background-color: #607D8B;"></div>
-															</td>
-															<td>
-																<div onclick="changeTextShadowColor(this)" style="background-color: #FF5722;"></div>
-															</td>
-															<td>
-																<div onclick="changeTextShadowColor(this)" style="background-color: #FF9800;"></div>
-															</td>
-															<td>
-																<div onclick="changeTextShadowColor(this)" style="background-color: #CDDC39;"></div>
-															</td>
-															<td>
-																<div onclick="changeTextShadowColor(this)" style="background-color: #4CAF50;"></div>
-															</td>
-															<td>
-																<div onclick="changeTextShadowColor(this)" style="background-color: #009688;"></div>
-															</td>
-														</tr>
-													</table>
-												</div>
-											</div>
-										</div>
+									
 									</div>
 								</div>
-								<div id="text_item3" class="mui-control-content maker_text">
+								<div id="text_item2" class="mui-control-content maker_text">
 									<div id="table-wrapper">
 										<div id="table-scroll">
 											<table class="img_choice">
@@ -275,7 +152,7 @@
 										</div>
 									</div>
 								</div>
-								<div id="text_item4" class="mui-control-content maker_text">
+								<div id="text_item5" class="mui-control-content maker_text">
 									<div id="table-wrapper">
 										<div id="table-scroll">
 											<table class="img_choice">
@@ -300,7 +177,7 @@
 										</div>
 									</div>
 								</div>
-								<div id="text_item5" class="mui-control-content maker_text">
+								<div id="text_item3" class="mui-control-content maker_text">
 									<div id="table-wrapper">
 										<div id="table-scroll">
 											<table class="img_choice">
@@ -316,11 +193,13 @@
 										</div>
 									</div>
 								</div>
+								<div id="text_item4" class="mui-control-content maker_text">
+									<input type="text" id="text_change" />
+									<button id="textChangeBtn" class="mui-btn mui-btn-primary" onclick="changeText()">修改</button>
+								</div>
 							</div>
-						</div>
 					</div>
-				</div>
-
+			</div>
 			</div>
 		</div>
 	</body>

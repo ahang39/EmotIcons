@@ -15,18 +15,12 @@ mui.plusReady(function() {
 	mui("body").on("tap", "#imageSelect", function() {
 		imageSelect();
 	});
-	mui("body").on("tap", "#testme", function() {
-		getRealFace();
-	});
 	mui("body").on("tap", "#save", function() {
 		clipFace();
 	});
 	mui("body").on("tap", "#confirm", function() {
 		document.getElementById("rangeWrapper").style.visibility = "visible";
 		getTransparent(document.getElementById("transparentRange").value);
-	});
-	mui("body").on("tap", "#cancel", function() {
-		document.getElementById("rangeWrapper").style.visibility = "hidden";
 	});
 });
 
