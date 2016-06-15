@@ -59,7 +59,7 @@ function squareInsert(image) {
 				"<div id='front" + image.id + "' class='front'><img id='emotIcon" + image.id + "' class='emotIcon' src='http://tu.myway5.com/" + image.image + "'/><div class='container'>"+
 				"<ul class='mui-table-view mui-grid-view'>"+
 				"<li id='detailBtn" + image.id + "' class='mui-table-view-cell mui-col-xs-3 picIcon'><i class='mui-icon iconfont icon-menu'></i></li>"+
-				"<li class='mui-table-view-cell mui-col-xs-4 picIcon' id='edit" + image.id + "'><i  class='mui-icon iconfont icon-like'></i><span>修改</span></li>"+
+				"<li class='mui-table-view-cell mui-col-xs-4 picIcon' id='edit" + image.id + "'><i  class='mui-icon iconfont icon-pen'></i><span>修改</span></li>"+
 				"<li class='mui-table-view-cell mui-col-xs-5 picIcon' id='zan" + image.id + "'><i class='mui-icon iconfont icon-thumb' ></i><span >赞("+image.zan+")</span></li></ul></div></div>";
 	document.getElementById(col).appendChild(picShow);
 	mui('.picShow').on("tap", "#detailBtn" + image.id, function() {
@@ -162,10 +162,10 @@ function pullUpSquare() {
 }
 
 function storageInsert() {
-	var picShow = document.createElement("div");
+/*	var picShow = document.createElement("div");
 	picShow.className = "picShow";
-	picShow.innerHTML = "<img class='emotIcon' src='../../img/qq.png' /><p class='name'><span>军火商: </span><span id='author'>叼爆炸</span> </p><div class='container'><ul class='mui-table-view mui-grid-view'><li class='mui-table-view-cell mui-col-xs-4 picIcon'><i class='mui-icon iconfont icon-menu'></i></li><li class='mui-table-view-cell mui-col-xs-4 picIcon'><i class='mui-icon iconfont icon-like'></i><span>20</span></li><li class='mui-table-view-cell mui-col-xs-4 picIcon'><i class='mui-icon iconfont icon-thumb'></i><span>35</span></li></ul></div>";
-	document.getElementById("storageContainer").appendChild(picShow);
+	picShow.innerHTML = "<img class='emotIcon' src='../../img/qq.png' /><p class='name'><span>军火商: </span><span id='author'>叼爆炸</span> </p><div class='container'><ul class='mui-table-view mui-grid-view'><li class='mui-table-view-cell mui-col-xs-4 picIcon'><i class='mui-icon iconfont icon-menu'></i></li><li class='mui-table-view-cell mui-col-xs-4 picIcon'><i class='mui-icon iconfont icon-pen'></i><span>20</span></li><li class='mui-table-view-cell mui-col-xs-4 picIcon'><i class='mui-icon iconfont icon-thumb'></i><span>35</span></li></ul></div>";
+	document.getElementById("storageContainer").appendChild(picShow);*/
 }
 
 function pullDownStorage() {

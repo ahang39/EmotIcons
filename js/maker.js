@@ -436,8 +436,7 @@ function addText() {
 				fontFamily: 'Comic Sans',
 				fontSize: 40,
 				fontWeight: 'normal',
-				fontStyle: 'normal',
-				textBackgroundColor: 'rgb(255,255,255)'
+				fontStyle: 'normal'
 			});
 			text.on('selected', function() {
 				document.getElementById("text_change").value = this.getText();
@@ -465,25 +464,6 @@ function changeText() {
 function changeTextColor(obj) {
 	if (isText) {
 		selectedItem.setColor(obj.style.backgroundColor);
-		canvas.renderAll();
-	}
-}
-
-function changeTextBackgroundColor(obj) {
-	if (isText) {
-		selectedItem.setTextBackgroundColor(obj.style.backgroundColor);
-		canvas.renderAll();
-	}
-}
-
-function changeTextShadowColor(obj) {
-	if (isText) {
-		selectedItem.setShadow({
-			color: obj.style.backgroundColor,
-			blur: 10,
-			offsetX: 2,
-			offsetY: 2
-		});
 		canvas.renderAll();
 	}
 }

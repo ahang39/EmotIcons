@@ -73,3 +73,5 @@
 .icon-text:before {
 	content: "\e60b";
 }
+
+.icon-pen:before { content: "\e607"; }
