@@ -95,25 +95,38 @@ function getEditorArguments(src, localDataPath) {
 	if (src != "" && localDataPath != "") {
 		//从网络中加载资源到tempMaker中并解压
 		console.log("http://tu.myway5.com" + src);
-		var dtask = plus.downloader.createDownload("http://tu.myway5.com" + src, {
-				method: "GET",
-				filename: "_doc/temp.zip",
-				timeout: 5000
-			},
-			function(d, status) {
-				// 下载完成
-				if (status == 200) {
-					plus.zip.decompress("_doc/temp.zip", "_doc/tempMaker", function() {
-						adapter();
-					}, function(e) {
-						console.log(e.message);
-					});
-				} else {
-					alert("Download failed: " + status);
-				}
+		removeTempMaker();
+		console.log("删除成功");
+		plus.io.resolveLocalFileSystemURL("_doc/temp.zip", function(file) {
+				file.remove( function ( entry ) {
+					console.log("删除成功");
+					var dtask = plus.downloader.createDownload("http://tu.myway5.com" + src, {
+							method: "GET",
+							filename: "_doc/temp.zip",
+							timeout: 5000
+						},
+						function(d, status) {
+							// 下载完成
+							if (status == 200) {
+								console.log("下载成功");
+								plus.zip.decompress("_doc/temp.zip", "_doc/tempMaker", function() {
+									adapter();
+								}, function(e) {
+									console.log(e.message);
+								});
+							} else {
+								alert("Download failed: " + status);
+							}
+						});
+					//dtask.addEventListener( "statechanged", onStateChanged, false );
+					dtask.start();
+				}, function ( e ) {
+					alert( e.message );
+				} );
+			},function(e){
+				console.log(e.message);
 			});
-		//dtask.addEventListener( "statechanged", onStateChanged, false );
-		dtask.start();
+		
 	}
 }
 
