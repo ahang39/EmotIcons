@@ -60,7 +60,7 @@ function squareInsert(image) {
 				"<ul class='mui-table-view mui-grid-view'>"+
 				"<li id='detailBtn" + image.id + "' class='mui-table-view-cell mui-col-xs-3 picIcon'><i class='mui-icon iconfont icon-menu'></i></li>"+
 				"<li class='mui-table-view-cell mui-col-xs-4 picIcon' id='edit" + image.id + "'><i  class='mui-icon iconfont icon-like'></i><span>修改</span></li>"+
-				"<li class='mui-table-view-cell mui-col-xs-5 picIcon' id='zan" + image.id + "'><i class='mui-icon iconfont icon-thumb' ></i><span >赞</span></li></ul></div></div>";
+				"<li class='mui-table-view-cell mui-col-xs-5 picIcon' id='zan" + image.id + "'><i class='mui-icon iconfont icon-thumb' ></i><span >赞("+image.zan+")</span></li></ul></div></div>";
 	document.getElementById(col).appendChild(picShow);
 	mui('.picShow').on("tap", "#detailBtn" + image.id, function() {
 		var showImage = plus.webview.getWebviewById("image");

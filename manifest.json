@@ -414,7 +414,9 @@
 					"img/faces/face(2).jpg",
 					"js/mainView.js",
 					"css/mainView.css",
-					"fonts/iconfont.ttf"
+					"fonts/iconfont.ttf",
+					"voice/btnVoice.mp3",
+					"img/qq.png"
 				],
 				"refer": [],
 				"priority": 0
@@ -432,7 +434,8 @@
 					"img/qq.png",
 					"css/mainView.css",
 					"fonts/mui.ttf",
-					"fonts/iconfont.ttf"
+					"fonts/iconfont.ttf",
+					"voice/btnVoice.mp3"
 				],
 				"refer": [],
 				"priority": 0
