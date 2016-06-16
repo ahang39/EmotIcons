@@ -32,7 +32,8 @@
 			"js/login.js",
 			"img/photo.jpg",
 			"css/personalCenter.css",
-			"fonts/mui.ttf"
+			"fonts/mui.ttf",
+			"img/example.jpg"
 		]
 	},
 	"module/personalCenter/profile.html": {
@@ -111,7 +112,8 @@
 			"img/qq.png",
 			"js/initial.js",
 			"css/index.css",
-			"js/index.js"
+			"js/index.js",
+			"img/welcome.png"
 		],
 		"refer": [
 			"module/mainView/storage.html",
