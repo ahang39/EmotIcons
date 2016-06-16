@@ -206,7 +206,8 @@
 					"js/mui.js",
 					"img/qq.png",
 					"js/initial.js",
-					"js/index.js"
+					"js/index.js",
+					"img/welcome.png"
 				],
 				"refer": [
 					"test.html",

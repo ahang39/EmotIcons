@@ -122,6 +122,26 @@ function getEditorArguments(src, localDataPath) {
 				} );
 			},function(e){
 				console.log(e.message);
+				var dtask = plus.downloader.createDownload("http://tu.myway5.com" + src, {
+							method: "GET",
+							filename: "_doc/temp.zip",
+							timeout: 5000
+						},
+						function(d, status) {
+							// 下载完成
+							if (status == 200) {
+								console.log("下载成功");
+								plus.zip.decompress("_doc/temp.zip", "_doc/tempMaker", function() {
+									adapter();
+								}, function(e) {
+									console.log(e.message);
+								});
+							} else {
+								alert("Download failed: " + status);
+							}
+						});
+					//dtask.addEventListener( "statechanged", onStateChanged, false );
+					dtask.start();
 			});
 		
 	}
