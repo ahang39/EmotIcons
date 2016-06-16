@@ -28,12 +28,11 @@ function clipFace() {
 	getTransparent(document.getElementById("transparentRange").value);
 	getRealFace();
 	save();
-	console.log("gay" + faceSavePath);
 	setTimeout(function() {
 		var maker = plus.webview.getWebviewById("maker");
 		maker.evalJS("addImage(\"" + faceSavePath + "\");");
 		plus.webview.show(maker, "zoom-fade-out");
-	}, 1500);
+	}, 500);
 }
 
 function initial() {

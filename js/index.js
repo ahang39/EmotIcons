@@ -2,6 +2,18 @@ mui.init({
 	statusBarBackground: '#f89406'
 });
 mui.plusReady(function() {
+	var usedTime = plus.storage.getItem("usedTime");
+	if (usedTime != null) {
+		plus.storage.setItem("usedTime", usedTime + 1);
+	} else {
+		plus.storage.setItem("usedTime", 1);
+		var image = mui.preload({
+			url: 'module/firstTime.html',
+			id: 'firstTime',
+			styles: {}, //窗口参数
+			extras: {} //自定义扩展参数
+		});
+	}
 	var wrapper = document.getElementById("wrapper");
 	wrapper.style.height = plus.display.resolutionHeight + "px";
 	wrapper.style.width = plus.display.resolutionWidth + "px";
@@ -36,6 +48,9 @@ mui.plusReady(function() {
 		extras: {} //自定义扩展参数
 	});
 	setTimeout(function() {
-		plus.webview.show('square');
-	}, 3000);
+		if(usedTime>1)
+			plus.webview.show('square');
+		else
+			plus.webview.show('firstTime');
+	}, 2000);
 });

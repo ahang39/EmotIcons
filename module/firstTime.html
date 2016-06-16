@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title></title>
+		<script src="../js/mui.min.js"></script>
+		<link href="../css/mui.min.css" rel="stylesheet" />
+		<script type="text/javascript" charset="UTF-8">
+			mui.init();
+		</script>
+	</head>
+
+	<body>
+		<div id="slider" class="mui-slider" style="position: absolute;height:100%;width: 100%;">
+			<div class="mui-slider-group ">
+				<!-- 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) -->
+
+				<!-- 第一张 -->
+				<div class="mui-slider-item">
+					<img src="../img/first.jpg" style="height: 100%;" />
+				</div>
+
+				<!-- 第二张 -->
+				<div class="mui-slider-item">
+					<img src="../img/second.jpg" style="height: 100%;" />
+				</div>
+				<!-- 第三张 -->
+				<div class="mui-slider-item">
+					<img src="../img/third.jpg" style="height: 100%;" />
+					<button style="position:fixed;right: -200%;left: 200%; bottom:100px;width:60%;margin: auto;height:3rem;index: 999;border:solid 2px white;background-color: transparent; color:white; font-size: 1.3rem;" onclick="plus.webview.show('square');">现在进入</button>
+				</div>
+
+			</div>
+			<div class="mui-slider-indicator">
+				<div class="mui-indicator mui-active"></div>
+				<div class="mui-indicator"></div>
+				<div class="mui-indicator"></div>
+
+			</div>
+		</div>
+		<script>
+			var slider = mui("#slider");
+			document.getElementById("switch").addEventListener('toggle', function(e) {
+				if (e.detail.isActive) {
+					slider.slider({
+						interval: 5000
+					});
+				} else {
+					slider.slider({
+						interval: 0
+					});
+				}
+			});
+		</script>
+	</body>
+
+</html>
