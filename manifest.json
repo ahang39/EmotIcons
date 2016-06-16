@@ -216,7 +216,8 @@
 					"module/mainView/storage.html",
 					"module/maker/maker.html",
 					"module/showImage/image.html",
-					"module/mainView/square.html"
+					"module/mainView/square.html",
+					"module/firstTime.html"
 				],
 				"priority": 0
 			},
@@ -508,6 +509,15 @@
 					"img/ffile.png",
 					"img/fdir.png",
 					"img/fup.png"
+				],
+				"refer": [],
+				"priority": 0
+			},
+			"module/firstTime.html": {
+				"resources": [
+					"img/first.jpg",
+					"img/second.jpg",
+					"img/third.jpg"
 				],
 				"refer": [],
 				"priority": 0

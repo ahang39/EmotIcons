@@ -4,9 +4,9 @@ mui.init({
 mui.plusReady(function() {
 	var usedTime = plus.storage.getItem("usedTime");
 	if (usedTime != null) {
-		plus.storage.setItem("usedTime", usedTime + 1);
+		plus.storage.setItem("usedTime", ++usedTime);
 	} else {
-		plus.storage.setItem("usedTime", 1);
+		plus.storage.setItem("usedTime", "1");
 		var image = mui.preload({
 			url: 'module/firstTime.html',
 			id: 'firstTime',
@@ -48,6 +48,7 @@ mui.plusReady(function() {
 		extras: {} //自定义扩展参数
 	});
 	setTimeout(function() {
+		console.log(usedTime);
 		if(usedTime>1)
 			plus.webview.show('square');
 		else

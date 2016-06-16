@@ -120,7 +120,8 @@
 			"module/maker/maker.html",
 			"module/showImage/image.html",
 			"personalCenter.html",
-			"module/mainView/square.html"
+			"module/mainView/square.html",
+			"module/firstTime.html"
 		]
 	},
 	"module/showImage/image.html": {
@@ -220,6 +221,13 @@
 			"fonts/mui.ttf",
 			"css/mui.min.css",
 			"css/personalCenter.css"
+		]
+	},
+	"module/firstTime.html": {
+		"resources": [
+			"img/first.jpg",
+			"img/second.jpg",
+			"img/third.jpg"
 		]
 	}
 }
